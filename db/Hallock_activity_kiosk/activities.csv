@@ -1,0 +1,13 @@
+_id,activity_id,main_color,sub_color,button_label,page_title,white_icon_uri,color_icon_uri,contents
+"595d1f1f24fb7ea73b15d6a3","1","[object BSON]","[object BSON]","HIKING","HIKING","activity-1-white_1500483617.png","activity-1-color_1500483543.png","[object BSON],[object BSON],[object BSON],[object BSON]"
+"595d1f4e24fb7ea73b15d6b3","2","[object BSON]","[object BSON]","BIRDING","BIRDING","activity-2-white_1500483624.png","activity-2-color_1500483622.png","[object BSON]"
+"595d1f5d24fb7ea73b15d6bc","3","[object BSON]","[object BSON]","BRIDLE PATHS","BRIDLE PATHS","activity-3-white_1500483631.png","activity-3-color_1500483628.png","[object BSON]"
+"595d1f7124fb7ea73b15d6c6","4","[object BSON]","[object BSON]","WINTER ACTIVITIES","WINTER ACTIVITIES","activity-4-white_1500483637.png","activity-4-color_1500483634.png","[object BSON]"
+"595d1f8124fb7ea73b15d6cb","5","[object BSON]","[object BSON]","LAND PRESERVATION","LAND PRESERVATION","activity-5-white_1500483646.png","activity-5-color_1500483642.png","[object BSON]"
+"595d1f8d24fb7ea73b15d6d1","6","[object BSON]","[object BSON]","CULTURAL HISTORY","CULTURAL HISTORY","activity-6-white_1500483654.png","activity-6-color_1500483649.png","[object BSON]"
+"595d1fa324fb7ea73b15d6dc","7","[object BSON]","[object BSON]","NATURAL HISTORY","NATURAL HISTORY","activity-7-white_1500483662.png","activity-7-color_1500483658.png","[object BSON]"
+"595d1fa724fb7ea73b15d6e0","8","[object BSON]","[object BSON]","FLORA & FAUNA","FLORA & FAUNA","activity-8-white_1500483672.png","activity-8-color_1500483668.png","[object BSON]"
+"595d1fb024fb7ea73b15d6e4","9","[object BSON]","[object BSON]","BOATING","BOATING","activity-9-white_1500483680.png","activity-9-color_1500483676.png","[object BSON]"
+"595d1fb924fb7ea73b15d6e8","10","[object BSON]","[object BSON]","SCUBA DIVING","SCUBA DIVING","activity-10-white_1500483690.png","activity-10-color_1500483685.png","[object BSON]"
+"595d1fc124fb7ea73b15d6ec","11","[object BSON]","[object BSON]","FISHING","FISHING","activity-11-white_1500483699.png","activity-11-color_1500483695.png","[object BSON]"
+"595d1fea24fb7ea73b15d6fe","12","[object BSON]","[object BSON]","PROGRAMS & EVENTS","PROGRAMS","activity-12-white_1500483706.png","activity-12-color_1500483702.png","[object BSON]"
