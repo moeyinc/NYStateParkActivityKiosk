@@ -1,0 +1,21 @@
+{
+    "_id" : ObjectId("595d1f5d24fb7ea73b15d6bc"),
+    "activity_id" : 3,
+    "main_color" : "#90586e",
+    "sub_color" : "#ab8c99",
+    "button_label" : "BRIDLE PATHS",
+    "page_title" : "BRIDLE PATHS",
+    "white_icon_uri" : "activity-icons/activity-3-white.png",
+    "color_icon_uri" : "activity-icons/activity-3-color.png",
+    "contents" : [
+        {
+            "_id" : ObjectId("5968f6b82321d2a0c58e1d01"),
+            "subnav_id" : 1,
+            "subnav_label" : "INFORMATION",
+            "template_type" : "GENERAL INFO",
+            "left_image_uri" : "",
+            "right_image_uri" : "",
+            "raw_html_text" : "<p>Bridle Paths, or Equestrian Trails, are mixed-use trails that allow horseback riding along with walking. Hallock Park Preserve contains routes that will allow riders to explore and practice horseback riding through the park.</p>\n\n<p>Horses have long been used in the area by the local families who farmed this area as a means of both transportation and labour. Currently, Horseback riding is primarily a recreational activity and stables that specialize in horseback riding can be found nearby to the park.</p>\n\n<p>While riding your horse through the park, please be attentive to respect the natural environment you find yourself in. Please stay only on the designated trails in order to minimize the disturbance to the land. Horses are large and heavy animals and excessive horse traffic will create an impact on the overall natural environment of the park.</p>"
+        }
+    ]
+}

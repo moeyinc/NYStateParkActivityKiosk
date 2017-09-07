@@ -1,0 +1,21 @@
+{
+    "_id" : ObjectId("595d1fa724fb7ea73b15d6e0"),
+    "activity_id" : 8,
+    "main_color" : "#1e9580",
+    "sub_color" : "#76b3a6",
+    "button_label" : "FLORA & FAUNA",
+    "page_title" : "FLORA & FAUNA",
+    "white_icon_uri" : "activity-icons/activity-8-white.png",
+    "color_icon_uri" : "activity-icons/activity-8-color.png",
+    "contents" : [
+        {
+            "_id" : ObjectId("5968f6b82321d2a0c58e1d06"),
+            "subnav_id" : 1,
+            "subnav_label" : "INFORMATION",
+            "template_type" : "GENERAL INFO",
+            "left_image_uri" : "",
+            "right_image_uri" : "",
+            "raw_html_text" : "<p>Flora and Fauna, meaning Plants and Animals, are abundant within the park. Earlier in the 19th Century, the area was completely clearcut by local farmers as a source of firewood to be sold and sent to New York City. What you see today has grown back since that time.</p>\n\n<p>As you travel along the road further into the park you will pass a long line of Black Cherry and Black locust trees. Around Hallock pond several Oaks can be found as well as Red Maple. By the beach areas, there is abundant beach grass and dune plants, which help protect the beach from erosion.</p>\n\n<p>Many animals make their home within the park such as deer, possum, and foxes. The area is also a bird migration area (see Birding for more info). Box turtles as well as many species of amphibians can also be found within the park such as Spring Peepers, Grey Tree frogs, and Bull frogs.</p>"
+        }
+    ]
+}

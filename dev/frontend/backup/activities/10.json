@@ -1,0 +1,21 @@
+{
+    "_id" : ObjectId("595d1fb924fb7ea73b15d6e8"),
+    "activity_id" : 10,
+    "main_color" : "#74aa61",
+    "sub_color" : "#a6c295",
+    "button_label" : "SCUBA DIVING",
+    "page_title" : "SCUBA DIVING",
+    "white_icon_uri" : "activity-icons/activity-10-white.png",
+    "color_icon_uri" : "activity-icons/activity-10-color.png",
+    "contents" : [
+        {
+            "_id" : ObjectId("5968f6c62321d2a0c58e1d08"),
+            "subnav_id" : 1,
+            "subnav_label" : "INFORMATION",
+            "template_type" : "GENERAL INFO",
+            "left_image_uri" : "",
+            "right_image_uri" : "",
+            "raw_html_text" : "<p>Take advantage of the 1-mile long shoreline of the park to practice Scuba Diving or Snorkeling.</p>\n\n<p>Snorkeling is a water sport in which swimmers wear masks over the eyes and a connected tube at the mouth to breath the air at the surface of the water. Aided by flippers on the feet, swimming with the face underwater allows the swimmer to observe wildlife such as fish and sea plants.</p>\n\n<p>Scuba diving is another recreational sport similar to snorkeling but with a self-contained breathing apparatus not connected to the surface air. Scuba divers also wear masks and flippers, in addition to a tank of pressurized air, which allows the swimmer to breath underwater at any depth. Scuba divers are able to see marine life in the deepest parts of the ocean.</p>"
+        }
+    ]
+}

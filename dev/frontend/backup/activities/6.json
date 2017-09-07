@@ -1,0 +1,21 @@
+{
+    "_id" : ObjectId("595d1f8d24fb7ea73b15d6d1"),
+    "activity_id" : 6,
+    "main_color" : "#35738c",
+    "sub_color" : "#7b9cad",
+    "button_label" : "CULTURAL HISTORY",
+    "page_title" : "CULTURAL HISTORY",
+    "white_icon_uri" : "activity-icons/activity-6-white.png",
+    "color_icon_uri" : "activity-icons/activity-6-color.png",
+    "contents" : [
+        {
+            "_id" : ObjectId("5968f6b82321d2a0c58e1d04"),
+            "subnav_id" : 1,
+            "subnav_label" : "INFORMATION",
+            "template_type" : "GENERAL INFO",
+            "left_image_uri" : "",
+            "right_image_uri" : "",
+            "raw_html_text" : "<p>A view of the Pond at the Turn of thecentury<br />\nshows how the area was entirely deforested.<br />\nBetty Hallock / Hallockville Museum</figcaption>\n</figure>\n\n<p>The Park is not known to have been directly inhabited within at any point, however a group of nearby Paumanock (Algonquin) native peoples had a village close by to the park and would have hunted and fished within the area that is now the park. Aboriginal peoples are known to have lived in the area as far back as 1500 BCE.</p>\n\n<p>Most of the early farm settlers to the area were Puritans escaping from England in the 1630s. In 1661, they decided to divide the land in the area into forty lots running from &ldquo;sea to sea&rdquo; across the fork. The Park property today spans nine of these lots.</p>\n\n<p>William Hallock, whose father Peter was one of the original Puritan immigrants, was the first settler in the area moving here shortly after the land was allotted to farm.</p>\n\n<p>By the time of the American Revolution, the Hallock Family as well as their neighbors &ndash; Reuben Brown, Richard Swezey, Jonathan Howell and others - signed their support for the revolution and to &ldquo;never become slaves.&rdquo; Unfortunately for them, Long Island was occupied by the British for the duration of the revolutionary war and many fled across the sound to Connecticut.</p>\n\n<p>More than another 40 years later, towards the end of the War of 1812 the local Militia fought against a British Frigate which had captured a small American ship. Outgunned, the local militia did not succeed in stopping the British from capturing the American ship.</p>\n\n<p>Nine further generations of Hallocks lived and farmed the land. However by the beginning of the 20th Century more recent Polish immigrants began to purchase and take over the local farms. They would farm mostly potatoes, and even participated in rum-running during prohibition as a side business.</p>\n\n<p>In 1963, Levon Corporation bought up land from the local farmers advertising a deepwater port they were supposedly planning to build. However, this was a ploy to mine the sand for use in concrete to build the interstate system across the sound in Conneticut. By the end of the decade, jetties Levon had built were beginning to cause severe erosion and threatened houses built above the bluff &ndash; including that of a Congressman. The local community began to rally against Levon as a fraudulent operation with no intention to actually build the port, and by the early 1970s they were effectively shut down.</p>\n\n<p>In 1973, the land was sold to the Long Island Lighting Company who planned to build a Nuclear Power Plant on the site. The Local Community was divided on the issue between environmentalists and those who supported the project as it would create thousands of jobs. The Long Island Farm Bureau rallied against the plant, as it feared no one would eat Long Island produce for fear of radiation.</p>\n\n<p>Protests against the plant continued for the rest of the decade. In March 1979, an accident at the Three Mile Island Nuclear Plant increased public anxiety about the project and the plans were eventually cancelled in January 1980.</p>\n\n<p>In 2002, Keyspan Energy, a successor of LILCO, sold the property to New York State to be used<br />\nas parkland.</p>\n\n<p>Source: Richard Wines and the Hallockville Museum</p>"
+        }
+    ]
+}

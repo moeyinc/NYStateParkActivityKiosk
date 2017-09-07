@@ -1,0 +1,21 @@
+{
+    "_id" : ObjectId("595d1fc124fb7ea73b15d6ec"),
+    "activity_id" : 11,
+    "main_color" : "#a2aa50",
+    "sub_color" : "#bfc38c",
+    "button_label" : "FISHING",
+    "page_title" : "FISHING",
+    "white_icon_uri" : "activity-icons/activity-11-white.png",
+    "color_icon_uri" : "activity-icons/activity-11-color.png",
+    "contents" : [
+        {
+            "_id" : ObjectId("5968f6c62321d2a0c58e1d09"),
+            "subnav_id" : 1,
+            "subnav_label" : "INFORMATION",
+            "template_type" : "GENERAL INFO",
+            "left_image_uri" : "",
+            "right_image_uri" : "",
+            "raw_html_text" : "<p>With several species of game fish to be found in Long Island Sound, Hallock State Park Preserve is a great place to cast off. Long Island Sound has long been known for its fresh fish. Some of the saltwater fish that may be caught off the shores of the park are as follows:</p>\n\n<ul>\n\t<li><span style=\"font-size:24px\">Black Sea Bass</span></li>\n\t<li><span style=\"font-size:24px\">Blackfish</span></li>\n\t<li><span style=\"font-size:24px\">Bluefish</span></li>\n\t<li><span style=\"font-size:24px\">Fluke</span></li>\n\t<li><span style=\"font-size:24px\">Striped Bass</span></li>\n\t<li><span style=\"font-size:24px\">Tautog</span></li>\n\t<li><span style=\"font-size:24px\">Weakfish</span></li>\n\t<li><span style=\"font-size:24px\">Winter Flounder</span></li>\n</ul>\n\n<p>&nbsp;</p>\n\n<p>Please be sure to inquire about size limits and catch limits before casting off.</p>"
+        }
+    ]
+}

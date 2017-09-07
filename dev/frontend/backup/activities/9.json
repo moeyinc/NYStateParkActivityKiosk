@@ -1,0 +1,21 @@
+{
+    "_id" : ObjectId("595d1fb024fb7ea73b15d6e4"),
+    "activity_id" : 9,
+    "main_color" : "#08a775",
+    "sub_color" : "#70bea0",
+    "button_label" : "BOATING",
+    "page_title" : "BOATING",
+    "white_icon_uri" : "activity-icons/activity-9-white.png",
+    "color_icon_uri" : "activity-icons/activity-9-color.png",
+    "contents" : [
+        {
+            "_id" : ObjectId("5968f6b82321d2a0c58e1d07"),
+            "subnav_id" : 1,
+            "subnav_label" : "INFORMATION",
+            "template_type" : "GENERAL INFO",
+            "left_image_uri" : "",
+            "right_image_uri" : "",
+            "raw_html_text" : "<p>Long Island Sound off the park&rsquo;s shore provides a great place to enjoy Kayaking, Windsurfing, or Stand Up Paddleboarding.</p>\n\n<p>The kayak is an ancient fishing boat used by Inuit in the northern Arctic, which has become modernized and is now used for recreation and sport. The kayak is low to the water like a canoe, and the kayaker uses a two-sided paddle to push the boat through the water.</p>\n\n<p>Wind surfing is a combination between surfing and sailing, in which the surfer stands on a board on the surface of the water and moves around the water using the wind and a sail. The Western world did not begin windsurfing until the later half of the 20th century, but Polynesians have been riding the waves with a stand up board and a sail for a long time.</p>\n\n<p>Stand up Paddleboarding, abbreviated SUP, originated in Hawaii and was first documented in 2013. This sport involves a board similar to a surf board but often bigger, and a canoe which is used to propel the boarder through water.</p>"
+        }
+    ]
+}

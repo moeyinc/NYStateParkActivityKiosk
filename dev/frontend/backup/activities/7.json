@@ -1,0 +1,21 @@
+{
+    "_id" : ObjectId("595d1fa324fb7ea73b15d6dc"),
+    "activity_id" : 7,
+    "main_color" : "#2d8287",
+    "sub_color" : "#79a6aa",
+    "button_label" : "NATURAL HISTORY",
+    "page_title" : "NATURAL HISTORY",
+    "white_icon_uri" : "activity-icons/activity-7-white.png",
+    "color_icon_uri" : "activity-icons/activity-7-color.png",
+    "contents" : [
+        {
+            "_id" : ObjectId("5968f6b82321d2a0c58e1d05"),
+            "subnav_id" : 1,
+            "subnav_label" : "INFORMATION",
+            "template_type" : "GENERAL INFO",
+            "left_image_uri" : "",
+            "right_image_uri" : "",
+            "raw_html_text" : "<p>The park as it appears today began to take shape as much as 12,000 years ago. However, long before this movements by ancient rivers and glaciers carved out the Long Island Sound and created the bluffs that you now see as you walk into Hallock Park.</p>\n\n<p>If you were standing in the same spot 25,000 years ago you would be facing a giant glacier that stretched for thousands of miles, covering the Northeast of the United States and beyond to Canada. As the glacier moved down to get where you are now, it picked up rocks and boulders along the way, similar to a giant bulldozer.</p>\n\n<p>When the glacier receded, it dumped all the material it had picked up right in front of you, creating the terminal moraine that now make up Hallock State Park.</p>\n\n<p>It was also around this time that Hallock Pond was created. Hallock Pond is unique in that it is a perched pond, meaning it sits above the water table. Think of it as a large bowl filled with water sitting in the ground &ndash; in this case made of till or clay.</p>\n\n<p>The pond was either formed as a kettle hole, meaning a large block of glacial ice was stuck in<br />\nplace and when it melted it left the pond in place. Another possibility is that it is a pro-glacial<br />\nlake, meaning that melted glacial water got trapped in what is now the pond as the glacier re-<br />\nceeded.</p>\n\n<p>Source: Long Island Resource Center</p>"
+        }
+    ]
+}

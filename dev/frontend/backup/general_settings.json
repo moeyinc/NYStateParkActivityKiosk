@@ -1,0 +1,6 @@
+{
+    "_id" : ObjectId("594c378224fb7ea73b127818"),
+    "kiosk_title" : "THINGS TO DO",
+    "background_color" : "#ffe7cc",
+    "text_color" : "#0a3c5b"
+}
