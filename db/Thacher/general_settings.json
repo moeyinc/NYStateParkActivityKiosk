@@ -1,0 +1,105 @@
+/* 1 */
+{
+    "_id" : ObjectId("594c378224fb7ea73b127818"),
+    "design_theme" : "basic",
+    "kiosk_title" : "THINGS TO DO",
+    "kiosk_title_2" : "",
+    "background_color" : {
+        "hsl" : {
+            "h" : 31.7647058823529,
+            "s" : 1,
+            "l" : 0.9,
+            "a" : 1
+        },
+        "hex" : "#FFE7CC",
+        "rgba" : {
+            "r" : 255,
+            "g" : 231,
+            "b" : 204,
+            "a" : 1
+        },
+        "hsv" : {
+            "h" : 31.7647058823529,
+            "s" : 0.2,
+            "v" : 1,
+            "a" : 1
+        },
+        "oldHue" : 139.285714285714,
+        "source" : "hex",
+        "a" : 1
+    },
+    "text_color" : {
+        "hsl" : {
+            "h" : 202.962962962963,
+            "s" : 0.801980198019802,
+            "l" : 0.198039215686275,
+            "a" : 1
+        },
+        "hex" : "#0A3C5B",
+        "rgba" : {
+            "r" : 10,
+            "g" : 60,
+            "b" : 91,
+            "a" : 1
+        },
+        "hsv" : {
+            "h" : 202.962962962963,
+            "s" : 0.89010989010989,
+            "v" : 0.356862745098039,
+            "a" : 1
+        },
+        "oldHue" : 271.914893617021,
+        "source" : "hex",
+        "a" : 1
+    },
+    "background_color_inverted" : {
+        "hsl" : {
+            "h" : 0,
+            "s" : 0,
+            "l" : 100,
+            "a" : 1
+        },
+        "hex" : "#FFFFFF",
+        "rgba" : {
+            "r" : 255,
+            "g" : 255,
+            "b" : 255,
+            "a" : 1
+        },
+        "hsv" : {
+            "h" : 0,
+            "s" : 0,
+            "v" : 100,
+            "a" : 1
+        },
+        "a" : 1
+    },
+    "text_color_inverted" : {
+        "hsl" : {
+            "h" : 0,
+            "s" : 0,
+            "l" : 100,
+            "a" : 1
+        },
+        "hex" : "#FFFFFF",
+        "rgba" : {
+            "r" : 255,
+            "g" : 255,
+            "b" : 255,
+            "a" : 1
+        },
+        "hsv" : {
+            "h" : 0,
+            "s" : 0,
+            "v" : 100,
+            "a" : 1
+        },
+        "a" : 1
+    },
+    "show_logo" : "on",
+    "park_logo_uri" : "ParksLogoLockupIndigo_1504821487.png",
+    "bg_image_uri" : "bg_1504885492.png",
+    "timeout_in_second" : 300,
+    "bg_image_home_uri" : null,
+    "bg_image_detail_uri" : null
+}

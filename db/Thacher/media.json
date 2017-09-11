@@ -1,0 +1,399 @@
+/* 1 */
+{
+    "_id" : ObjectId("596f9065b98dc03f95277488"),
+    "filename" : "activity-10-color_1500483685.png",
+    "timestamp" : "1500483685",
+    "filesize" : 28483
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("596f906ab98dc03f95277489"),
+    "filename" : "activity-10-white_1500483690.png",
+    "timestamp" : "1500483690",
+    "filesize" : 19095
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("596f906fb98dc03f9527748a"),
+    "filename" : "activity-11-color_1500483695.png",
+    "timestamp" : "1500483695",
+    "filesize" : 14028
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("596f9073b98dc03f9527748b"),
+    "filename" : "activity-11-white_1500483699.png",
+    "timestamp" : "1500483699",
+    "filesize" : 9704
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("596f9076b98dc03f9527748c"),
+    "filename" : "activity-12-color_1500483702.png",
+    "timestamp" : "1500483702",
+    "filesize" : 10260
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("596f907ab98dc03f9527748d"),
+    "filename" : "activity-12-white_1500483706.png",
+    "timestamp" : "1500483706",
+    "filesize" : 7683
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("59b6eea9f867e54bcb49ef67"),
+    "filename" : "hiking_white_1505160873.png",
+    "timestamp" : "1505160873",
+    "filesize" : 7529
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("59b6eeb2f867e54bcb49ef68"),
+    "filename" : "hiking_color_1505160882.png",
+    "timestamp" : "1505160882",
+    "filesize" : 8119
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("59b6ef5ff867e54bcb49ef69"),
+    "filename" : "birding_color_1505161055.png",
+    "timestamp" : "1505161055",
+    "filesize" : 6100
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("59b6ef63f867e54bcb49ef6a"),
+    "filename" : "birding_white_1505161059.png",
+    "timestamp" : "1505161059",
+    "filesize" : 5698
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("59b6ef67f867e54bcb49ef6b"),
+    "filename" : "boating_color_1505161063.png",
+    "timestamp" : "1505161063",
+    "filesize" : 6040
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("59b6ef6af867e54bcb49ef6c"),
+    "filename" : "boating_white_1505161066.png",
+    "timestamp" : "1505161066",
+    "filesize" : 5600
+}
+
+/* 13 */
+{
+    "_id" : ObjectId("59b6ef6df867e54bcb49ef6d"),
+    "filename" : "camping_color_1505161069.png",
+    "timestamp" : "1505161069",
+    "filesize" : 4634
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("59b6ef71f867e54bcb49ef6e"),
+    "filename" : "camping_white_1505161073.png",
+    "timestamp" : "1505161073",
+    "filesize" : 4621
+}
+
+/* 15 */
+{
+    "_id" : ObjectId("59b6ef75f867e54bcb49ef6f"),
+    "filename" : "disc_golf_color_1505161077.png",
+    "timestamp" : "1505161077",
+    "filesize" : 7891
+}
+
+/* 16 */
+{
+    "_id" : ObjectId("59b6ef78f867e54bcb49ef70"),
+    "filename" : "disc_golf_white_1505161080.png",
+    "timestamp" : "1505161080",
+    "filesize" : 6784
+}
+
+/* 17 */
+{
+    "_id" : ObjectId("59b6ef7cf867e54bcb49ef71"),
+    "filename" : "event_space_color_1505161084.png",
+    "timestamp" : "1505161084",
+    "filesize" : 44600
+}
+
+/* 18 */
+{
+    "_id" : ObjectId("59b6ef7ff867e54bcb49ef72"),
+    "filename" : "event_space_white_1505161087.png",
+    "timestamp" : "1505161087",
+    "filesize" : 41939
+}
+
+/* 19 */
+{
+    "_id" : ObjectId("59b6ef83f867e54bcb49ef73"),
+    "filename" : "fishing_color_1505161091.png",
+    "timestamp" : "1505161091",
+    "filesize" : 6080
+}
+
+/* 20 */
+{
+    "_id" : ObjectId("59b6ef86f867e54bcb49ef74"),
+    "filename" : "fishing_white_1505161094.png",
+    "timestamp" : "1505161094",
+    "filesize" : 5773
+}
+
+/* 21 */
+{
+    "_id" : ObjectId("59b6ef94f867e54bcb49ef77"),
+    "filename" : "food_color_1505161108.png",
+    "timestamp" : "1505161108",
+    "filesize" : 3758
+}
+
+/* 22 */
+{
+    "_id" : ObjectId("59b6ef99f867e54bcb49ef78"),
+    "filename" : "food_white_1505161113.png",
+    "timestamp" : "1505161113",
+    "filesize" : 3963
+}
+
+/* 23 */
+{
+    "_id" : ObjectId("59b6ef9ef867e54bcb49ef79"),
+    "filename" : "geocaching_color_1505161118.png",
+    "timestamp" : "1505161118",
+    "filesize" : 8197
+}
+
+/* 24 */
+{
+    "_id" : ObjectId("59b6efa2f867e54bcb49ef7a"),
+    "filename" : "geocaching_white_1505161122.png",
+    "timestamp" : "1505161122",
+    "filesize" : 7617
+}
+
+/* 25 */
+{
+    "_id" : ObjectId("59b6efbcf867e54bcb49ef7e"),
+    "filename" : "nature_center_color_1505161148.png",
+    "timestamp" : "1505161148",
+    "filesize" : 4275
+}
+
+/* 26 */
+{
+    "_id" : ObjectId("59b6efc1f867e54bcb49ef7f"),
+    "filename" : "nature_center_white_1505161153.png",
+    "timestamp" : "1505161153",
+    "filesize" : 4157
+}
+
+/* 27 */
+{
+    "_id" : ObjectId("59b6efc5f867e54bcb49ef80"),
+    "filename" : "picnic_shelter_color_1505161157.png",
+    "timestamp" : "1505161157",
+    "filesize" : 4753
+}
+
+/* 28 */
+{
+    "_id" : ObjectId("59b6efc9f867e54bcb49ef81"),
+    "filename" : "picnic_shelter_white_1505161161.png",
+    "timestamp" : "1505161161",
+    "filesize" : 4384
+}
+
+/* 29 */
+{
+    "_id" : ObjectId("59b6efcef867e54bcb49ef82"),
+    "filename" : "playground_color_1505161166.png",
+    "timestamp" : "1505161166",
+    "filesize" : 7442
+}
+
+/* 30 */
+{
+    "_id" : ObjectId("59b6efd3f867e54bcb49ef83"),
+    "filename" : "playgrounds_white_1505161171.png",
+    "timestamp" : "1505161171",
+    "filesize" : 7151
+}
+
+/* 31 */
+{
+    "_id" : ObjectId("59b6efd7f867e54bcb49ef84"),
+    "filename" : "programs_events_color_1505161175.png",
+    "timestamp" : "1505161175",
+    "filesize" : 2924
+}
+
+/* 32 */
+{
+    "_id" : ObjectId("59b6efe4f867e54bcb49ef85"),
+    "filename" : "playgrounds_color_1505161188.png",
+    "timestamp" : "1505161188",
+    "filesize" : 7435
+}
+
+/* 33 */
+{
+    "_id" : ObjectId("59b6efe9f867e54bcb49ef86"),
+    "filename" : "playgrounds_white_1505161193.png",
+    "timestamp" : "1505161193",
+    "filesize" : 7151
+}
+
+/* 34 */
+{
+    "_id" : ObjectId("59b6efedf867e54bcb49ef87"),
+    "filename" : "programs_events_white_1505161197.png",
+    "timestamp" : "1505161197",
+    "filesize" : 2859
+}
+
+/* 35 */
+{
+    "_id" : ObjectId("59b6eff1f867e54bcb49ef88"),
+    "filename" : "rock_climbing_color_1505161201.png",
+    "timestamp" : "1505161201",
+    "filesize" : 19207
+}
+
+/* 36 */
+{
+    "_id" : ObjectId("59b6eff5f867e54bcb49ef89"),
+    "filename" : "rock_climbing_white_1505161205.png",
+    "timestamp" : "1505161205",
+    "filesize" : 10577
+}
+
+/* 37 */
+{
+    "_id" : ObjectId("59b6eff9f867e54bcb49ef8a"),
+    "filename" : "snowshoeing_color_1505161209.png",
+    "timestamp" : "1505161209",
+    "filesize" : 8450
+}
+
+/* 38 */
+{
+    "_id" : ObjectId("59b6effcf867e54bcb49ef8b"),
+    "filename" : "snowshoeing_white_1505161212.png",
+    "timestamp" : "1505161212",
+    "filesize" : 8126
+}
+
+/* 39 */
+{
+    "_id" : ObjectId("59b6f000f867e54bcb49ef8c"),
+    "filename" : "swimming_color_1505161216.png",
+    "timestamp" : "1505161216",
+    "filesize" : 5773
+}
+
+/* 40 */
+{
+    "_id" : ObjectId("59b6f003f867e54bcb49ef8d"),
+    "filename" : "swimming_white_1505161219.png",
+    "timestamp" : "1505161219",
+    "filesize" : 5352
+}
+
+/* 41 */
+{
+    "_id" : ObjectId("59b6f505a6b3a44cd5c6e4b2"),
+    "filename" : "mountain_white_1505162501.png",
+    "timestamp" : "1505162501",
+    "filesize" : 10157
+}
+
+/* 42 */
+{
+    "_id" : ObjectId("59b6f50ba6b3a44cd5c6e4b3"),
+    "filename" : "mountain_color_1505162507.png",
+    "timestamp" : "1505162507",
+    "filesize" : 10997
+}
+
+/* 43 */
+{
+    "_id" : ObjectId("59b6f74ea6b3a44cd5c6e4d2"),
+    "filename" : "biking_1505163086.jpg",
+    "timestamp" : "1505163086",
+    "filesize" : 273376
+}
+
+/* 44 */
+{
+    "_id" : ObjectId("59b6f752a6b3a44cd5c6e4d3"),
+    "filename" : "birding1_1505163090.jpg",
+    "timestamp" : "1505163090",
+    "filesize" : 76404
+}
+
+/* 45 */
+{
+    "_id" : ObjectId("59b6f756a6b3a44cd5c6e4d4"),
+    "filename" : "birding2_1505163093.jpg",
+    "timestamp" : "1505163093",
+    "filesize" : 109835
+}
+
+/* 46 */
+{
+    "_id" : ObjectId("59b6f759a6b3a44cd5c6e4d5"),
+    "filename" : "campground1_1505163097.jpg",
+    "timestamp" : "1505163097",
+    "filesize" : 466314
+}
+
+/* 47 */
+{
+    "_id" : ObjectId("59b6f75da6b3a44cd5c6e4d6"),
+    "filename" : "campground2_1505163101.jpg",
+    "timestamp" : "1505163101",
+    "filesize" : 346164
+}
+
+/* 48 */
+{
+    "_id" : ObjectId("59b6f760a6b3a44cd5c6e4d7"),
+    "filename" : "center1_1505163104.jpg",
+    "timestamp" : "1505163104",
+    "filesize" : 489314
+}
+
+/* 49 */
+{
+    "_id" : ObjectId("59b6f763a6b3a44cd5c6e4d8"),
+    "filename" : "center2_1505163107.jpg",
+    "timestamp" : "1505163107",
+    "filesize" : 482723
+}
+
+/* 50 */
+{
+    "_id" : ObjectId("59b6f766a6b3a44cd5c6e4d9"),
+    "filename" : "climbing_1505163110.jpg",
+    "timestamp" : "1505163110",
+    "filesize" : 1028179
+}

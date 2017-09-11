@@ -12,7 +12,8 @@ var ObjectId = require('mongodb').ObjectID;
 
 var db;
 var MONGODB_URL = "mongodb://localhost:27017/"
-var COLLECTION_NAME = "Hallock_activity_kiosk"
+var COLLECTION_NAME = "Thacher"
+// var COLLECTION_NAME = "Hallock_activity_kiosk"
 // var COLLECTION_NAME = "Hallock_community_directory"
 MongoClient.connect(MONGODB_URL + COLLECTION_NAME, {native_parser:true}, function(err, _db) {
   assert.equal(null, err);

@@ -117,7 +117,7 @@ const mutations = {
   addActivity (state, data) {
     let newContent = [
       {
-        _id: new ObjectId(),
+        _id: ObjectId(),
         subnav_id: 1,
         subnav_label: 'NEW TAB',
         template_type: 'GENERAL INFO',
@@ -129,7 +129,7 @@ const mutations = {
     ]
 
     let newActivity = {
-      _id: new ObjectId(),
+      _id: ObjectId(),
       activity_id: state.activities.length + 1,
       main_color:  {
         "hsl" : {
@@ -544,6 +544,7 @@ const actions = {
   // ===============================================
   submitActivities (context) {
     return new Promise((resolve, reject) => {
+      console.log('submitting activities', context.state.activities)
       // ajax request using axios
       axios.post(SERVER_URL + '/data/activities', {
         activities: context.state.activities
