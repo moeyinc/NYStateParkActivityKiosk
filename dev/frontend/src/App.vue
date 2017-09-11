@@ -97,6 +97,16 @@ a {
   src: local("fonts/Avenir-Heavy.ttf");
 }
 
+@font-face {
+  font-family: "Agenda-Bold";
+  src: local("fonts/AgendaBold.ttf");
+}
+
+@font-face {
+  font-family: "Futura-Bold";
+  src: local("fonts/FuturaBold.otf");
+}
+
 /*-------- common styles --------*/
 
 body {

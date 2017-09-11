@@ -90,8 +90,13 @@ export default {
       let data = this.$store.state.tempDataForMediaGallery
       data.newVal = this.$store.state.selectedMediaItem.filename
 
-      // update activity params with the selected media item
-      this.$store.commit('updateActivityParam', data)
+      if (data.target === 'general_settings') {
+        // update general settings param with the selected media item
+        this.$store.commit('updateGeneralSettingsParam', data)
+      } else {
+        // update activity params with the selected media item
+        this.$store.commit('updateActivityParam', data)
+      }
 
       // close the window
       this.$store.commit('updateModals', {key: 'mediaGallery', value: false})

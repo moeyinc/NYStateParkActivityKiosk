@@ -6,19 +6,20 @@
     <div
       class="activity-button"
       :id="'activity-' + activity.activity_id"
-      :style="[getBGColor, getSize]"
+      :style="[getBGColor, getShadow, getSize]"
       @mousedown="changeColor"
       @mouseup="changeColor"
       @mouseleave="resetClick"
       @click="transitPage">
 
       <img :src="getImgSrc" :style="getImgSize">
-
-      <p
-        :class="{ long: isLong }"
-        :style="[getColor, getTextSize]">
-        {{ activity.button_label }}
-      </p>
+      <div class="label" :style="getLabelHeight">
+        <p
+          :class="{ long: isLong }"
+          :style="[getColor, getTextSize, getFont]">
+          {{ activity.button_label }}
+        </p>
+      </div>
     </div>
     </li>
 </template>
@@ -57,81 +58,169 @@ export default {
     getColor () {
       return this.clicked ? {'color': this.getColorInString(this.activity.main_color)} : {'color': 'white'}
     },
-    getSize () {
-      if (this.total === 4) {
-        return {
-          width: '560px',
-          height: '330px',
-          margin: '15px 20px',
-          padding: '40px 10px'
+    getShadow () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        if (this.clicked) {
+          return {
+            'top': '5px',
+            'left': '5px',
+            'box-shadow': '5px 5px 5px 0px rgba(0, 0, 0, 0.2)'
+          }
+        } else {
+          return {
+            'box-shadow': '0px 0px 5px 0px rgba(0, 0, 0, 0.2)'
+          }
         }
-      } else if (this.total >= 5 && this.total <= 6) {
+      } else if (theme === 'image') {
         return {
-          width: '460px',
-          height: '330px',
-          margin: '15px 20px',
-          padding: '40px 10px'
-        }
-      } else if (this.total >= 7 && this.total <= 8) {
-        return {
-          width: '405px',
-          height: '330px',
-          margin: '15px 20px',
-          padding: '40px 10px'
-        }
-      } else if (this.total === 9) {
-        return {
-          width: '460px',
-          height: '234px',
-          margin: '15px 20px',
-          padding: '20px 10px'
-        }
-      } else if (this.total >= 10 && this.total <= 12) {
-        return {
-          width: '405px',
-          height: '234px',
-          margin: '15px 20px',
-          padding: '20px 10px'
-        }
-      } else if (this.total >= 13 && this.total <= 15) {
-        return {
-          width: '342px',
-          height: '234px',
-          margin: '15px 14px',
-          padding: '20px 10px'
+          'box-shadow': 'none'
         }
       }
     },
+    getSize () {
+      let total = this.$store.state.activities.length
+      let theme = this.$store.state.generalSettings.design_theme
+      let width, height, margin, padding
+
+      if (theme === 'basic') {
+        switch (total) {
+          case 3:
+            width = '460px'
+            height = '460px'
+            margin = '15px 20px'
+            padding = '80px 10px 20px 10px'
+            break
+          case 4:
+            width = '560px'
+            height = '330px'
+            margin = '15px 20px'
+            padding = '40px 10px'
+            break
+          case 5:
+          case 6:
+            width = '460px'
+            height = '330px'
+            margin = '15px 20px'
+            padding = '40px 10px'
+            break
+          case 7:
+          case 8:
+            width = '405px'
+            height = '330px'
+            margin = '15px 20px'
+            padding = '40px 10px'
+            break
+          case 9:
+            width = '460px'
+            height = '234px'
+            margin = '15px 20px'
+            padding = '20px 10px'
+            break
+          case 10:
+          case 11:
+          case 12:
+            width = '405px'
+            height = '234px'
+            margin = '15px 20px'
+            padding = '20px 10px'
+            break
+          case 13:
+          case 14:
+          case 15:
+            width = '342px'
+            height = '234px'
+            margin = '15px 14px'
+            padding = '20px 10px'
+            break
+        }
+      } else if (theme === 'image') {
+        switch (total) {
+          case 3:
+          case 4: //
+            width = '405px'
+            height = '330px'
+            margin = '15px 20px'
+            padding = '50px 20px 30px 20px'
+            break
+          case 5:
+          case 6: //
+            width = '405px'
+            height = '260px'
+            margin = '15px 20px'
+            padding = '30px 20px'
+            break
+          case 7:
+          case 8: //
+            width = '405px'
+            height = '260px'
+            margin = '15px 20px'
+            padding = '30px 20px'
+            break
+        }
+      }
+
+      return {
+        width: width,
+        height: height,
+        margin: margin,
+        padding: padding
+      }
+    },
     getTextSize () {
-      if (this.total === 4) {
-        return {
-          'margin-top': '10px',
-          'font-size': '32px'
+      let total = this.$store.state.activities.length
+      let theme = this.$store.state.generalSettings.design_theme
+      let fontSize, lineHeight
+
+      if (theme === 'basic') {
+        switch (total) {
+          case 3:
+            fontSize =  '48px'
+            break
+          case 4:
+          case 5:
+          case 6:
+          case 7:
+          case 8:
+          case 9:
+            fontSize =  '32px'
+            break
+          case 10:
+          case 11:
+          case 12:
+          case 13:
+          case 14:
+          case 15:
+            fontSize =  '28px'
+            break
         }
-      } else if (this.total >= 5 && this.total <= 6) {
-        return {
-          'margin-top': '10px',
-          'font-size': '32px'
+      } else if (theme === 'image') {
+        switch (total) {
+          case 3:
+          case 4:
+          case 5:
+          case 6:
+          case 7:
+          case 8: //
+            fontSize =  '30px'
+            lineHeight = '33px'
+            break
         }
-      } else if (this.total >= 7 && this.total <= 8) {
+      }
+
+      return {
+        'font-size': fontSize,
+        'line-height': lineHeight
+      }
+    },
+    getFont () {
+      if (this.$store.state.generalSettings.design_theme === 'basic') {
         return {
-          'margin-top': '10px',
-          'font-size': '32px'
+          'font-family': 'Avenir-Medium'
         }
-      } else if (this.total === 9) {
+      } else if (this.$store.state.generalSettings.design_theme === 'image') {
         return {
-          'margin-top': '10px',
-          'font-size': '32px'
-        }
-      } else if (this.total >= 10 && this.total <= 12) {
-        return {
-          'margin-top': '10px',
-          'font-size': '28px'
-        }
-      } else if (this.total >= 13 && this.total <= 15) {
-        return {
-          'margin-top': '10px',
-          'font-size': '28px'
+          'font-family': 'Futura-Bold'
         }
       }
     },
@@ -139,30 +228,95 @@ export default {
       return this.clicked ? this.getImageStaticFilePath(this.activity.color_icon_uri) : this.getImageStaticFilePath(this.activity.white_icon_uri)
     },
     getImgSize () {
-      if (this.total === 4) {
-        return {
-          height: '200px'
+      let total = this.$store.state.activities.length
+      let theme = this.$store.state.generalSettings.design_theme
+      let height
+
+      if (theme === 'basic') {
+        switch (total) {
+          case 3:
+            height = '240px'
+            break
+          case 4:
+          case 5:
+          case 6:
+          case 7:
+          case 8:
+            height = '200px'
+            break
+          case 9:
+          case 10:
+          case 11:
+          case 12:
+          case 13:
+          case 14:
+          case 15:
+            height = '150px'
+            break
         }
-      } else if (this.total >= 5 && this.total <= 6) {
-        return {
-          height: '200px'
+      } else if (theme === 'image') {
+        switch (total) {
+          case 3:
+          case 4:
+            height = '160px'
+            break
+          case 5:
+          case 6:
+          case 7:
+          case 8:
+            height = '130px'
+            break
         }
-      } else if (this.total >= 7 && this.total <= 8) {
-        return {
-          height: '200px'
+      }
+
+      return {
+        height: height
+      }
+    },
+    getLabelHeight () {
+      let total = this.$store.state.activities.length
+      let theme = this.$store.state.generalSettings.design_theme
+      let height
+
+      if (theme === 'basic') {
+        switch (total) {
+          case 3:
+            height = '240px'
+            break
+          case 4:
+          case 5:
+          case 6:
+          case 7:
+          case 8:
+            height = '200px'
+            break
+          case 9:
+          case 10:
+          case 11:
+          case 12:
+          case 13:
+          case 14:
+          case 15:
+            height = '150px'
+            break
         }
-      } else if (this.total === 9) {
-        return {
-          height: '150px'
+      } else if (theme === 'image') {
+        switch (total) {
+          case 3:
+          case 4:
+            height = '110px'
+            break
+          case 5:
+          case 6:
+          case 7:
+          case 8:
+            height = '90px'
+            break
         }
-      } else if (this.total >= 10 && this.total <= 12) {
-        return {
-          height: '150px'
-        }
-      } else if (this.total >= 13 && this.total <= 15) {
-        return {
-          height: '150px'
-        }
+      }
+
+      return {
+        height: height
       }
     }
   },
@@ -201,30 +355,19 @@ div.activity-button {
   margin: 15px 20px 15px 20px;
   padding: 20px 10px 20px 20px;*/
   border-radius: 50px;
-  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  /*box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);*/
   text-align: center;
   position: relative;
 }
 
-div.activity-button img {
-  /*height: 150px;*/
+div.label {
+  display: table;
+  text-align: center;
+  width: 100%;
 }
 
-div.activity-button p {
-  color: white;
-  margin-top: 10px;
-  font-size: 32px;
-}
-
-div.activity-button p.long {
-  margin-top: 17px;
-  font-size: 0.75em;
-}
-
-div.activity-button:active {
-  background-color: white !important;
-  top: 5px;
-  left: 5px;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+div.label p {
+  display: table-cell;
+  vertical-align: middle;
 }
 </style>

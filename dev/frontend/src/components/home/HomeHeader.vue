@@ -2,12 +2,20 @@
  Vue Template
 ================================================== -->
 <template>
-  <header class="clearfix">
+  <header :style="getHeaderStyle">
     <div class="title">
-      <h1>{{ $store.state.generalSettings.kiosk_title }}</h1>
+      <h1 :style="getH1Style">
+        {{ $store.state.generalSettings.kiosk_title }}
+        <br v-if="$store.state.generalSettings.design_theme==='image'" />
+        <span v-if="$store.state.generalSettings.design_theme==='image'">
+          {{ $store.state.generalSettings.kiosk_title_2 }}
+        </span>
+      </h1>
     </div>
-    <div class="statepark-logo">
-      <img :src="getImageAssetFilePath('ParksLogoLockupIndigo.png')">
+    <div
+      class="statepark-logo"
+      v-if="showLogo">
+      <img :src="getImageStaticFilePath($store.state.generalSettings.park_logo_uri)">
     </div>
   </header>
 </template>
@@ -17,7 +25,45 @@
 ================================================== -->
 <script>
 export default {
-  name: 'home-header'
+  name: 'home-header',
+  computed: {
+    getHeaderStyle () {
+      if (this.$store.state.generalSettings.design_theme === 'basic') {
+        return {
+          'height': '226px'
+        }
+      } else if (this.$store.state.generalSettings.design_theme === 'image') {
+        return {
+          'height': '400px'
+        }
+      }
+    },
+    getH1Style () {
+      if (this.$store.state.generalSettings.design_theme === 'basic') {
+        return {
+          'font-family': 'Avenir-Heavy',
+          'margin': '58px 0px',
+          'line-height': '100px',
+          'font-size': '128px'
+        }
+      } else if (this.$store.state.generalSettings.design_theme === 'image') {
+        return {
+          'font-family': 'Agenda-Bold',
+          'margin': '29px 0px 58px 0px',
+          'line-height': '160px',
+          'font-size': '180px',
+          'letter-spacing': '-3px'
+        }
+      }
+    },
+    showLogo () {
+      if (this.$store.state.generalSettings.show_logo === 'on') {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
 }
 </script>
 
@@ -27,7 +73,7 @@ export default {
 <style scoped>
 header {
   border: 0;
-  height: 226px;
+  /*height: 226px;*/
   width: 1920px;
   position: absolute;
   top: 0;
@@ -37,21 +83,19 @@ header {
 
 div.title {
   height: 100%;
-  width: 1345px;
+  /*width: 1345px;*/
+  width: 1800px;
   float: left;
 }
 
 div.title h1 {
-  margin: 58px 0px;
-  line-height: 100px;
-  font-size: 128px;
-  font-family: "Avenir-Heavy";
 }
 
 div.statepark-logo {
   height: 100%;
-  float: right;
   margin: 0px;
+  position: absolute;
+  right: 20px;
 }
 
 div.statepark-logo img {

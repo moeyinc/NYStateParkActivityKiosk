@@ -3,8 +3,10 @@
 ================================================== -->
 <template>
   <div>
-    <div class="content-foundation" :style="$store.state.activeTabId===1 ? {'border-radius': '0px 20px 20px 20px'} : {'border-radius': '20px 20px 20px 20px'}">
-        <vue-scrollbar ref="Scrollbar" class="content-wrapper">
+    <div
+      class="content-foundation"
+      :style="[getBorderRadius, getFoundationHeight]">
+        <vue-scrollbar ref="Scrollbar" class="content-wrapper" :style="getWrapperHeight">
           <main role="main">
             <general-info-article
               v-if="isActiveContentTemplate('GENERAL INFO')"
@@ -60,6 +62,48 @@ export default {
       position: {scrollTop: 0, scrollLeft: 0}
     }
   },
+  computed: {
+    getBorderRadius () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        if (this.$store.state.activeTabId === 1) {
+          return {
+            'border-radius': '0px 20px 20px 20px'
+          }
+        } else {
+          return {
+            'border-radius': '20px 20px 20px 20px'
+          }
+        }
+      } else if (theme === 'image') {
+        return
+      }
+    },
+    getFoundationHeight () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          height: '752px'
+        }
+      } else if (theme === 'image') {
+        return {
+          height: '822px'
+        }
+      }
+    },
+    getWrapperHeight () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          height: '712px'
+        }
+      } else if (theme === 'image') {
+        return {
+          height: '782px'
+        }
+      }
+    }
+  },
   methods: {
     isActiveContentTemplate (_type) {
       if (this.$store.getters.getActiveTabContent.template_type === _type) {
@@ -86,7 +130,6 @@ export default {
 ================================================== -->
 <style scoped>
 .content-foundation {
-  height: 752px;
   padding: 20px;
   background-color: white;
   position: relative;
@@ -94,7 +137,6 @@ export default {
 }
 
 .content-wrapper {
-  height: 712px;
   margin-right: 20px;
   width: 100%;
 }

@@ -14,7 +14,8 @@ $ brew services start mongodb
 
 ### Installation
 
-For production environment
+For production environment, just npm start to run the server program.
+Frontend files are stored under public/.
 
 ```sh
 $ cd prod
@@ -22,7 +23,8 @@ $ npm install
 $ npm start
 ```
 
-For development environment
+For development environment, you need to run both server program that hosts db and frontend program with help from webpack.
+If you updated dev code, you'll need to do 'npm build' and copy and paste the generated files to the public folder in the prod.
 
 ```sh
 $ cd dev

@@ -5,10 +5,9 @@
   <header>
 
     <div
-      class="titlebar"
-      :style="{'background-color': getColorInString($store.getters.getSelectedActivity.main_color)}">
+      class="titlebar">
       <div class="titlebar-text">
-        <h1>{{ $store.getters.getSelectedActivity.page_title }}</h1>
+        <h1 :style="getH1Style">{{ $store.getters.getSelectedActivity.page_title }}</h1>
       </div>
       <div class="icon-wrapper">
         <img :src="getImageStaticFilePath($store.getters.getSelectedActivity.white_icon_uri)" />
@@ -25,6 +24,26 @@
 export default {
   name: 'detail-header',
   computed: {
+    getH1Style () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          'font-family': 'Avenir-Heavy',
+          'margin': '38px 0 58px 0',
+          'line-height': '80px',
+          'font-size': '120px'
+        }
+      } else if (theme === 'image') {
+        return {
+          'font-family': 'Agenda-Bold',
+          'margin': '0',
+          'padding-left': '10px',
+          'line-height': '160px',
+          'font-size': '180px',
+          'letter-spacing': '0px'
+        }
+      }
+    },
     isFirstItemSelected () {
       if (this.$store.getters.getSelectedActivity.activity_id === 1) {
         return true
@@ -59,10 +78,10 @@ header {
 
 div.titlebar {
   height: 176px;
-  width: 1590px;
+  /*width: 1590px;*/
+  width: 100%;
   color: white;
   z-index: 400;
-  font-family: "Avenir-Heavy";
 }
 
 div.titlebar-text {
@@ -71,12 +90,12 @@ div.titlebar-text {
   float: left;
 }
 
-div.titlebar-text h1 {
+/*div.titlebar-text h1 {
   margin: 38px 0 58px 0;
   padding-left: 40px;
   line-height: 80px;
   font-size: 120px;
-}
+}*/
 
 div.titlebar .icon-wrapper {
   float: right;
@@ -88,5 +107,6 @@ div.titlebar .icon-wrapper {
 
 div.titlebar .icon-wrapper img {
   height: 100%;
+  max-width: 200px;
 }
 </style>

@@ -8,6 +8,20 @@
     </h2>
     <div class="table-wrapper">
       <table>
+        <tr class="design-theme">
+          <td>
+            <p>
+              Design Theme:
+            </p>
+          </td>
+          <td>
+            <select v-model="designTheme">
+              <option disabled selected="selected">Please select one</option>
+              <option value="basic">Basic</option>
+              <option value="image">Background Image</option>
+            </select>
+          </td>
+        </tr>
         <tr class="page-title">
           <td>
             <p>
@@ -19,15 +33,31 @@
               v-model="kioskTitle"
               type="text"
               name="kiosk-title"
-              v-validate="{ rules: { required: true, alpha_spaces: true, max: 30 }}"
-              size="20"
+              v-validate="{ rules: { required: true, alpha_spaces: true, max: 40 }}"
+              size="30"
+              placeholder="THINGS TO DO" />
+          </td>
+        </tr>
+        <tr class="page-title-2" v-if="$store.state.generalSettings.design_theme==='image'">
+          <td>
+            <p>
+              (2nd Line)
+            </p>
+          </td>
+          <td>
+            <input
+              v-model="kioskTitle2"
+              type="text"
+              name="kiosk-title-2"
+              v-validate="{ rules: { required: true, alpha_spaces: true, max: 40 }}"
+              size="30"
               placeholder="THINGS TO DO" />
           </td>
         </tr>
         <tr v-show="errors.has('kiosk-title')" class="error-message">
           <td></td><td>{{ errors.first('kiosk-title')}}</td>
         </tr>
-        <tr class="background-color">
+        <tr class="background-color" v-if="$store.state.generalSettings.design_theme==='basic'">
           <td>
             <p>
               BG Color:
@@ -38,6 +68,28 @@
             <div class="icon-wrapper" @click="showBgColorPicker" id="background-color-picker-origin">
               <icon name="eyedropper"></icon>
             </div>
+          </td>
+        </tr>
+        <tr class="background-image-home" v-if="$store.state.generalSettings.design_theme==='image'">
+          <td>
+            <p>
+              BG Image (Home):
+            </p>
+          </td>
+          <td class="bg-image-uri">
+            <button type="button" @click="showMediaGalleryWindow('bg_image_home_uri')">Choose from gallery</button>
+            {{ this.$store.state.generalSettings.bg_image_home_uri }}
+          </td>
+        </tr>
+        <tr class="background-image-detail" v-if="$store.state.generalSettings.design_theme==='image'">
+          <td>
+            <p>
+              BG Image (Detail):
+            </p>
+          </td>
+          <td class="bg-image-uri">
+            <button type="button" @click="showMediaGalleryWindow('bg_image_detail_uri')">Choose from gallery</button>
+            {{ this.$store.state.generalSettings.bg_image_detail_uri }}
           </td>
         </tr>
         <tr class="text-color">
@@ -51,6 +103,22 @@
             <div class="icon-wrapper" @click="showTextColorPicker" id="text-color-picker-origin">
               <icon name="eyedropper"></icon>
             </div>
+          </td>
+        </tr>
+        <tr class="state-park-logo">
+          <td>
+            <p>
+              State Park Logo:
+            </p>
+          </td>
+          <td class="park-logo-uri">
+            <select v-model="showParkLogo" class="show-logo">
+              <option disabled selected="selected">Please select one</option>
+              <option value="on">On</option>
+              <option value="off">Off</option>
+            </select>
+            <button type="button" @click="showMediaGalleryWindow('park_logo_uri')">Choose from gallery</button>
+            {{ this.$store.state.generalSettings.park_logo_uri }}
           </td>
         </tr>
         <tr class="time-out">
@@ -108,6 +176,18 @@ export default {
     }
   },
   computed: {
+    designTheme: {
+      get () {
+        return this.$store.state.generalSettings.design_theme
+      },
+      set (value) {
+        let data = {
+          param: 'design_theme',
+          newVal: value
+        }
+        this.$store.commit('updateGeneralSettingsParam', data)
+      }
+    },
     kioskTitle: {
       get () {
         return this.$store.state.generalSettings.kiosk_title
@@ -115,6 +195,30 @@ export default {
       set (value) {
         let data = {
           param: 'kiosk_title',
+          newVal: value
+        }
+        this.$store.commit('updateGeneralSettingsParam', data)
+      }
+    },
+    kioskTitle2: {
+      get () {
+        return this.$store.state.generalSettings.kiosk_title_2
+      },
+      set (value) {
+        let data = {
+          param: 'kiosk_title_2',
+          newVal: value
+        }
+        this.$store.commit('updateGeneralSettingsParam', data)
+      }
+    },
+    showParkLogo: {
+      get () {
+        return this.$store.state.generalSettings.show_logo
+      },
+      set (value) {
+        let data = {
+          param: 'show_logo',
           newVal: value
         }
         this.$store.commit('updateGeneralSettingsParam', data)
@@ -175,6 +279,19 @@ export default {
         newVal: value
       }
       this.$store.commit('updateGeneralSettingsParam', data)
+    },
+    showMediaGalleryWindow (param) {
+      let data = {
+        target: 'general_settings',
+        param: param,
+        newVal: null
+      }
+
+      // temporarily keep the data object for media gallery
+      this.$store.commit('updateTempDataForMediaGallery', data)
+
+      // open the media gallery window
+      this.$store.commit('updateModals', {key: 'mediaGallery', value: true})
     }
   }
 }
@@ -211,11 +328,23 @@ table td {
 }
 
 table td:first-child {
-  width: 30%;
+  width: 35%;
 }
 
 input {
   font-size: 18px;
+}
+
+td.park-logo-uri {
+  font-size: 10px;
+}
+
+td.bg-image-uri {
+  font-size: 10px;
+}
+
+select.show-logo {
+  width: 50px;
 }
 
 .background-color input, .text-color input {

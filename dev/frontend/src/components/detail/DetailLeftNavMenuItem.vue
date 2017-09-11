@@ -7,7 +7,7 @@
       class="activity-button"
       :class="{ 'first-item': isFirstItem, 'selected': isActiveTab }"
       :id="'activity-' + activity.activity_id"
-      :style="(clicked && !isActiveTab) ? {'background-color': 'white'} : {'background-color': getColorInString(activity.main_color)}"
+      :style="[getButtonBGColor, getButtonStyle, getButtonSize]"
       @mousedown="changeColor"
       @mouseup="changeColor"
       @mouseleave="resetClick"
@@ -23,7 +23,7 @@
           {{ activity.button_label }}
         </p>
       </div>
-      <template v-if="isFirstItem">
+      <template v-if="isFirstItem && $store.state.generalSettings.design_theme === 'basic'">
         <div class="first-item-shadow-box">
           <div class="inner-box"></div>
         </div>
@@ -31,8 +31,8 @@
 
     </div>
     <div>
-      <div class="spacer" :style="{'background-color': getColorInString($store.getters.getSelectedActivity.main_color)}">
-        <div class="inner-spacer" :style="[setCurve, {'background-color': getColorInString($store.state.generalSettings.background_color)}]"></div>
+      <div class="spacer" :style="getSpacerBGColor">
+        <div class="inner-spacer" :style="[setCurve, getInnerSpacerBGColor]"></div>
       </div>
     </div>
   </li>
@@ -59,6 +59,80 @@ export default {
     }
   },
   computed: {
+    getButtonBGColor () {
+      if (this.clicked && !this.isActiveTab) {
+        return {
+          'background-color': 'white'
+        }
+      } else {
+        return {
+          'background-color': this.getColorInString(this.activity.main_color)
+        }
+      }
+    },
+    getButtonStyle () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          'border-radius': '27px 0 0 27px',
+          'box-shadow': '-10px 0px 10px 0 rgba(0, 0, 0, 0.2) inset',
+          'padding': '0px 10px 0px 15px'
+        }
+      } else if (theme === 'image') {
+        return {
+          'border-radius': '0 27px 27px 0',
+          'box-shadow': 'none',
+          'padding': '0px 10px 0px 15px'
+        }
+      }
+    },
+    getButtonSize () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          width: '250px',
+          height: '55px'
+        }
+      } else if (theme === 'image') {
+        if (this.isActiveTab) {
+          return {
+            width: '290px',
+            height: '55px',
+            'padding-left': '55px'
+          }
+        } else {
+          return {
+            width: '250px',
+            height: '55px',
+            'padding-left': '15px'
+          }
+        }
+      }
+    },
+    getSpacerBGColor () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          'background-color': this.getColorInString(this.$store.getters.getSelectedActivity.main_color)
+        }
+      } else if (theme === 'image') {
+        return {
+          'background-color': ''
+        }
+      }
+    },
+    getInnerSpacerBGColor () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          'background-color': this.getColorInString(this.$store.state.generalSettings.background_color)
+        }
+      } else if (theme === 'image') {
+        return {
+          'background-color': ''
+        }
+      }
+    },
     isFirstItem: function () {
       if (this.activity.activity_id === 1) {
         return true
@@ -82,7 +156,7 @@ export default {
       }
     },
     isLong: function () {
-      if (this.activity.button_label.length > 12) {
+      if (this.activity.button_label.length > 14) {
         return true
       } else {
         return false
@@ -141,11 +215,11 @@ li {
 }
 
 div.activity-button {
-  width: 250px;
+  /*width: 250px;
   height: 55px;
   border-radius: 27px 0 0 27px;
   box-shadow: -10px 0px 10px 0 rgba(0, 0, 0, 0.2) inset;
-  padding: 0px 10px 0px 15px;
+  padding: 0px 10px 0px 15px;*/
 }
 
 div.activity-button.selected {
@@ -165,7 +239,6 @@ div.spacer {
 div.spacer .inner-spacer {
   height: 100%;
   width: 100%;
-  background-color: #ffe7cc;
 }
 
 div.icon-wrapper {

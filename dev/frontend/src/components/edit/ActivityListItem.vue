@@ -75,7 +75,7 @@
             </div>
           </td>
         </tr>
-        <tr class="activity-sub-color">
+        <tr class="activity-sub-color" v-if="$store.state.generalSettings.design_theme==='basic'">
           <td>
             <p>
               Sub Color:

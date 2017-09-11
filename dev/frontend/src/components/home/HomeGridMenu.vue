@@ -2,7 +2,7 @@
  Vue Template
 ================================================== -->
 <template>
-  <main role="main" :style="getPadding">
+  <main role="main" :style="getMainStyle">
     <ul>
       <home-grid-menu-item
         v-for="activity in sortActivities($store.state.activities)"
@@ -26,32 +26,83 @@ export default {
     'home-grid-menu-item': HomeGridMenuItem
   },
   computed: {
-    getPadding () {
+    getMainStyle () {
       let total = this.$store.state.activities.length
-      if (total === 4) {
-        return {
-          padding: '67px 360px'
+      let theme = this.$store.state.generalSettings.design_theme
+      let top, height, padding
+
+      if (theme === 'basic') {
+        top = '226px'
+        height = '854px'
+
+        switch (total) {
+          case 3:
+            padding = '139px 210px'
+            break
+          case 4:
+            padding = '67px 360px'
+            break
+          case 5:
+          case 6:
+            padding = '67px 210px'
+            break
+          case 7:
+          case 8:
+            padding = '67px 70px'
+            break
+          case 9:
+            padding = '31px 210px'
+            break
+          case 10:
+          case 11:
+          case 12:
+            padding = '31px 70px'
+            break
+          case 13:
+          case 14:
+          case 15:
+            padding = '31px 35px'
+            break
         }
-      } else if (total >= 5 && total <= 6) {
-        return {
-          padding: '67px 210px'
+      } else if (theme === 'image') {
+        top = '400px'
+        height = '680px'
+
+        switch (total) {
+          case 3:
+            padding = '139px 292.5px'
+            break
+          case 4:
+            padding = '139px 66px'
+            break
+          case 5:
+          case 6: //
+            padding = '38.5px 292.5px'
+            break
+          case 7:
+          case 8: //
+            padding = '38.5px 66px'
+            break
+          case 9:
+            padding = '31px 210px'
+            break
+          case 10:
+          case 11:
+          case 12:
+            padding = '31px 70px'
+            break
+          case 13:
+          case 14:
+          case 15:
+            padding = '31px 35px'
+            break
         }
-      } else if (total >= 7 && total <= 8) {
-        return {
-          padding: '67px 70px'
-        }
-      } else if (total === 9) {
-        return {
-          padding: '31px 210px'
-        }
-      } else if (total >= 10 && total <= 12) {
-        return {
-          padding: '31px 70px'
-        }
-      } else if (total >= 13 && total <= 15) {
-        return {
-          padding: '31px 35px'
-        }
+      }
+
+      return {
+        top: top,
+        height: height,
+        padding: padding
       }
     }
   }
@@ -64,8 +115,8 @@ export default {
 <style scoped>
 main {
   position: absolute;
-  top: 226px;
+  /*top: 226px;*/
   /*padding: 25px 70px 37px 70px;*/
-  height: 854px;
+  /*height: 854px;*/
 }
 </style>

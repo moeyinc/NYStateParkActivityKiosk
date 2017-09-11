@@ -53,10 +53,11 @@ export default {
   computed: {
     withinLimitNum () {
       let total = this.$store.state.activities.length
-      if (total >= 15) {
-        return false
-      } else {
-        return true
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        if (total < 15) { return true } else { return false }
+      } else if (theme === 'image') {
+        if (total < 8) { return true } else { return false }
       }
     }
   },

@@ -1,0 +1,199 @@
+/* 1 */
+{
+    "_id" : ObjectId("59b2dcdaab9b803232f656e5"),
+    "filename" : "park_logo_indigo_1504894170.png",
+    "timestamp" : "1504894170",
+    "filesize" : 95719
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("59b2dfa7ab9b803232f656ec"),
+    "filename" : "bg_1504894887.png",
+    "timestamp" : "1504894887",
+    "filesize" : 4259513
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("59b2e448ab9b803232f656f9"),
+    "filename" : "wine-color_1504896072.png",
+    "timestamp" : "1504896072",
+    "filesize" : 9306
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("59b2e450ab9b803232f656fa"),
+    "filename" : "wine-white_1504896080.png",
+    "timestamp" : "1504896080",
+    "filesize" : 6169
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("59b2e459ab9b803232f656fb"),
+    "filename" : "stay-white_1504896089.png",
+    "timestamp" : "1504896089",
+    "filesize" : 6794
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("59b2e45dab9b803232f656fc"),
+    "filename" : "museums-color_1504896093.png",
+    "timestamp" : "1504896093",
+    "filesize" : 8958
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("59b2e460ab9b803232f656fd"),
+    "filename" : "museums-white_1504896096.png",
+    "timestamp" : "1504896096",
+    "filesize" : 6409
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("59b2e467ab9b803232f656fe"),
+    "filename" : "food-color_1504896103.png",
+    "timestamp" : "1504896103",
+    "filesize" : 4106
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("59b2e46dab9b803232f656ff"),
+    "filename" : "food-white_1504896109.png",
+    "timestamp" : "1504896109",
+    "filesize" : 3235
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("59b2e473ab9b803232f65700"),
+    "filename" : "farms-color_1504896115.png",
+    "timestamp" : "1504896115",
+    "filesize" : 16789
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("59b2e476ab9b803232f65701"),
+    "filename" : "farms-white_1504896118.png",
+    "timestamp" : "1504896118",
+    "filesize" : 12042
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("59b2e484ab9b803232f65702"),
+    "filename" : "attractions-color_1504896131.png",
+    "timestamp" : "1504896131",
+    "filesize" : 11072
+}
+
+/* 13 */
+{
+    "_id" : ObjectId("59b2e48aab9b803232f65703"),
+    "filename" : "attractions-white_1504896138.png",
+    "timestamp" : "1504896138",
+    "filesize" : 9360
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("59b2e52aab9b803232f65704"),
+    "filename" : "stay-color_1504896298.png",
+    "timestamp" : "1504896298",
+    "filesize" : 8063
+}
+
+/* 15 */
+{
+    "_id" : ObjectId("59b30eedbc8c243886511a8c"),
+    "filename" : "bg-blurred_1504906989.png",
+    "timestamp" : "1504906989",
+    "filesize" : 1384053
+}
+
+/* 16 */
+{
+    "_id" : ObjectId("59b6c0ee3f9cae38d267519c"),
+    "filename" : "shutterstock_12832948_1505149166.jpg",
+    "timestamp" : "1505149166",
+    "filesize" : 1618751
+}
+
+/* 17 */
+{
+    "_id" : ObjectId("59b6c0f23f9cae38d267519d"),
+    "filename" : "shutterstock_223908613_1505149170.jpg",
+    "timestamp" : "1505149170",
+    "filesize" : 1988032
+}
+
+/* 18 */
+{
+    "_id" : ObjectId("59b6c0f53f9cae38d267519e"),
+    "filename" : "shutterstock_241837753_1505149173.jpg",
+    "timestamp" : "1505149173",
+    "filesize" : 1617060
+}
+
+/* 19 */
+{
+    "_id" : ObjectId("59b6c0f83f9cae38d267519f"),
+    "filename" : "shutterstock_259774457_1505149176.jpg",
+    "timestamp" : "1505149176",
+    "filesize" : 2097553
+}
+
+/* 20 */
+{
+    "_id" : ObjectId("59b6c0fc3f9cae38d26751a0"),
+    "filename" : "shutterstock_427384252_1505149180.jpg",
+    "timestamp" : "1505149180",
+    "filesize" : 4355343
+}
+
+/* 21 */
+{
+    "_id" : ObjectId("59b6c1013f9cae38d26751a1"),
+    "filename" : "shutterstock_444513604_1505149185.jpg",
+    "timestamp" : "1505149185",
+    "filesize" : 891638
+}
+
+/* 22 */
+{
+    "_id" : ObjectId("59b6c1053f9cae38d26751a2"),
+    "filename" : "shutterstock_556181164_1505149189.jpg",
+    "timestamp" : "1505149189",
+    "filesize" : 3616470
+}
+
+/* 23 */
+{
+    "_id" : ObjectId("59b6c1093f9cae38d26751a3"),
+    "filename" : "shutterstock_579707302_1505149193.jpg",
+    "timestamp" : "1505149193",
+    "filesize" : 1742262
+}
+
+/* 24 */
+{
+    "_id" : ObjectId("59b6c6903f9cae38d26751aa"),
+    "filename" : "shutterstock_15349036_1505150608.jpg",
+    "timestamp" : "1505150608",
+    "filesize" : 2295094
+}
+
+/* 25 */
+{
+    "_id" : ObjectId("59b6ca813f9cae38d26751b7"),
+    "filename" : "shutterstock_654453595_1505151616.jpg",
+    "timestamp" : "1505151616",
+    "filesize" : 2057949
+}

@@ -32,7 +32,7 @@ root (this)
  Vue Template
 ================================================== -->
 <template>
-  <div id="detail-wrapper" @click="[displayRipple($event), resetTimer]" :style="getStyle">
+  <div id="detail-wrapper" @click="[displayRipple($event), resetTimer()]" :style="getStyle">
 
     <detail-left-nav-menu v-if="$store.state.generalSettings && $store.state.activities"></detail-left-nav-menu>
     <detail-right-content-area v-if="$store.state.generalSettings && $store.state.activities"></detail-right-content-area>
@@ -101,9 +101,19 @@ export default {
   computed: {
     getStyle () {
       if (this.$store.state.generalSettings) {
-        return {
-          'background-color': this.getColorInString(this.$store.state.generalSettings.background_color),
-          'color':            this.getColorInString(this.$store.state.generalSettings.text_color)
+        let theme = this.$store.state.generalSettings.design_theme
+        if (theme === 'basic') {
+          return {
+            'background-color': this.getColorInString(this.$store.state.generalSettings.background_color),
+            'color':            this.getColorInString(this.$store.state.generalSettings.text_color)
+          }
+        } else if (theme === 'image') {
+          return {
+            'background-image': 'url(' + this.getImageStaticFilePath(this.$store.state.generalSettings.bg_image_detail_uri) + ')',
+            'background-repeat': 'no-repeat',
+            'background-size': '1920px 1080px',
+            'color':            this.getColorInString(this.$store.state.generalSettings.text_color)
+          }
         }
       }
     }
@@ -131,6 +141,7 @@ export default {
       el.style.transform       = 'scale(' + zoom + ')' + translate
     },
     resetTimer () {
+      console.log('resetting timer')
       clearTimeout(this.screenTimer)
       this.screenTimer = setTimeout(this.goHomeScreen, this.$store.state.generalSettings.timeout_in_second * 1000)
     },

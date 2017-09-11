@@ -2,7 +2,7 @@
  Vue Template
 ================================================== -->
 <template>
-  <nav>
+  <nav :style="getNavStyle">
     <ul>
       <detail-left-nav-menu-item
         v-for="activity in sortActivities($store.state.activities)"
@@ -13,9 +13,10 @@
     </ul>
     <div
       class="back-to-home-wrapper"
+      :style="getMainMenuPos"
       @click="transitPage">
-        <div class="triangle-left" :style="{'background-color': getColorInString($store.state.generalSettings.text_color, false)}"></div>
-        <p :style="{'color': getColorInString($store.state.generalSettings.text_color)}">MAIN MENU</p>
+        <div class="triangle-left" :style="getTriangleBGColor"></div>
+        <p :style="getMainMenuColor">MAIN MENU</p>
     </div>
   </nav>
 </template>
@@ -32,6 +33,64 @@ export default {
   name: 'detail-left-nav-menu',
   components: {
     'detail-left-nav-menu-item': DetailLeftNavMenuItem
+  },
+  computed: {
+    getNavStyle () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          width: '250px',
+          height: '1040px',
+          left: '20px',
+          top: '20px',
+          'font-family': 'Avenir-Heavy'
+        }
+      } else if (theme === 'image') {
+        return {
+          width: '270px',
+          height: '838px',
+          left: '0px',
+          top: '218px',
+          'font-family': 'Avenir-Medium'
+        }
+      }
+    },
+    getTriangleBGColor () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          'background-color': this.getColorInString(this.$store.state.generalSettings.text_color, false)
+        }
+      } else if (theme === 'image') {
+        return {
+          'background-color': 'white'
+        }
+      }
+    },
+    getMainMenuColor () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          'color': this.getColorInString(this.$store.state.generalSettings.text_color)
+        }
+      } else if (theme === 'image') {
+        return {
+          'color': 'white'
+        }
+      }
+    },
+    getMainMenuPos () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        return {
+          'margin-left': '22px'
+        }
+      } else if (theme === 'image') {
+        return {
+          'margin-left': '62px'
+        }
+      }
+    }
   },
   methods: {
     // check the relative position of a tab to the selected tab to set a rounded corner
@@ -66,20 +125,14 @@ export default {
 ================================================== -->
 <style scoped>
 nav {
-  width: 250px;
-  height: 1040px;
   position: fixed;
-  left: 20;
-  top: 20;
   z-index: 100;
-  font-family: "Avenir-Heavy";
 }
 
 div.back-to-home-wrapper {
   width: 100%;
   position: absolute;
   bottom: 20px;
-  margin-left: 22px;
 }
 
 div.back-to-home-wrapper p {

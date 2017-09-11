@@ -2,8 +2,8 @@ import axios    from 'axios'
 import FormData from 'form-data'
 import ObjectId from 'objectid'
 
-// const MONGODB_URL = 'http://park-kiosk-cms.seiya.fun' // seiya's server
-const MONGODB_URL = 'http://localhost:3000' // local environment
+// const SERVER_URL = 'http://park-kiosk-cms.seiya.fun' // seiya's server
+const SERVER_URL = 'http://localhost:3000' // local environment
 
 /* =================================================
  state
@@ -303,9 +303,9 @@ const mutations = {
     targetContent.items.push(newItem)
   },
   removeActivity (state, data) {
-    // if there's only one activity, don't allow to remove it
-    if (state.activities.length <= 4) {
-      console.log('couldn\'t remove the activity because the minimum number is 4.')
+    // the least number of activities is 3
+    if (state.activities.length <= 3) {
+      console.log('couldn\'t remove the activity because the minimum number is 3.')
       return
     }
 
@@ -488,7 +488,7 @@ const actions = {
   updateGeneralSettings (context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.get(MONGODB_URL + '/data/general-settings')
+      axios.get(SERVER_URL + '/data/general-settings')
       .then((res) => {
         console.log('new general settings fetched: ', res.data)
 
@@ -506,7 +506,7 @@ const actions = {
   submitGeneralSettings (context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(MONGODB_URL + '/data/general-settings', {
+      axios.post(SERVER_URL + '/data/general-settings', {
         generalSettings: context.state.generalSettings
       })
       .then((res) => {
@@ -527,7 +527,7 @@ const actions = {
   updateActivities (context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.get(MONGODB_URL + '/data/activities')
+      axios.get(SERVER_URL + '/data/activities')
       .then((res) => {
         console.log('new activities fetched: ', res.data)
 
@@ -545,7 +545,7 @@ const actions = {
   submitActivities (context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(MONGODB_URL + '/data/activities', {
+      axios.post(SERVER_URL + '/data/activities', {
         activities: context.state.activities
       })
       .then((res) => {
@@ -567,11 +567,11 @@ const actions = {
     let formdata = new FormData()
     formdata.append('image', data)
 
-    console.log('sending: ', formdata)
+    console.log('sending: ', formdata.get('image'))
 
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(MONGODB_URL + '/data/images', formdata)
+      axios.post(SERVER_URL + '/data/images', formdata)
       .then((res) => {
         console.log('new images fetched: ', res.data)
 
@@ -591,7 +591,7 @@ const actions = {
 
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(MONGODB_URL + '/data/images/delete', data)
+      axios.post(SERVER_URL + '/data/images/delete', data)
       .then((res) => {
         console.log('new images fetched: ', res.data)
 
@@ -609,7 +609,7 @@ const actions = {
   updateMediaItems (context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.get(MONGODB_URL + '/data/images')
+      axios.get(SERVER_URL + '/data/images')
       .then((res) => {
         console.log('new images fetched: ', res.data)
 
