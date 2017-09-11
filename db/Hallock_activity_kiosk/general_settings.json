@@ -99,5 +99,7 @@
     "show_logo" : "on",
     "park_logo_uri" : "ParksLogoLockupIndigo_1504821487.png",
     "bg_image_uri" : "bg_1504885492.png",
-    "timeout_in_second" : 120
+    "timeout_in_second" : 120,
+    "bg_image_home_uri" : null,
+    "bg_image_detail_uri" : null
 }

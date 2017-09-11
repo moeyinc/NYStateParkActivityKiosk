@@ -7,7 +7,7 @@
       class="activity-button"
       :class="{ 'first-item': isFirstItem, 'selected': isActiveTab }"
       :id="'activity-' + activity.activity_id"
-      :style="[getButtonBGColor, getButtonStyle, getButtonSize]"
+      :style="[getButtonBGColor, getButtonStyle, getButtonSize, getBoxShadow]"
       @mousedown="changeColor"
       @mouseup="changeColor"
       @mouseleave="resetClick"
@@ -83,6 +83,24 @@ export default {
           'border-radius': '0 27px 27px 0',
           'box-shadow': 'none',
           'padding': '0px 10px 0px 15px'
+        }
+      }
+    },
+    getBoxShadow () {
+      let theme = this.$store.state.generalSettings.design_theme
+      if (theme === 'basic') {
+        if (!this.isFirstItem && !this.isActiveTab) {
+          return {
+            'box-shadow': '-10px 0px 10px 0 rgba(0, 0, 0, 0.2) inset'
+          }
+        } else {
+          return {
+            'box-shadow': 'none'
+          }
+        }
+      } else if (theme === 'image') {
+        return {
+          'box-shadow': 'none'
         }
       }
     },

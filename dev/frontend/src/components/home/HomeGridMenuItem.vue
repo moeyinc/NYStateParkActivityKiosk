@@ -281,14 +281,14 @@ export default {
       if (theme === 'basic') {
         switch (total) {
           case 3:
-            height = '240px'
+            height = '136px'
             break
           case 4:
           case 5:
           case 6:
           case 7:
           case 8:
-            height = '200px'
+            height = '84px'
             break
           case 9:
           case 10:
@@ -297,7 +297,7 @@ export default {
           case 13:
           case 14:
           case 15:
-            height = '150px'
+            height = '60px'
             break
         }
       } else if (theme === 'image') {

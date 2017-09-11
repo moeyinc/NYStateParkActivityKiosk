@@ -34,151 +34,6 @@
             "left_image_uri" : "hallock_hiking_1504891858.jpg",
             "right_image_uri" : "KeySpan Nature Walk_Jacob's Hill_1500562709.jpg",
             "raw_html_text" : "<p>With a naturally varied terrain, Hallock Park Preserve contains many wonderful trails to hike or enjoy a nature walk. Not all trails in the park are used by humans alone! As you hike you may find signs of deer, possums, turkeys, and other animals that live in the park along the hiking trails. Hallock Park contains a natural bluff facing Long Island sound.</p><p><br></p><p>Head down to the beach to walk along and enjoy the beachfront. On a clear day, Connecticut is clearly visible on the other side of the sound. While walking along the beach you may come across Piping Plover, a threatened bird species in New York State.</p><p><br></p><p>Inland, hiking will take you through the woods where you may discover Hallock Pond - freshwater pond formed by glacial activity thousands of years ago. Today, it is a popular drinking spot for animals. As you continue hiking through the woods you will eventually reach scenic vistas with beautiful views from the bluffs across the sound.</p>"
-        },
-        {
-            "_id" : "5968f6b82321d2a0c58e1cfd",
-            "subnav_id" : 2,
-            "subnav_label" : "LOCATIONS",
-            "template_type" : "LOCATIONS",
-            "sections" : [
-                {
-                    "section_id" : 1,
-                    "section_title" : "COURSE A",
-                    "number_of_images" : 3,
-                    "map_image_filename" : "course_map_1500565215.png",
-                    "ref_1_image_filename" : "Indian_Ladder_Panorama3b_1500562117.jpg",
-                    "ref_2_image_filename" : "Indian_Ladder_Panorama3b_1500562117.jpg",
-                    "raw_html_text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi. In porta dapibus felis, eu lobortis diam vehicula id. Suspendisse luctus faucibus sapien sed mollis. Suspendisse consectetur, urna quis convallis gravida, nisl ligula vehicula eros, quis imperdiet eros massa vel arcu. Sed aliquam, urna vitae pretium sollicitudin, arcu ligula elementum tortor, at gravida lectus ipsum quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse venenatis dui tempor imperdiet imperdiet. Ut eu tristique turpis. Etiam at turpis in ipsum tristique vulputate. Nunc porttitor purus vitae sem porttitor, id rhoncus massa auctor. Curabitur at augue hendrerit, mattis lacus sed, auctor tellus. Sed scelerisque, ipsum at dictum pharetra, mauris eros molestie tortor, in imperdiet nibh ex vitae sem.</p>"
-                },
-                {
-                    "section_id" : 2,
-                    "section_title" : "COURSE B",
-                    "number_of_images" : 3,
-                    "map_image_filename" : "course_map_1500565215.png",
-                    "ref_1_image_filename" : "Indian_Ladder_Panorama3b_1500562117.jpg",
-                    "ref_2_image_filename" : "Indian_Ladder_Panorama3b_1500562117.jpg",
-                    "raw_html_text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi. In porta dapibus felis, eu lobortis diam vehicula id. Suspendisse luctus faucibus sapien sed mollis. Suspendisse consectetur, urna quis convallis gravida, nisl ligula vehicula eros, quis imperdiet eros massa vel arcu. Sed aliquam, urna vitae pretium sollicitudin, arcu ligula elementum tortor, at gravida lectus ipsum quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse venenatis dui tempor imperdiet imperdiet. Ut eu tristique turpis. Etiam at turpis in ipsum tristique vulputate. Nunc porttitor purus vitae sem porttitor, id rhoncus massa auctor. Curabitur at augue hendrerit, mattis lacus sed, auctor tellus. Sed scelerisque, ipsum at dictum pharetra, mauris eros molestie tortor, in imperdiet nibh ex vitae sem.</p>"
-                },
-                {
-                    "section_id" : 3,
-                    "section_title" : "COURSE C",
-                    "number_of_images" : 3,
-                    "map_image_filename" : "course_map_1500565215.png",
-                    "ref_1_image_filename" : "Indian_Ladder_Panorama3b_1500562117.jpg",
-                    "ref_2_image_filename" : "Indian_Ladder_Panorama3b_1500562117.jpg",
-                    "raw_html_text" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi. In porta dapibus felis, eu lobortis diam vehicula id. Suspendisse luctus faucibus sapien sed mollis. Suspendisse consectetur, urna quis convallis gravida, nisl ligula vehicula eros, quis imperdiet eros massa vel arcu. Sed aliquam, urna vitae pretium sollicitudin, arcu ligula elementum tortor, at gravida lectus ipsum quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse venenatis dui tempor imperdiet imperdiet. Ut eu tristique turpis. Etiam at turpis in ipsum tristique vulputate. Nunc porttitor purus vitae sem porttitor, id rhoncus massa auctor. Curabitur at augue hendrerit, mattis lacus sed, auctor tellus. Sed scelerisque, ipsum at dictum pharetra, mauris eros molestie tortor, in imperdiet nibh ex vitae sem.</p>"
-                }
-            ]
-        },
-        {
-            "_id" : "5968f6b82321d2a0c58e1cfe",
-            "subnav_id" : 3,
-            "subnav_label" : "CATALOG",
-            "template_type" : "CATALOG",
-            "page_title" : "HEADER TITLE",
-            "page_description" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi. In porta dapibus felis, eu lobortis diam vehicula id. Suspendisse luctus faucibus sapien sed mollis. Suspendisse consectetur, urna quis convallis gravida, nisl ligula vehicula eros, quis imperdiet eros massa vel arcu.</p>",
-            "items" : [
-                {
-                    "item_id" : 1,
-                    "item_image_filename" : "JAR_6574_1500576204.jpg",
-                    "item_image_caption" : "XXXXX: $xxx",
-                    "item_title" : "XXXXX: $xxx",
-                    "item_description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi."
-                },
-                {
-                    "item_id" : 2,
-                    "item_image_filename" : "JAR_6574_1500576204.jpg",
-                    "item_image_caption" : "XXXXX: $xxx",
-                    "item_title" : "XXXXX: $xxx",
-                    "item_description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi."
-                },
-                {
-                    "item_id" : 3,
-                    "item_image_filename" : "JAR_6574_1500576204.jpg",
-                    "item_image_caption" : "XXXXX: $xxx",
-                    "item_title" : "XXXXX: $xxx",
-                    "item_description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi."
-                },
-                {
-                    "item_id" : 4,
-                    "item_image_filename" : "JAR_6574_1500576204.jpg",
-                    "item_image_caption" : "XXXXX: $xxx",
-                    "item_title" : "XXXXX: $xxx",
-                    "item_description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi."
-                },
-                {
-                    "item_id" : 5,
-                    "item_image_filename" : "JAR_6574_1500576204.jpg",
-                    "item_image_caption" : "XXXXX: $xxx",
-                    "item_title" : "XXXXX: $xxx",
-                    "item_description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi."
-                },
-                {
-                    "item_id" : 6,
-                    "item_image_filename" : "JAR_6574_1500576204.jpg",
-                    "item_image_caption" : "XXXXX: $xxx",
-                    "item_title" : "XXXXX: $xxx",
-                    "item_description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi."
-                }
-            ]
-        },
-        {
-            "_id" : "5968f6b82321d2a0c58e1cff",
-            "subnav_id" : 4,
-            "subnav_label" : "GALLERY",
-            "template_type" : "GALLERY",
-            "items" : [
-                {
-                    "item_id" : 1,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                },
-                {
-                    "item_id" : 2,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                },
-                {
-                    "item_id" : 3,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                },
-                {
-                    "item_id" : 4,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                },
-                {
-                    "item_id" : 5,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                },
-                {
-                    "item_id" : 6,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                },
-                {
-                    "item_id" : 7,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                },
-                {
-                    "item_id" : 8,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                },
-                {
-                    "item_id" : 9,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                },
-                {
-                    "item_id" : 10,
-                    "item_image_filename" : "a_1500577960.jpg",
-                    "item_caption" : "caption"
-                }
-            ]
         }
     ]
 }
@@ -255,9 +110,9 @@
             "subnav_id" : 1,
             "subnav_label" : "INFORMATION",
             "template_type" : "GENERAL INFO",
-            "number_of_images" : 1,
+            "number_of_images" : 2,
             "left_image_uri" : "bridlepath_1501020006.jpg",
-            "right_image_uri" : "",
+            "right_image_uri" : "shutterstock_206337439_1505158748.jpg",
             "raw_html_text" : "<p>Bridle Paths, or Equestrian Trails, are mixed-use trails that allow horseback riding along with walking. Hallock Park Preserve contains routes that will allow riders to explore and practice horseback riding through the park.</p>\n\n<p>Horses have long been used in the area by the local families who farmed this area as a means of both transportation and labour. Currently, Horseback riding is primarily a recreational activity and stables that specialize in horseback riding can be found nearby to the park.</p>\n\n<p>While riding your horse through the park, please be attentive to respect the natural environment you find yourself in. Please stay only on the designated trails in order to minimize the disturbance to the land. Horses are large and heavy animals and excessive horse traffic will create an impact on the overall natural environment of the park.</p>"
         }
     ]
@@ -445,7 +300,7 @@
             "a" : 1
         }
     },
-    "button_label" : "FLORA & FAUNA",
+    "button_label" : "FLORA & FAUNA  ",
     "page_title" : "FLORA & FAUNA",
     "white_icon_uri" : "activity-8-white_1500483672.png",
     "color_icon_uri" : "activity-8-color_1500483668.png",
@@ -575,9 +430,9 @@
             "subnav_id" : 1,
             "subnav_label" : "INFORMATION",
             "template_type" : "GENERAL INFO",
-            "number_of_images" : 1,
+            "number_of_images" : 2,
             "left_image_uri" : "stripedbass_1501020054.jpg",
-            "right_image_uri" : "",
+            "right_image_uri" : "pond_1505159160.jpg",
             "raw_html_text" : "<p>With several species of game fish to be found in Long Island Sound, Hallock State Park Preserve is a great place to cast off. Long Island Sound has long been known for its fresh fish. Some of the saltwater fish that may be caught off the shores of the park are as follows:</p>\n\n<ul>\n\t<li><span style=\"font-size:24px\">Black Sea Bass</span></li>\n\t<li><span style=\"font-size:24px\">Blackfish</span></li>\n\t<li><span style=\"font-size:24px\">Bluefish</span></li>\n\t<li><span style=\"font-size:24px\">Fluke</span></li>\n\t<li><span style=\"font-size:24px\">Striped Bass</span></li>\n\t<li><span style=\"font-size:24px\">Tautog</span></li>\n\t<li><span style=\"font-size:24px\">Weakfish</span></li>\n\t<li><span style=\"font-size:24px\">Winter Flounder</span></li>\n</ul>\n\n<p>&nbsp;</p>\n\n<p>Please be sure to inquire about size limits and catch limits before casting off.</p>"
         }
     ]
