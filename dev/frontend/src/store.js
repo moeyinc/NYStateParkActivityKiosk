@@ -2,8 +2,8 @@ import axios    from 'axios'
 import FormData from 'form-data'
 import ObjectId from 'objectid'
 
-// const SERVER_URL = 'http://park-kiosk-cms.seiya.fun' // seiya's server
-const SERVER_URL = 'http://localhost:3000' // local environment
+const SERVER_URL = 'http://park-kiosk-cms.seiya.fun' // seiya's server
+// const SERVER_URL = 'http://localhost:3000' // local environment
 
 /* =================================================
  state
