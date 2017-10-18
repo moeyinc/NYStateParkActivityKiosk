@@ -1,3 +1,5 @@
+"use strict";
+
 // ====================================================
 // libraries
 var fs    = require('fs');
@@ -231,7 +233,7 @@ router.post('/images', function(req, res) {
 
 // API to delete a image file ------------------------
 router.post('/images/delete', function(req, res, next) {
-  let item = req.body
+  var item = req.body
   console.log('received a media item to delete: ', item);
 
   db.collection('media').remove(

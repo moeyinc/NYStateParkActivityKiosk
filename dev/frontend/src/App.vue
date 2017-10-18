@@ -89,22 +89,22 @@ a {
 /*-------- fonts --------*/
 @font-face {
   font-family: "Avenir-Medium";
-  src: local("fonts/Avenir-Medium.ttf");
+  src: url("./assets/fonts/Avenir-Medium.ttf");
 }
 
 @font-face {
   font-family: "Avenir-Heavy";
-  src: local("fonts/Avenir-Heavy.ttf");
+  src: url("./assets/fonts/Avenir-Heavy.ttf");
 }
 
 @font-face {
   font-family: "Agenda-Bold";
-  src: local("fonts/AgendaBold.ttf");
+  src: url("./assets/fonts/AgendaBold.ttf");
 }
 
 @font-face {
   font-family: "Futura-Bold";
-  src: local("fonts/FuturaBold.otf");
+  src: url("./assets/fonts/FuturaBold.otf");
 }
 
 /*-------- common styles --------*/
