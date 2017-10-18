@@ -23,7 +23,7 @@ export default {
   },
   props: {
     colorObject: Object,
-    modalPosition: ClientRect
+    modalPosition: Object // ClientRect
   },
   mounted () {
     this.setPos()
