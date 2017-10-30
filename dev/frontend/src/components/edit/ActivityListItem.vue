@@ -115,6 +115,8 @@
     <color-picker
       :color-object="activity.main_color"
       :modal-position="getMainColorPickerPos"
+      :palette="['#B74F59', '#AB5360', '#90586E', '#6C5E80', '#40638F', '#35738C', '#2D8287', '#1E9580', '#08A775', '#74AA61', '#A2AA50', '#C7A83E', '#EEA424', '#CE7024', '#AF4324']"
+      :theme="$store.state.generalSettings.design_theme"
       @update-color="updateMainColor"
       @close-modal="closeMainColorPicker"
       v-if="isMainColorPickerVisible">
@@ -122,6 +124,8 @@
     <color-picker
       :color-object="activity.sub_color"
       :modal-position="getSubColorPickerPos"
+      :palette="['#C3878C', '#BB8A90', '#AB8C99', '#968FA4', '#7E92AE', '#7B9CAD', '#79A6AA', '#76B3A6', '#70BEA0', '#A6C295', '#BFC38C', '#D4C282', '#EBC074', '#D39D6E', '#BD7E6A']"
+      :theme="$store.state.generalSettings.design_theme"
       @update-color="updateSubColor"
       @close-modal="closeSubColorPicker"
       v-if="isSubColorPickerVisible">
@@ -183,12 +187,14 @@ export default {
     },
     getMainColorPickerPos () {
       const el = document.getElementById('main-color-picker-origin-' + this.activity.activity_id)
-      const rect = el.getBoundingClientRect()
+      const rect = this.getBoundingClientRect(el)
+      // const rect = el.getBoundingClientRect()
       return rect
     },
     getSubColorPickerPos () {
       const el = document.getElementById('sub-color-picker-origin-' + this.activity.activity_id)
-      const rect = el.getBoundingClientRect()
+      const rect = this.getBoundingClientRect(el)
+      // const rect = el.getBoundingClientRect()
       return rect
     }
   },
@@ -333,10 +339,10 @@ td.icon-uri {
   height: 20px;
 }
 
-.vue-color__sketch {
+/*.vue-color__sketch {
   position: absolute;
   z-index: 1200;
-}
+}*/
 
 .color-rect {
   height: 20px;

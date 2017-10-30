@@ -97,6 +97,19 @@ export default {
         'background-size': 'cover'
       }
     },
+    getBoundingClientRect (el) {
+      const rect = el.getBoundingClientRect()
+      return {
+        top: rect.top,
+        right: rect.right,
+        bottom: rect.bottom,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+        x: rect.x,
+        y: rect.y
+      }
+    },
     // display ripple effect at mouse-clicked position
     displayRipple (event) {
       if (window !== window.top) {
