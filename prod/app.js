@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var cors         = require('cors');
 var history      = require('connect-history-api-fallback');
+var session      = require('express-session');
 
 // routes
 var index = require('./routes/index');
@@ -29,8 +30,19 @@ app.use(cors());
 app.use(history());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
+app.use(session({
+  secret: 'moey yeah',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 30 * 60 * 1000 // 30 mins
+  }
+}));
+*/
+
 app.use('/', index);
-app.use('/data', data)
+app.use('/data', data);
 
 app.set('etag', false); // disable caching
 

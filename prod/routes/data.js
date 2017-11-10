@@ -5,6 +5,7 @@
 var fs    = require('fs');
 var upath = require('upath');
 var path  = require('path');
+var passwordHash = require('password-hash');
 
 // ====================================================
 // db
@@ -256,5 +257,38 @@ router.post('/images/delete', function(req, res, next) {
     }
   )
 })
+
+// API to login ------------------------
+router.post('/login', function(req, res, next) {
+  var password = req.body.password
+  console.log('pw: ', password)
+  // update data in db
+  db.collection('auth').find().toArray(function(err, documents) {
+    assert.equal(null, err);
+
+    console.log('first document:', documents[0].hashed)
+    var result = passwordHash.verify(password, documents[0].hashed)
+    console.log('verification result:', result)
+
+    // return to a client
+    res.setHeader('Content-Type', 'application/json');
+    res.send({auth: result});
+  });
+});
+
+// FOR DEBUG: API to generate a session id ------------------------
+router.post('/generate-sessionid', function(req, res) {
+  console.log('in generate-sessionid')
+  console.log('session: ', req.session)
+  console.log('session.id: ', req.session.id)
+  console.log('sessionID: ', req.sessionID)
+
+  // return to a client
+  // res.setHeader('Content-Type', 'application/json');
+  // res.send({});
+  // res.json();
+
+});
+
 
 module.exports = router;
