@@ -1,8 +1,9 @@
 import axios    from 'axios'
 import FormData from 'form-data'
 import ObjectId from 'objectid'
+import V from './variables.js'
 
-const SERVER_URL = 'http://park-kiosk-cms.seiya.fun' // seiya's server
+// const SERVER_URL = 'http://park-kiosk-cms.seiya.fun' // seiya's server
 // const SERVER_URL = 'http://localhost:3000' // local environment
 
 /* =================================================
@@ -37,7 +38,8 @@ const state = {
   activities: null,
   selectedActivityId: null,
   activeTabId: 1,
-  isFirstActivityClicked: false
+  isFirstActivityClicked: false,
+  isAuthenticated: false
 }
 
 /* =================================================
@@ -477,6 +479,9 @@ const mutations = {
     // swap the id
     targetSection.section_id  += data.value
     swappedSection.section_id -= data.value
+  },
+  updateAuthentication (state, data) {
+    state.isAuthenticated = data
   }
 }
 
@@ -488,7 +493,7 @@ const actions = {
   updateGeneralSettings (context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.get(SERVER_URL + '/data/general-settings')
+      axios.get(V.SERVER_URL + '/data/general-settings')
       .then((res) => {
         console.log('new general settings fetched: ', res.data)
 
@@ -506,7 +511,7 @@ const actions = {
   submitGeneralSettings (context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(SERVER_URL + '/data/general-settings', {
+      axios.post(V.SERVER_URL + '/data/general-settings', {
         generalSettings: context.state.generalSettings
       })
       .then((res) => {
@@ -527,7 +532,7 @@ const actions = {
   updateActivities (context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.get(SERVER_URL + '/data/activities')
+      axios.get(V.SERVER_URL + '/data/activities')
       .then((res) => {
         console.log('new activities fetched: ', res.data)
 
@@ -546,7 +551,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       console.log('submitting activities', context.state.activities)
       // ajax request using axios
-      axios.post(SERVER_URL + '/data/activities', {
+      axios.post(V.SERVER_URL + '/data/activities', {
         activities: context.state.activities
       })
       .then((res) => {
@@ -572,7 +577,7 @@ const actions = {
 
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(SERVER_URL + '/data/images', formdata)
+      axios.post(V.SERVER_URL + '/data/images', formdata)
       .then((res) => {
         console.log('new images fetched: ', res.data)
 
@@ -592,7 +597,7 @@ const actions = {
 
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(SERVER_URL + '/data/images/delete', data)
+      axios.post(V.SERVER_URL + '/data/images/delete', data)
       .then((res) => {
         console.log('new images fetched: ', res.data)
 
@@ -610,7 +615,7 @@ const actions = {
   updateMediaItems (context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.get(SERVER_URL + '/data/images')
+      axios.get(V.SERVER_URL + '/data/images')
       .then((res) => {
         console.log('new images fetched: ', res.data)
 
@@ -622,6 +627,36 @@ const actions = {
       .catch((error) => {
         console.log(error)
       })
+    })
+  },
+  // ===============================================
+  login (context, data) {
+    console.log('logging in...', data)
+    return new Promise((resolve, reject) => {
+      axios.post(V.SERVER_URL + '/data/login', {password: data})
+      .then((res) => {
+        console.log('login result:', res.data.auth)
+        if (res.data.auth) {
+          context.commit('updateAuthentication', true)
+          resolve() // resolve a promise
+        } else {
+          reject({error: null})
+        }
+      })
+      .catch((error) => {
+        console.log('login failed:', error)
+        reject({error: error})
+      })
+    })
+  },
+  generateSessionid (context) {
+    console.log('generating session id...')
+
+    axios.post(V.SERVER_URL + '/login/generate-sessionid')
+    .then((res) => {
+    })
+    .catch((error) => {
+      console.log(error)
     })
   }
 }

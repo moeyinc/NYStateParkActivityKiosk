@@ -278,6 +278,7 @@ table {
   color: white;
   padding: 15px 25px;
   background-color: dimgrey;
+  border-radius: 3px;
 }
 
 table td {

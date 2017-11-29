@@ -287,6 +287,7 @@ li div.in-li {
   padding: 15px 25px;
   /*border-radius: 10px;*/
   background-color: dimgrey;
+  border-radius: 3px;
 }
 
 input {

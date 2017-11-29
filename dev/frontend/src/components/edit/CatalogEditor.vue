@@ -268,6 +268,7 @@ input[type=file] {
   margin-right: 10px;*/
   cursor: pointer;
   padding: 20px 0;
+  border-radius: 3px;
 }
 
 .add-item:hover {

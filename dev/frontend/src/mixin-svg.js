@@ -2,15 +2,15 @@ import jQuery from 'jquery'
 
 export default {
   methods: {
-    generateInlineSVG (el) {
+    generateInlineSVG (el, filename, params) {
       // remove the existing svg tag
       this.removeImgTag(el)
 
       // append a new img tag
-      this.appendImgTag(el)
+      this.appendImgTag(el, filename, params)
 
       // replace the image tag with a inline svg
-      this.replaceImgTag(el)
+      this.replaceImgTag(el, params)
     },
     // remove the existing svg tag
     removeImgTag (el) {
@@ -20,20 +20,20 @@ export default {
       }
     },
     // append a new img tag
-    appendImgTag (el) {
+    appendImgTag (el, filename, params) {
       let img = document.createElement('img')
-      img.src = this.getImageAssetFilePath(this.img)
-      img.style.width = this.width - this.padding * 2 + 'px'
-      img.style.height = this.height - this.padding * 2 + 'px'
+      img.src = require('@/assets/imgs/' + filename)
+      img.style.width = params.width - params.padding * 2 + 'px'
+      img.style.height = params.height - params.padding * 2 + 'px'
       img.classList.add('svg')
       el.appendChild(img)
     },
     // replace the image tag with a inline svg
-    replaceImgTag (el) {
+    replaceImgTag (el, params) {
       let img = el.getElementsByClassName('svg')[0]
-      img.style.fill = this.regularFillColor
-      let w   = this.width  - this.padding * 2
-      let h   = this.height - this.padding * 2
+      img.style.fill = params.fill
+      let w   = params.width  - params.padding * 2
+      let h   = params.height - params.padding * 2
       this.replaceWithSVG(img, w, h)
     },
     replaceWithSVG (img, imgWidth, imgHeight) {

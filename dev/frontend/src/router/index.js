@@ -7,11 +7,14 @@ import ActivityList    from '@/components/edit/ActivityList.vue'
 import ActivitySettings from '@/components/edit/ActivitySettings.vue'
 import TabContentsList from '@/components/edit/TabContentsList.vue'
 import Media    from '@/components/media/Media.vue'
+import Login  from '@/components/Login.vue'
 import NotFound from '@/components/NotFound.vue'
+
+import store from '../store.js'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -35,7 +38,8 @@ export default new Router({
         'page': Home,
         'section-top': GeneralSettings,
         'section-bottom': ActivityList
-      }
+      },
+      meta: {requiresAuth: true}
     },
     {
       path: '/edit/detail/:id',
@@ -44,12 +48,22 @@ export default new Router({
         'page': Detail,
         'section-top': ActivitySettings,
         'section-bottom': TabContentsList
-      }
+      },
+      meta: {requiresAuth: true}
     },
     {
       path: '/media',
       name: 'media',
       components: {'page': Media}
+    },
+    {
+      path: '/login',
+      name: 'login',
+      components: {
+        'page': Login,
+        'section-top': GeneralSettings,
+        'section-bottom': ActivityList
+      }
     },
     {
       path: '/404',
@@ -62,3 +76,22 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  console.log('isAuthenticated:', store.state.isAuthenticated)
+  if (to.matched.some(record => record.meta.requiresAuth) && !store.state.isAuthenticated) {
+    console.log('router guard blocked. to: ', to)
+    next({path: '/login'}) // , query: {redirect: to.fullPath}
+  } else {
+    console.log('router guard PASSED. to: ', to)
+    const rootPath = to.path.substring(1, 5)
+    if (rootPath === 'edit') {
+      // turn edit mode on to display edit panel
+      // store.commit('updateIsEditing', true)
+      store.mutations.updateIsEditing(store.state, true)
+    }
+    next()
+  }
+})
+
+export default router

@@ -2,13 +2,12 @@
  Vue Template
 ================================================== -->
 <template>
-  <div id="app">
+  <div id="app" @click="resetCMSTimer()" @mousemove="resetCMSTimer()">
     <edit-header v-if="this.$store.state.isEditing"></edit-header>
     <edit-panel v-if="this.$store.state.isEditing"></edit-panel>
     <router-view name="page"></router-view>
   </div>
 </template>
-
 
 <!-- =================================================
  Vue Script
@@ -25,7 +24,16 @@ export default {
     'edit-header' : EditHeader,
     'edit-panel'  : EditPanel
   },
+  data () {
+    return {
+      CMSTimer: null
+    }
+  },
   created () {
+    // CMS reset timer
+    this.resetCMSTimer()
+    // this.$session.set('test-key', 'test-value')
+    console.log('session: ', this.$session.getAll())
     console.log('route information: ', this.$route)
     // get root path
     const rootPath = this.$route.path.substring(1, 5)
@@ -63,6 +71,22 @@ export default {
       }
       console.log('updating UI size data from app')
       this.$store.commit('updateSize', size)
+    },
+    resetCMSTimer () {
+      // console.log('resetting timer')
+      clearTimeout(this.CMSTimer)
+      this.CMSTimer = setTimeout(this.goLoginScreen, 60 * 60 * 1000) // 1 hour
+    },
+    goLoginScreen () {
+      if (this.$store.state.isEditing) {
+        console.log('CMStimer is timeout!')
+        // force logout
+        this.$store.commit('updateAuthentication', false)
+        this.$store.commit('updateIsEditing', false)
+        this.$router.push({ name: 'login' })
+      } else {
+        // if you are not editing, do nothing
+      }
     }
   },
   beforeDestroy () {
