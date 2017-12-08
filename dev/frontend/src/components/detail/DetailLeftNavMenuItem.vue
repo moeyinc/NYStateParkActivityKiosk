@@ -14,7 +14,12 @@
       @click="transitPage">
 
       <div class="icon-wrapper">
-        <img :src="(clicked && !isActiveTab) ? getImageStaticFilePath(activity.color_icon_uri) : getImageStaticFilePath(activity.white_icon_uri)">
+        <simple-svg
+          :filepath="getImageStaticFilePath(activity.icon_uri)"
+          :color="getSVGColor"
+          :width="'auto'"
+          :height="'100%'"
+        />
       </div>
       <div class="label-wrapper">
         <p
@@ -190,6 +195,9 @@ export default {
           'border-bottom-right-radius': '10px'
         }
       }
+    },
+    getSVGColor () {
+      return this.clicked && !this.isActiveTab ? this.getColorInString(this.activity.main_color) : 'white'
     }
   },
   methods: {
@@ -267,7 +275,7 @@ div.icon-wrapper {
   padding: 10px 0 10px 0;
 }
 
-div.icon-wrapper img {
+div.icon-wrapper svg {
   height: 100%;
   max-width: 36px;
 }

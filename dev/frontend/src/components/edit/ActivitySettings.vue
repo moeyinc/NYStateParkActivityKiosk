@@ -70,26 +70,15 @@
             </div>
           </td>
         </tr>
-        <tr class="activity-white-icon">
+        <tr class="activity-icon">
           <td>
             <p>
-              Icon (white):
+              Icon (.svg):
             </p>
           </td>
           <td class="icon-uri">
-            <button type="button" @click="showMediaGalleryWindow('white_icon_uri')">Choose from gallery</button>
-            {{ activity.white_icon_uri }}
-          </td>
-        </tr>
-        <tr class="activity-color-icon">
-          <td>
-            <p>
-              Icon (color):
-            </p>
-          </td>
-          <td class="icon-uri">
-            <button type="button" @click="showMediaGalleryWindow('color_icon_uri')">Choose from gallery</button>
-            {{ activity.white_icon_uri }}
+            <button type="button" @click="showMediaGalleryWindow('icon_uri')">Choose from gallery</button>
+            {{ activity.icon_uri }}
           </td>
         </tr>
       </table>

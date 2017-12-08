@@ -2,14 +2,10 @@
  Vue Template
 ================================================== -->
 <template>
-  <header v-if="this.$store.state.isEditing">
-    <!-- <div class="edit-header-container"> -->
-      <p class="edit-header-title">
-        Activity Kiosk CMS
+  <header v-if="$store.state.isEditing">
+      <p v-if="$store.state.generalSettings" class="edit-header-title">
+        {{$store.state.generalSettings.cms_title}}
       </p>
-      <!-- <div class="refresh-button icon-wrapper" @click="resetState()">
-        <icon name="refresh"></icon>
-      </div> -->
       <div class="edit-header-link-wrapper">
         <router-link to="/edit">
           <p class="edit-header-link home" :class="selectedIfThisPageIsEditHome">
@@ -32,7 +28,6 @@
         LOGOUT
         </p>
       </a>
-    <!-- </div> -->
   </header>
 </template>
 
@@ -62,6 +57,7 @@ export default {
       console.log('re-download data from db')
       this.$store.dispatch('updateGeneralSettings')
       this.$store.dispatch('updateActivities')
+      this.$store.commit('resetState')
     },
     logout () {
       // force logout

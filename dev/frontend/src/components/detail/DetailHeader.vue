@@ -10,7 +10,12 @@
         <h1 :style="getH1Style">{{ $store.getters.getSelectedActivity.page_title }}</h1>
       </div>
       <div class="icon-wrapper">
-        <img :src="getImageStaticFilePath($store.getters.getSelectedActivity.white_icon_uri)" />
+        <simple-svg
+          :filepath="getImageStaticFilePath($store.getters.getSelectedActivity.icon_uri)"
+          :color="'white'"
+          :width="'auto'"
+          :height="'100%'"
+        />
       </div>
     </div>
 
@@ -105,7 +110,7 @@ div.titlebar .icon-wrapper {
   text-align: center;
 }
 
-div.titlebar .icon-wrapper img {
+div.titlebar .icon-wrapper svg {
   height: 100%;
   max-width: 200px;
 }

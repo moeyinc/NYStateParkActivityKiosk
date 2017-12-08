@@ -75,7 +75,8 @@ export default {
 .page-wrapper {
   height: 100%;
   position: relative;
-  background-color: whitesmoke;
+  /*background-color: whitesmoke;*/
+  background-color: #96D4EB;
 }
 
 .container {

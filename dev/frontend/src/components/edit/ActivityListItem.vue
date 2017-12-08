@@ -21,7 +21,7 @@
             <div class="icon-wrapper" @click="changeOrder(1)">
               <icon name="arrow-circle-down"></icon>
             </div>
-            <div class="icon-wrapper-right" @click="showRemoveAvtivityModal">
+            <div class="icon-wrapper-right" @click="showRemoveActivityModal">
               <icon name="trash"></icon>
             </div>
           </td>
@@ -44,7 +44,7 @@
         <tr v-show="errors.has('button-label-' + activity.activity_id)" class="error-message">
           <td></td><td>{{ errors.first('button-label-' + activity.activity_id)}}</td>
         </tr>
-        <tr class="activity-page-title">
+        <!-- <tr class="activity-page-title">
           <td>
             <p>
               Page Title:
@@ -58,7 +58,7 @@
               v-validate="{ rules: { required: true, max: 30 }}"
               size="25"/>
           </td>
-        </tr>
+        </tr> -->
         <tr v-show="errors.has('page-title-' + activity.activity_id)" class="error-message">
           <td></td><td>{{ errors.first('page-title-' + activity.activity_id)}}</td>
         </tr>
@@ -75,7 +75,7 @@
             </div>
           </td>
         </tr>
-        <tr class="activity-sub-color" v-if="$store.state.generalSettings.design_theme==='basic'">
+        <!-- <tr class="activity-sub-color" v-if="$store.state.generalSettings.design_theme==='basic'">
           <td>
             <p>
               Sub Color:
@@ -87,27 +87,16 @@
               <icon name="eyedropper"></icon>
             </div>
           </td>
-        </tr>
-        <tr class="activity-white-icon">
+        </tr> -->
+        <tr class="activity-icon">
           <td>
             <p>
-              Icon (white):
+              Icon (.svg):
             </p>
           </td>
           <td class="icon-uri">
-            <button type="button" @click="showMediaGalleryWindow('white_icon_uri')">Choose from gallery</button>
-            {{ activity.white_icon_uri }}
-          </td>
-        </tr>
-        <tr class="activity-color-icon">
-          <td>
-            <p>
-              Icon (color):
-            </p>
-          </td>
-          <td class="icon-uri">
-            <button type="button" @click="showMediaGalleryWindow('color_icon_uri')">Choose from gallery</button>
-            {{ activity.color_icon_uri }}
+            <button type="button" @click="showMediaGalleryWindow('icon_uri')">Choose from gallery</button>
+            {{ activity.icon_uri }}
           </td>
         </tr>
       </table>
@@ -216,7 +205,7 @@ export default {
       // open the media gallery window
       this.$store.commit('updateModals', {key: 'mediaGallery', value: true})
     },
-    showRemoveAvtivityModal () {
+    showRemoveActivityModal () {
       // open the remove activity modal window
       this.$store.commit('updateModals', {key: 'removeActivity', value: true})
 

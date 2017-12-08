@@ -8,12 +8,12 @@
     </div>
     <ul>
       <li
-        v-for="item in sortMediaItems($store.state.mediaItems)"
+        v-for="item in getMediaItems"
         :key="item.timestamp"
         class="media-item-wrapper">
         <media-list-item
           :item="item"
-          ></media-list-item>
+          />
       </li>
     </ul>
     </div>
@@ -32,6 +32,38 @@ export default {
   components: {
     'upload-button'   : UploadButton,
     'media-list-item' : MediaListItem
+  },
+  created () {
+    console.log('tempDataForMediaGallery', this.$store.state.tempDataForMediaGallery.param)
+  },
+  computed: {
+    getMediaItems () {
+      // if the media gallery is opend for SVG icon, select only .svg files
+      // else if the media gallery is opened for other images, select only non-svg files
+      let param = this.$store.state.tempDataForMediaGallery.param
+      const mediaItems = this.$store.state.mediaItems
+      let newItems = []
+      if (param === 'icon_uri') {
+        for (let i = 0; i < mediaItems.length; i++) {
+          const filename = mediaItems[i].filename
+          let ext = filename.substring(filename.length - 3)
+          if (ext === 'svg') {
+            newItems.push(mediaItems[i])
+          }
+        }
+      } else {
+        for (let i = 0; i < mediaItems.length; i++) {
+          const filename = mediaItems[i].filename
+          let ext = filename.substring(filename.length - 3)
+          if (ext !== 'svg') {
+            newItems.push(mediaItems[i])
+          }
+        }
+      }
+
+      let sortedItems = this.sortMediaItems(newItems)
+      return sortedItems
+    }
   }
 }
 </script>

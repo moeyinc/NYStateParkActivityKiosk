@@ -6,6 +6,9 @@
     <edit-header v-if="this.$store.state.isEditing"></edit-header>
     <edit-panel v-if="this.$store.state.isEditing"></edit-panel>
     <router-view name="page"></router-view>
+    <p class="footer-notes" v-if="this.$store.state.isEditing">
+      *We recommend using Google Chrome browser because it’s the same browser used in the actual kiosk stands.
+    </p>
   </div>
 </template>
 
@@ -151,4 +154,13 @@ img.image-center {
   margin: auto;
 }
 
+/* additional */
+.footer-notes {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: right;
+  font-size: 12px;
+  color: grey;
+}
 </style>

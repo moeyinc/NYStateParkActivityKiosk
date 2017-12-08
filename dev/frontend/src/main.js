@@ -11,6 +11,7 @@ import 'vue-awesome/icons'
 import VueQuillEditor from 'vue-quill-editor'
 import mixin from '@/mixin'
 import VueSession from 'vue-session'
+import VueSimpleSVG from 'vue-simple-svg'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
@@ -19,6 +20,7 @@ Vue.component('icon', Icon)
 Vue.use(VueQuillEditor)
 Vue.mixin(mixin)
 Vue.use(VueSession)
+Vue.use(VueSimpleSVG)
 
 const store = new Vuex.Store(_store)
 

@@ -12,7 +12,12 @@
       @mouseleave="resetClick"
       @click="transitPage">
 
-      <img :src="getImgSrc" :style="getImgSize">
+      <simple-svg
+        :filepath="getImageStaticFilePath(activity.icon_uri)"
+        :color="getSVGColor"
+        :width="'auto'"
+        :height="getSVGImgSize"
+      />
       <div class="label" :style="getLabelHeight">
         <p
           :class="{ long: isLong }"
@@ -57,6 +62,9 @@ export default {
     },
     getColor () {
       return this.clicked ? {'color': this.getColorInString(this.activity.main_color)} : {'color': 'white'}
+    },
+    getSVGColor () {
+      return this.clicked ? this.getColorInString(this.activity.main_color) : 'white'
     },
     getShadow () {
       let theme = this.$store.state.generalSettings.design_theme
@@ -224,10 +232,7 @@ export default {
         }
       }
     },
-    getImgSrc () {
-      return this.clicked ? this.getImageStaticFilePath(this.activity.color_icon_uri) : this.getImageStaticFilePath(this.activity.white_icon_uri)
-    },
-    getImgSize () {
+    getSVGImgSize () {
       let total = this.$store.state.activities.length
       let theme = this.$store.state.generalSettings.design_theme
       let height
@@ -269,9 +274,7 @@ export default {
         }
       }
 
-      return {
-        height: height
-      }
+      return height
     },
     getLabelHeight () {
       let total = this.$store.state.activities.length

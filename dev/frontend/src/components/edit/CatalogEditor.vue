@@ -4,11 +4,13 @@
 <template>
   <div class="catalog-editor-wrapper">
     <div class="show-icon" v-show="!showThis">
+      <div class="show-icon-label">Show more</div>
       <div class="show-icon-wrapper" @click="showMore">
         <icon name="caret-down"></icon>
       </div>
     </div>
     <div class="show-icon" v-show="showThis">
+      <div class="show-icon-label">Show less</div>
       <div class="show-icon-wrapper" @click="showMore">
         <icon name="caret-up"></icon>
       </div>
@@ -229,6 +231,7 @@ input[type=file] {
   width: 100%;
   text-align: center;
   margin-top: 10px;
+  color: #cccccc;
 }
 .show-icon div.show-icon-wrapper {
   cursor: pointer;
@@ -236,6 +239,10 @@ input[type=file] {
 .show-icon div.show-icon-wrapper .fa-icon {
   width: auto;
   height: 1.5em;
+}
+.show-icon-label {
+  font-size: 12px;
+  color: #cccccc;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s
