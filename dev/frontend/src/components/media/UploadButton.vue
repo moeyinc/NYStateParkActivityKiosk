@@ -3,7 +3,24 @@
 ================================================== -->
 <template>
   <div class="upload-button-container">
-    <input class="upload-button" type="file" accept="image/*" name="image" id="image-upload-button" @change="uploadImage($event)"/>
+    <input
+      v-if="$store.state.tempDataForMediaGallery.param==='icon_uri'"
+      class="upload-button"
+      type="file"
+      accept=".svg" 
+      name="image"
+      id="image-upload-button"
+      @change="uploadImage($event)"
+      />
+    <input
+      v-else
+      class="upload-button"
+      type="file"
+      accept="image/*"
+      name="image"
+      id="image-upload-button"
+      @change="uploadImage($event)"
+      />
     <label for="image-upload-button">
       <icon name="upload"></icon><br />
       UPLOAD IMAGE

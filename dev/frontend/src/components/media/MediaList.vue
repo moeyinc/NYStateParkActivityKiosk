@@ -33,9 +33,6 @@ export default {
     'upload-button'   : UploadButton,
     'media-list-item' : MediaListItem
   },
-  created () {
-    console.log('tempDataForMediaGallery', this.$store.state.tempDataForMediaGallery.param)
-  },
   computed: {
     getMediaItems () {
       // if the media gallery is opend for SVG icon, select only .svg files

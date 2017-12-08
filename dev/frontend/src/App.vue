@@ -6,8 +6,11 @@
     <edit-header v-if="this.$store.state.isEditing"></edit-header>
     <edit-panel v-if="this.$store.state.isEditing"></edit-panel>
     <router-view name="page"></router-view>
+    <!-- <p class="header-notes" v-if="this.$store.state.isEditing">
+      You can read the latest CMS manual <a target="_blank" href="https://docs.google.com/a/moeyinc.com/document/d/15YidcvydYmLoCWhYqRWuTWUrMpHObR6wN4tfghMu57w/edit?usp=sharing">here</a>.
+    </p> -->
     <p class="footer-notes" v-if="this.$store.state.isEditing">
-      *We recommend using Google Chrome browser because it’s the same browser used in the actual kiosk stands.
+      Read the latest CMS manual <a target="_blank" href="https://docs.google.com/a/moeyinc.com/document/d/15YidcvydYmLoCWhYqRWuTWUrMpHObR6wN4tfghMu57w/edit?usp=sharing">HERE</a>.
     </p>
   </div>
 </template>
@@ -158,7 +161,17 @@ img.image-center {
 .footer-notes {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 10px;
+  right: 10px;
+  text-align: right;
+  font-size: 12px;
+  color: grey;
+}
+
+.header-notes {
+  position: absolute;
+  width: 100%;
+  top: 60px;
   text-align: right;
   font-size: 12px;
   color: grey;
