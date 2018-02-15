@@ -4,3 +4,5 @@ It also provides a CMS for clients to edit the content on their side via general
 
 Year: 2017  
 Client: NY state parks
+
+Read wiki for more information.
