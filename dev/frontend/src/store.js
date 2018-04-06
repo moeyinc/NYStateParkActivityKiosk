@@ -115,72 +115,6 @@ const mutations = {
     }
   },
   addActivity (state, data) {
-    // let newContent = [
-    //   {
-    //     _id: ObjectId(),
-    //     subnav_id: 1,
-    //     subnav_label: 'NEW TAB',
-    //     template_type: 'GENERAL INFO',
-    //     number_of_images: 2,
-    //     left_image_uri: '',
-    //     right_image_uri: '',
-    //     raw_html_text: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi. In porta dapibus felis, eu lobortis diam vehicula id. Suspendisse luctus faucibus sapien sed mollis. Suspendisse consectetur, urna quis convallis gravida, nisl ligula vehicula eros, quis imperdiet eros massa vel arcu. Sed aliquam, urna vitae pretium sollicitudin, arcu ligula elementum tortor, at gravida lectus ipsum quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse venenatis dui tempor imperdiet imperdiet. Ut eu tristique turpis. Etiam at turpis in ipsum tristique vulputate. Nunc porttitor purus vitae sem porttitor, id rhoncus massa auctor. Curabitur at augue hendrerit, mattis lacus sed, auctor tellus. Sed scelerisque, ipsum at dictum pharetra, mauris eros molestie tortor, in imperdiet nibh ex vitae sem.</p>'
-    //   }
-    // ]
-
-    // let newActivity = {
-    //   _id: ObjectId(),
-    //   activity_id: state.activities.length + 1,
-    //   main_color:  {
-    //     "hsl" : {
-    //       "h" : 0,
-    //       "s" : 0,
-    //       "l" : 80,
-    //       "a" : 1
-    //     },
-    //     "hex" : "#CCCCCC",
-    //     "rgba" : {
-    //       "r" : 204,
-    //       "g" : 204,
-    //       "b" : 204,
-    //       "a" : 1
-    //     },
-    //     "hsv" : {
-    //       "h" : 0,
-    //       "s" : 0,
-    //       "v" : 80,
-    //       "a" : 1
-    //     },
-    //     "a" : 1
-    //   },
-    //   sub_color:  {
-    //     "hsl" : {
-    //       "h" : 0,
-    //       "s" : 0,
-    //       "l" : 93.3,
-    //       "a" : 1
-    //     },
-    //     "hex" : "#EEEEEE",
-    //     "rgba" : {
-    //       "r" : 238,
-    //       "g" : 238,
-    //       "b" : 238,
-    //       "a" : 1
-    //     },
-    //     "hsv" : {
-    //       "h" : 0,
-    //       "s" : 0,
-    //       "v" : 93.3,
-    //       "a" : 1
-    //     },
-    //     "a" : 1
-    //   },
-    //   button_label: 'NEW ACTIVITY',
-    //   page_title:   'NEW ACTIVITY',
-    //   icon_uri: '',
-    //   contents: newContent
-    // }
-
     let newActivity = preset.createNewActivity({
       act_id: state.activities.length + 1
     })
@@ -188,68 +122,6 @@ const mutations = {
     state.activities.push(newActivity)
   },
   addContent (state, data) {
-    // data: {act_id, tab_id, templateType}
-
-    // let newContent
-    // if (data.templateType === 'GENERAL INFO') {
-    //   newContent = {
-    //     _id: new ObjectId(),
-    //     subnav_id: data.tab_id,
-    //     subnav_label: 'NEW TAB',
-    //     template_type: 'GENERAL INFO',
-    //     number_of_images: 2,
-    //     left_image_uri: '',
-    //     right_image_uri: '',
-    //     raw_html_text: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi. In porta dapibus felis, eu lobortis diam vehicula id. Suspendisse luctus faucibus sapien sed mollis. Suspendisse consectetur, urna quis convallis gravida, nisl ligula vehicula eros, quis imperdiet eros massa vel arcu. Sed aliquam, urna vitae pretium sollicitudin, arcu ligula elementum tortor, at gravida lectus ipsum quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse venenatis dui tempor imperdiet imperdiet. Ut eu tristique turpis. Etiam at turpis in ipsum tristique vulputate. Nunc porttitor purus vitae sem porttitor, id rhoncus massa auctor. Curabitur at augue hendrerit, mattis lacus sed, auctor tellus. Sed scelerisque, ipsum at dictum pharetra, mauris eros molestie tortor, in imperdiet nibh ex vitae sem.</p>'
-    //   }
-    // } else if (data.templateType === 'LOCATIONS') {
-    //   newContent = {
-    //     _id: new ObjectId(),
-    //     subnav_id: data.tab_id,
-    //     subnav_label: 'NEW TAB',
-    //     template_type: 'LOCATIONS',
-    //     sections: [{
-    //       section_id: 1,
-    //       section_title: 'NEW SECTION',
-    //       number_of_images: 3,
-    //       map_image_filename: '',
-    //       ref_1_image_filename: '',
-    //       ref_2_image_filename: '',
-    //       raw_html_text: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi. In porta dapibus felis, eu lobortis diam vehicula id. Suspendisse luctus faucibus sapien sed mollis. Suspendisse consectetur, urna quis convallis gravida, nisl ligula vehicula eros, quis imperdiet eros massa vel arcu. Sed aliquam, urna vitae pretium sollicitudin, arcu ligula elementum tortor, at gravida lectus ipsum quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse venenatis dui tempor imperdiet imperdiet. Ut eu tristique turpis. Etiam at turpis in ipsum tristique vulputate. Nunc porttitor purus vitae sem porttitor, id rhoncus massa auctor. Curabitur at augue hendrerit, mattis lacus sed, auctor tellus. Sed scelerisque, ipsum at dictum pharetra, mauris eros molestie tortor, in imperdiet nibh ex vitae sem.</p>'
-    //     }]
-    //   }
-    // } else if (data.templateType === 'CATALOG') {
-    //   newContent = {
-    //     _id: new ObjectId(),
-    //     subnav_id: data.tab_id,
-    //     subnav_label: 'NEW TAB',
-    //     template_type: 'CATALOG',
-    //     page_title: 'HEADER TITLE',
-    //     page_description: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi. In porta dapibus felis, eu lobortis diam vehicula id. Suspendisse luctus faucibus sapien sed mollis. Suspendisse consectetur, urna quis convallis gravida, nisl ligula vehicula eros, quis imperdiet eros massa vel arcu. Sed aliquam, urna vitae pretium sollicitudin, arcu ligula elementum tortor, at gravida lectus ipsum quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse venenatis dui tempor imperdiet imperdiet. Ut eu tristique turpis. Etiam at turpis in ipsum tristique vulputate. Nunc porttitor purus vitae sem porttitor, id rhoncus massa auctor. Curabitur at augue hendrerit, mattis lacus sed, auctor tellus. Sed scelerisque, ipsum at dictum pharetra, mauris eros molestie tortor, in imperdiet nibh ex vitae sem.</p>',
-    //     items: [{
-    //       item_id: 1,
-    //       item_image_filename: '',
-    //       item_image_caption: '',
-    //       item_title: 'NEW ITEM',
-    //       item_description: 'WRITE TEXT HERE'
-    //     }]
-    //   }
-    // } else if (data.templateType === 'GALLERY') {
-    //   newContent = {
-    //     _id: new ObjectId(),
-    //     subnav_id: data.tab_id,
-    //     subnav_label: 'NEW TAB',
-    //     template_type: 'GALLERY',
-    //     items: [{
-    //       item_id: 1,
-    //       item_image_filename: '',
-    //       item_caption: ''
-    //     }]
-    //   }
-    // }
-    //
-    // targetActivity.contents.push(newContent)
-
     // pick the activity object with the given id
     let targetActivity = getTargetActivity(state.activities, data.act_id)
 
@@ -268,19 +140,6 @@ const mutations = {
     // pick the content object with the given id
     let targetContent  = getTargetContent(targetActivity.contents, data.tab_id)
 
-    // let newSection
-    // if (data.templateType === 'LOCATIONS') {
-    //   newSection = {
-    //     section_id: data.sec_id,
-    //     section_title: 'NEW SECTION',
-    //     number_of_images: 3,
-    //     map_image_filename: '',
-    //     ref_1_image_filename: '',
-    //     ref_2_image_filename: '',
-    //     raw_html_text: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis aliquet sapien, vitae sollicitudin mi. In porta dapibus felis, eu lobortis diam vehicula id. Suspendisse luctus faucibus sapien sed mollis. Suspendisse consectetur, urna quis convallis gravida, nisl ligula vehicula eros, quis imperdiet eros massa vel arcu. Sed aliquam, urna vitae pretium sollicitudin, arcu ligula elementum tortor, at gravida lectus ipsum quis tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse venenatis dui tempor imperdiet imperdiet. Ut eu tristique turpis. Etiam at turpis in ipsum tristique vulputate. Nunc porttitor purus vitae sem porttitor, id rhoncus massa auctor. Curabitur at augue hendrerit, mattis lacus sed, auctor tellus. Sed scelerisque, ipsum at dictum pharetra, mauris eros molestie tortor, in imperdiet nibh ex vitae sem.</p>'
-    //   }
-    // }
-
     let newSection = preset.createNewSection({
       sec_id: data.sec_id,
       templateType: data.templateType
@@ -296,23 +155,6 @@ const mutations = {
 
     // pick the content object with the given id
     let targetContent  = getTargetContent(targetActivity.contents, data.tab_id)
-
-    // let newItem
-    // if (data.templateType === 'CATALOG') {
-    //   newItem = {
-    //     item_id: data.itm_id,
-    //     item_image_filename: '',
-    //     item_image_caption: '',
-    //     item_title: 'NEW ITEM',
-    //     item_description: 'WRITE TEXT HERE'
-    //   }
-    // } else if (data.templateType === 'GALLERY') {
-    //   newItem = {
-    //     item_id: data.itm_id,
-    //     item_image_filename: '',
-    //     item_caption: ''
-    //   }
-    // }
 
     let newItem = preset.createNewItem({
       itm_id: data.itm_id,

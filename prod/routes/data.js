@@ -104,12 +104,18 @@ router.post('/general-settings', function(req, res, next) {
   );
 });
 
-// API to post general settings ------------------------
+// API to post activities ------------------------
 router.post('/activities', function(req, res, next) {
   var promises = []
   for (var i = 0; i < req.body.activities.length; i++) {
     promises.push(new Promise(function(resolve, reject) {
         updateActivity(resolve, req.body.activities[i])
+      })
+    );
+  }
+  for (var i = 0; i < req.body.activitiesToRemove.length; i++) {
+    promises.push(new Promise(function(resolve, reject) {
+        removeActivity(resolve, req.body.activitiesToRemove[i])
       })
     );
   }
@@ -144,13 +150,26 @@ router.post('/activities', function(req, res, next) {
           page_title:     activity.page_title,
           white_icon_uri: activity.white_icon_uri,
           color_icon_uri: activity.color_icon_uri,
+          icon_uri: activity.icon_uri,
           contents:       activity.contents
         }
       },
       {upsert: true},
       function (err, result) {
         if (err) throw err;
-        console.log(new ObjectId())
+        console.log('updated a document with id: ', activity._id)
+        resolve() // resolve a promise
+      }
+    );
+  }
+
+  function removeActivity (resolve, activity) {
+    // update data in db
+    db.collection('activities').remove(
+      {_id: new ObjectId(activity._id)},
+      function (err, result) {
+        if (err) throw err;
+        console.log('removed a document with id: ', activity._id)
         resolve() // resolve a promise
       }
     );
