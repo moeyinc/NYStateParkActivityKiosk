@@ -44,7 +44,7 @@
         <tr v-show="errors.has('page-title-' + activity.activity_id)" class="error-message">
           <td></td><td>{{ errors.first('page-title-' + activity.activity_id)}}</td>
         </tr>
-        <tr class="activity-main-color">
+        <tr class="activity-main-color" v-show="$store.state.moey">
           <td>
             <p>
               Main Color:
@@ -57,7 +57,7 @@
             </div>
           </td>
         </tr>
-        <tr class="activity-sub-color" v-if="$store.state.generalSettings.design_theme==='basic'">
+        <tr class="activity-sub-color" v-if="$store.state.generalSettings.design_theme==='basic'" v-show="$store.state.moey">
           <td>
             <p>
               Sub Color:
@@ -70,7 +70,7 @@
             </div>
           </td>
         </tr>
-        <tr class="activity-icon">
+        <tr class="activity-icon" v-show="$store.state.moey">
           <td>
             <p>
               Icon (.svg):
@@ -154,34 +154,6 @@ export default {
         this.$store.commit('updateActivityParam', data)
       }
     },
-    // activityMainColor: {
-    //   get () {
-    //     return this.activity.main_color
-    //   },
-    //   set (value) {
-    //     let data = {
-    //       target: 'activity',
-    //       act_id: this.activity.activity_id,
-    //       param: 'main_color',
-    //       newVal: value
-    //     }
-    //     this.$store.commit('updateActivityParam', data)
-    //   }
-    // },
-    // activitySubColor: {
-    //   get () {
-    //     return this.activity.sub_color
-    //   },
-    //   set (value) {
-    //     let data = {
-    //       target: 'activity',
-    //       act_id: this.activity.activity_id,
-    //       param: 'sub_color',
-    //       newVal: value
-    //     }
-    //     this.$store.commit('updateActivityParam', data)
-    //   }
-    // },
     getMainColorPickerPos () {
       const el = document.getElementById('main-color-picker-origin')
       const rect = this.getBoundingClientRect(el)

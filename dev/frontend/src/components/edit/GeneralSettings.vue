@@ -2,13 +2,13 @@
  Vue Template
 ================================================== -->
 <template>
-  <section class="general-settings-wrapper">
+  <section class="general-settings-wrapper" v-show="$store.state.moey">
     <h2>
       General Settings:
     </h2>
     <div class="table-wrapper">
       <table>
-        <!-- <tr class="design-theme">
+        <tr class="design-theme">
           <td>
             <p>
               Design Theme:
@@ -21,7 +21,7 @@
               <option value="image">Background Image</option>
             </select>
           </td>
-        </tr> -->
+        </tr>
         <tr class="page-title">
           <td>
             <p>
@@ -57,7 +57,7 @@
         <tr v-show="errors.has('kiosk-title')" class="error-message">
           <td></td><td>{{ errors.first('kiosk-title')}}</td>
         </tr>
-        <!-- <tr class="background-color" v-if="$store.state.generalSettings.design_theme==='basic'">
+        <tr class="background-color" v-if="$store.state.generalSettings.design_theme==='basic'">
           <td>
             <p>
               BG Color:
@@ -69,7 +69,7 @@
               <icon name="eyedropper"></icon>
             </div>
           </td>
-        </tr> -->
+        </tr>
         <tr class="background-image-home" v-if="$store.state.generalSettings.design_theme==='image'">
           <td>
             <p>
@@ -92,7 +92,7 @@
             {{ this.$store.state.generalSettings.bg_image_detail_uri }}
           </td>
         </tr>
-        <!-- <tr class="text-color">
+        <tr class="text-color">
           <td>
             <p>
               Text Color:
@@ -104,8 +104,8 @@
               <icon name="eyedropper"></icon>
             </div>
           </td>
-        </tr> -->
-        <!-- <tr class="state-park-logo">
+        </tr>
+        <tr class="state-park-logo">
           <td>
             <p>
               State Park Logo:
@@ -120,7 +120,7 @@
             <button type="button" @click="showMediaGalleryWindow('park_logo_uri')">Choose from gallery</button>
             {{ this.$store.state.generalSettings.park_logo_uri }}
           </td>
-        </tr> -->
+        </tr>
         <tr class="time-out">
           <td>
             <p>

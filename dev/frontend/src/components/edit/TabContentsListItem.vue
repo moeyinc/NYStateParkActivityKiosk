@@ -21,7 +21,7 @@
               <div class="order-icon-wrapper" @click="changeOrder(1)">
                 <icon name="arrow-circle-down"></icon>
               </div>
-              <div class="icon-wrapper-right" @click="showRemoveTabModal">
+              <div class="icon-wrapper-right" @click="showRemoveTabModal" v-show="$store.state.moey">
                 <icon name="trash"></icon>
               </div>
             </td>

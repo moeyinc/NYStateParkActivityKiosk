@@ -19,7 +19,7 @@
           {{ errors.first('password')}}
         </div>
         <div class="button-wrapper">
-          <button type="submit" class="button-label" @click.prevent.self="login()">SUBMIT</button>
+          <button type="submit" class="button-label" @click.prevent.self="login(false)">SUBMIT</button>
         </div>
       </form>
       <div v-show="submitErrorMessage" class="submit-error-message">
@@ -28,6 +28,8 @@
       <div class="forget">
         Forgot the password? <br />Please contact Moey inc.
       </div>
+    </div>
+    <div class="moey-login" @click.prevent.self="login(true)">
     </div>
   </div>
 </template>
@@ -45,13 +47,11 @@ export default {
     }
   },
   methods: {
-    login () {
-      // this.$store.dispatch('generateSessionid')
-
+    login (moey) {
       let password = document.getElementById('password').value
       console.log('login', password)
 
-      this.$store.dispatch('login', password)
+      this.$store.dispatch('login', {password: password, moey: moey})
       .then(() => {
         console.log('login successful! moving to edit page...')
         this.$router.push({path: '/edit'})
@@ -153,4 +153,8 @@ button {
   color: grey;
 }
 
+.moey-login {
+  width: 10px;
+  height: 10px;
+}
 </style>

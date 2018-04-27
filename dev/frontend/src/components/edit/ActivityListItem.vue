@@ -21,7 +21,7 @@
             <div class="icon-wrapper" @click="changeOrder(1)">
               <icon name="arrow-circle-down"></icon>
             </div>
-            <div class="icon-wrapper-right" @click="showRemoveActivityModal">
+            <div class="icon-wrapper-right" @click="showRemoveActivityModal" v-show="$store.state.moey">
               <icon name="trash"></icon>
             </div>
           </td>
@@ -44,25 +44,10 @@
         <tr v-show="errors.has('button-label-' + activity.activity_id)" class="error-message">
           <td></td><td>{{ errors.first('button-label-' + activity.activity_id)}}</td>
         </tr>
-        <!-- <tr class="activity-page-title">
-          <td>
-            <p>
-              Page Title:
-            </p>
-          </td>
-          <td>
-            <input
-              v-model="activityPageTitle"
-              type="text"
-              :name="'page-title-' + activity.activity_id"
-              v-validate="{ rules: { required: true, max: 30 }}"
-              size="25"/>
-          </td>
-        </tr> -->
         <tr v-show="errors.has('page-title-' + activity.activity_id)" class="error-message">
           <td></td><td>{{ errors.first('page-title-' + activity.activity_id)}}</td>
         </tr>
-        <tr class="activity-main-color">
+        <tr class="activity-main-color" v-show="$store.state.moey">
           <td>
             <p>
               Main Color:
@@ -75,20 +60,7 @@
             </div>
           </td>
         </tr>
-        <!-- <tr class="activity-sub-color" v-if="$store.state.generalSettings.design_theme==='basic'">
-          <td>
-            <p>
-              Sub Color:
-            </p>
-          </td>
-          <td>
-            <span class="color-rect" :style="{'background-color': getColorInString(activity.sub_color)}"></span>
-            <div class="icon-wrapper" @click="showSubColorPicker" :id="'sub-color-picker-origin-' + activity.activity_id">
-              <icon name="eyedropper"></icon>
-            </div>
-          </td>
-        </tr> -->
-        <tr class="activity-icon">
+        <tr class="activity-icon" v-show="$store.state.moey">
           <td>
             <p>
               Icon (.svg):

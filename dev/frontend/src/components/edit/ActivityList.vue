@@ -3,7 +3,7 @@
 ================================================== -->
 <template>
   <section class="activity-list-wrapper">
-    <h2>
+    <h2 v-show="$store.state.moey">
       Activities:
     </h2>
     <div class="activity-list-container">
@@ -15,7 +15,7 @@
           @change-order="changeOrder">
         </activity-list-item>
       </transition-group>
-      <div class="add-activity" @click="addActivity" v-if="withinLimitNum">
+      <div class="add-activity" @click="addActivity" v-if="withinLimitNum" v-show="$store.state.moey">
         <p>
           ADD A NEW ACTIVITY
         </p>

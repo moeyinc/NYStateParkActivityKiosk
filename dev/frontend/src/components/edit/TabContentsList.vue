@@ -14,7 +14,7 @@
         :key="content._id">
       </tab-contents-list-item>
     </transition-group>
-    <div class="add-content" v-if="checkTabNum">
+    <div class="add-content" v-if="checkTabNum" v-show="$store.state.moey">
       <p>
         ADD A NEW TAB
       </p>

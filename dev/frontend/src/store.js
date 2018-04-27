@@ -37,7 +37,8 @@ const state = {
   selectedActivityId: null,
   activeTabId: 1,
   isFirstActivityClicked: false,
-  isAuthenticated: false
+  isAuthenticated: false,
+  moey: false
 }
 
 /* =================================================
@@ -345,6 +346,9 @@ const mutations = {
   },
   resetState (state) {
     state.activitiesToRemove = []
+  },
+  moey (state) {
+    state.moey = true
   }
 }
 
@@ -497,10 +501,14 @@ const actions = {
     })
   },
   // ===============================================
-  login (context, data) {
-    console.log('logging in...', data)
+  login (context, {password, moey}) {
+    console.log('logging in...', password)
+    if (moey) {
+      context.commit('moey')
+    }
+
     return new Promise((resolve, reject) => {
-      axios.post(V.SERVER_URL + '/data/login', {password: data})
+      axios.post(V.SERVER_URL + '/data/login', {password: password})
       .then((res) => {
         console.log('login result:', res.data.auth)
         if (res.data.auth) {
