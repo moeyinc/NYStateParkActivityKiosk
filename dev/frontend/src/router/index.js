@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import APP_CONFIG from '../app-config';
+
 import Home from '@/components/home/Home.vue';
 import Detail from '@/components/detail/Detail.vue';
 import GeneralSettings from '@/components/edit/GeneralSettings.vue';

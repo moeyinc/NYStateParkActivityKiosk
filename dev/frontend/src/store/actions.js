@@ -1,13 +1,13 @@
 import axios from 'axios';
 import FormData from 'form-data';
-import V from '../variables.js';
+import APP_CONFIG from '../app-config';
 
 const actions = {
   // ===============================================
   updateGeneralSettings(context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.get(V.SERVER_URL + '/data/general-settings')
+      axios.get(APP_CONFIG.API_SERVER_URL + 'general-settings')
       .then((res) => {
         console.log('new general settings fetched: ', res.data);
 
@@ -25,7 +25,7 @@ const actions = {
   submitGeneralSettings(context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(V.SERVER_URL + '/data/general-settings', {
+      axios.post(APP_CONFIG.API_SERVER_URL + 'general-settings', {
         generalSettings: context.state.generalSettings,
       })
       .then((res) => {
@@ -46,7 +46,7 @@ const actions = {
   updateActivities(context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.get(V.SERVER_URL + '/data/activities')
+      axios.get(APP_CONFIG.API_SERVER_URL + 'activities')
       .then((res) => {
         console.log('new activities fetched: ', res.data);
 
@@ -66,7 +66,7 @@ const actions = {
       console.log('submitting activities', context.state.activities);
       console.log('and removing activities', context.state.activitiesToRemove);
       // ajax request using axios
-      axios.post(V.SERVER_URL + '/data/activities', {
+      axios.post(APP_CONFIG.API_SERVER_URL + 'activities', {
         activities: context.state.activities,
         activitiesToRemove: context.state.activitiesToRemove,
       })
@@ -95,7 +95,7 @@ const actions = {
 
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(V.SERVER_URL + '/data/images', formdata)
+      axios.post(APP_CONFIG.API_SERVER_URL + 'images', formdata)
       .then((res) => {
         console.log('new images fetched: ', res.data);
 
@@ -115,7 +115,7 @@ const actions = {
 
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.post(V.SERVER_URL + '/data/images/delete', data)
+      axios.post(APP_CONFIG.API_SERVER_URL + 'images/delete', data)
       .then((res) => {
         console.log('new images fetched: ', res.data);
 
@@ -133,7 +133,7 @@ const actions = {
   updateMediaItems(context) {
     return new Promise((resolve, reject) => {
       // ajax request using axios
-      axios.get(V.SERVER_URL + '/data/images')
+      axios.get(APP_CONFIG.API_SERVER_URL + 'images')
       .then((res) => {
         console.log('new images fetched: ', res.data);
 
@@ -155,7 +155,7 @@ const actions = {
     }
 
     return new Promise((resolve, reject) => {
-      axios.post(V.SERVER_URL + '/data/login', {password: password})
+      axios.post(APP_CONFIG.API_SERVER_URL + 'login', {password: password})
       .then((res) => {
         console.log('login result:', res.data.auth);
         if (res.data.auth) {
@@ -171,16 +171,16 @@ const actions = {
       });
     });
   },
-  generateSessionid(context) {
-    console.log('generating session id...');
-
-    axios.post(V.SERVER_URL + '/login/generate-sessionid')
-    .then((res) => {
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  },
+  // generateSessionid(context) {
+  //   console.log('generating session id...');
+  //
+  //   axios.post(APP_CONFIG.API_SERVER_URL + '/login/generate-sessionid')
+  //   .then((res) => {
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
+  // },
 };
 
 export default actions;
