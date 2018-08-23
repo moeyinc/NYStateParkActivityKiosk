@@ -10,7 +10,7 @@ import Media from '@/components/media/Media.vue';
 import Login from '@/components/Login.vue';
 import NotFound from '@/components/NotFound.vue';
 
-import store from '../store.js';
+import store from '../store/store.js';
 
 Vue.use(Router);
 

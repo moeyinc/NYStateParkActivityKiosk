@@ -1,0 +1,36 @@
+const state = {
+  size: {
+    zoom: 1.0,
+    monitor: {w: 1920, h: 1080},
+    window: {w: 1920, h: 1080},
+    page: {w: 1920, h: 1080},
+    editHeader: {w: 1920, h: 60},
+    editPanel: {w: 640, h: 960},
+    previewPanel: {w: 1280, h: 720},
+  },
+  modals: {
+    submitChanges: false,
+    removeActivity: false,
+    removeTab: false,
+    removeSection: false,
+    removeItem: false,
+    deleteMediaItem: false,
+    mediaGallery: false,
+  },
+  isEditing: false,
+  isEditPanelEnabled: true,
+  tempDataForRemoving: null,
+  tempDataForMediaGallery: null,
+  mediaItems: null,
+  selectedMediaItem: null,
+  generalSettings: null,
+  activities: null,
+  activitiesToRemove: [],
+  selectedActivityId: null,
+  activeTabId: 1,
+  isFirstActivityClicked: false,
+  isAuthenticated: false,
+  moey: false,
+};
+
+export default state;

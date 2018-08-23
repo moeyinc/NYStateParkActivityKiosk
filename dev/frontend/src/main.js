@@ -4,7 +4,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import Vuex from 'vuex';
-import _store from './store';
+import _store from './store/store';
 import VeeValidate from 'vee-validate';
 import Icon from 'vue-awesome/components/Icon';
 import 'vue-awesome/icons';

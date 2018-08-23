@@ -19,7 +19,6 @@
 <script>
 import EditHeader from '@/components/edit/EditHeader.vue';
 import EditPanel from '@/components/edit/EditPanel.vue';
-require('@/assets/css/normalize.css');
 require('@/assets/css/ripple.css');
 const manualUrl = 'https://docs.google.com/a/moeyinc.com/document' +
   '/d/15YidcvydYmLoCWhYqRWuTWUrMpHObR6wN4tfghMu57w/edit?usp=sharing';
@@ -112,75 +111,9 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style>
-/*-------- for touch screens --------*/
-html {
-  /*cursor: none;*/
-  user-select: none;
-}
-
-a {
-  /*cursor: none;*/
-}
-
-/*-------- fonts --------*/
-@font-face {
-  font-family: "Avenir-Medium";
-  src: url("./assets/fonts/Avenir-Medium.ttf");
-}
-
-@font-face {
-  font-family: "Avenir-Heavy";
-  src: url("./assets/fonts/Avenir-Heavy.ttf");
-}
-
-@font-face {
-  font-family: "Agenda-Bold";
-  src: url("./assets/fonts/AgendaBold.ttf");
-}
-
-@font-face {
-  font-family: "Futura-Bold";
-  src: url("./assets/fonts/FuturaBold.otf");
-}
-
-/*-------- common styles --------*/
-
-body {
-  letter-spacing: 2px;
-  font-family: "Avenir-Medium";
-}
-
-.image-frame {
-  border: 2px;
-  border-style: solid;
-  border-color: #0a3c5b;
-  overflow: hidden;
-}
-
-img.image-center {
-  width: 100%;
-  display: block;
-  margin: auto;
-}
-
-/* additional */
-.footer-notes {
-  position: absolute;
-  width: 100%;
-  bottom: 10px;
-  right: 10px;
-  text-align: right;
-  font-size: 12px;
-  color: grey;
-}
-
-.header-notes {
-  position: absolute;
-  width: 100%;
-  top: 60px;
-  text-align: right;
-  font-size: 12px;
-  color: grey;
-}
+<style lang='stylus'>
+@import '../node_modules/reset-css/reset.css'
+@import '/stylus/reset-additional'
+@import '/stylus/fonts'
+@import '/stylus/global-styles'
 </style>

@@ -26,6 +26,11 @@ module.exports = {
     }
   },
   module: {
+    loaders: [{
+      test: /\.styl$/,
+      loader: 'style-loader!css-loader!stylus-loader' +
+        '?paths=node_modules/bootstrap-stylus/stylus/',
+    }],
     rules: [
       {
         test: /\.(js|vue)$/,

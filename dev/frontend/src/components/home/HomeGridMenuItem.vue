@@ -14,7 +14,7 @@
 
       <simple-svg
         :filepath="getImageStaticFilePath(activity.icon_uri)"
-        :color="getSVGColor"
+        :fill="getSVGColor"
         :width="'auto'"
         :height="getSVGImgSize"
       />
@@ -79,11 +79,11 @@ export default {
           return {
             'top': '5px',
             'left': '5px',
-            'box-shadow': '5px 5px 5px 0px rgba(0, 0, 0, 0.2)',
+            'box-shadow': '0px 0px 5px 0px rgba(0, 0, 0, 0.2)',
           };
         } else {
           return {
-            'box-shadow': '0px 0px 5px 0px rgba(0, 0, 0, 0.2)',
+            'box-shadow': '5px 5px 5px 0px rgba(0, 0, 0, 0.2)',
           };
         }
       } else if (theme === 'image') {
