@@ -14,8 +14,8 @@
 ================================================== -->
 <script>
 export default {
-  name: 'hidden-scroll-buttons'
-}
+  name: 'hidden-scroll-buttons',
+};
 </script>
 
 

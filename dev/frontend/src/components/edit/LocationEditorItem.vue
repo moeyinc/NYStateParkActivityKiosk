@@ -56,7 +56,11 @@
         </p>
       </td>
       <td class="choose-file">
-        <button type="button" @click="showMediaGalleryWindow('map_image_filename')">Choose from gallery</button>
+        <button
+          type="button"
+          @click="showMediaGalleryWindow('map_image_filename')">
+          Choose from gallery
+        </button>
         {{ section.map_image_filename }}
       </td>
     </tr>
@@ -67,7 +71,11 @@
         </p>
       </td>
       <td class="choose-file">
-        <button type="button" @click="showMediaGalleryWindow('ref_1_image_filename')">Choose from gallery</button>
+        <button
+          type="button"
+          @click="showMediaGalleryWindow('ref_1_image_filename')">
+          Choose from gallery
+        </button>
         {{ section.ref_1_image_filename }}
       </td>
     </tr>
@@ -78,7 +86,11 @@
         </p>
       </td>
       <td class="choose-file">
-        <button type="button" @click="showMediaGalleryWindow('ref_2_image_filename')">Choose from gallery</button>
+        <button
+          type="button"
+          @click="showMediaGalleryWindow('ref_2_image_filename')">
+          Choose from gallery
+        </button>
         {{ section.ref_2_image_filename }}
       </td>
     </tr>
@@ -108,7 +120,7 @@
 <script>
 export default {
   name: 'locations-editor-item',
-  data () {
+  data() {
     return {
       editorOption: {
         theme: 'snow',
@@ -117,113 +129,113 @@ export default {
             ['bold', 'italic', 'underline', 'strike'],
             [{'list': 'ordered'}, {'list': 'bullet'}],
             [{'size': ['small', false, 'large', 'huge']}],
-            [{'color': []}, {'background': []}]
-          ]
-        }
-      }
-    }
+            [{'color': []}, {'background': []}],
+          ],
+        },
+      },
+    };
   },
   props: {
     section: {
-      type: Object
+      type: Object,
     },
     content: {
-      type: Object
+      type: Object,
     },
     activity: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     sectionTitle: {
-      get () {
-        return this.section.section_title
+      get() {
+        return this.section.section_title;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'section',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           sec_id: this.section.section_id,
           param: 'section_title',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
     sectionText: {
-      get () {
-        return this.section.raw_html_text
+      get() {
+        return this.section.raw_html_text;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'section',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           sec_id: this.section.section_id,
           param: 'raw_html_text',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
     numberOfImages: {
-      get () {
-        return this.section.number_of_images
+      get() {
+        return this.section.number_of_images;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'section',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           sec_id: this.section.section_id,
           param: 'number_of_images',
-          newVal: parseInt(value)
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: parseInt(value),
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
-    getTableStyle () {
+    getTableStyle() {
       if (this.section.section_id !== 1) {
         return {
           'padding-top': '20px',
           'border-top-width': '1px',
           'border-top-style': 'solid',
-          'order-top-color': 'lightgrey'
-        }
+          'order-top-color': 'lightgrey',
+        };
       }
-    }
+    },
   },
   methods: {
-    showMediaGalleryWindow (param) {
+    showMediaGalleryWindow(param) {
       let data = {
         target: 'section',
         act_id: this.activity.activity_id,
         tab_id: this.content.subnav_id,
         sec_id: this.section.section_id,
         param: param,
-        newVal: null
-      }
+        newVal: null,
+      };
 
       // temporarily keep the data object for media gallery
-      this.$store.commit('updateTempDataForMediaGallery', data)
+      this.$store.commit('updateTempDataForMediaGallery', data);
 
       // open the media gallery window
-      this.$store.commit('updateModals', {key: 'mediaGallery', value: true})
+      this.$store.commit('updateModals', {key: 'mediaGallery', value: true});
     },
-    showRemoveSectionModal () {
+    showRemoveSectionModal() {
       // open the remove tab modal window
-      this.$store.commit('updateModals', {key: 'removeSection', value: true})
+      this.$store.commit('updateModals', {key: 'removeSection', value: true});
 
       // store temp data to remove the tab
-      let tempData = {}
-      tempData.act_id = this.activity.activity_id
-      tempData.tab_id = this.content.subnav_id
-      tempData.sec_id = this.section.section_id
-      this.$store.commit('updateTempDataForRemoving', tempData)
-    }
-  }
-}
+      let tempData = {};
+      tempData.act_id = this.activity.activity_id;
+      tempData.tab_id = this.content.subnav_id;
+      tempData.sec_id = this.section.section_id;
+      this.$store.commit('updateTempDataForRemoving', tempData);
+    },
+  },
+};
 </script>
 
 
@@ -265,7 +277,7 @@ input[type=file] {
 }
 
 ::-webkit-input-placeholder {
-	color: lightgrey;
+  color: lightgrey;
 }
 
 .error-message {

@@ -18,8 +18,10 @@ root (this)
 <template>
   <div id="home-wrapper" @click="displayRipple($event)" :style="getStyle">
 
-    <home-header v-if="$store.state.generalSettings && $store.state.activities"></home-header>
-    <home-grid-menu v-if="$store.state.generalSettings && $store.state.activities"></home-grid-menu>
+    <home-header
+      v-if="$store.state.generalSettings && $store.state.activities"/>
+    <home-grid-menu
+      v-if="$store.state.generalSettings && $store.state.activities"/>
 
   </div>
 </template>
@@ -29,74 +31,77 @@ root (this)
  Vue Script
 ================================================== -->
 <script>
-import HomeHeader   from './HomeHeader.vue'
-import HomeGridMenu from './HomeGridMenu.vue'
+import HomeHeader from './HomeHeader.vue';
+import HomeGridMenu from './HomeGridMenu.vue';
 
 export default {
   name: 'home',
   components: {
-    'home-header'   : HomeHeader,
-    'home-grid-menu': HomeGridMenu
+    'home-header': HomeHeader,
+    'home-grid-menu': HomeGridMenu,
   },
-  created () {
+  created() {
     // load general settings and activity list data from database
-    this.$store.dispatch('updateGeneralSettings')
+    this.$store.dispatch('updateGeneralSettings');
 
-    this.$store.dispatch('updateActivities')
+    this.$store.dispatch('updateActivities');
   },
-  mounted () {
+  mounted() {
     // resize this component
-    this.resizeWrapper(this.$store.state.size)
+    this.resizeWrapper(this.$store.state.size);
 
     // watch resizing action
-    this.$store.watch(this.$store.getters.getSize, size => {
-      console.log('resizing home wrapper')
-      this.resizeWrapper(size)
-    })
+    this.$store.watch(this.$store.getters.getSize, (size) => {
+      console.log('resizing home wrapper');
+      this.resizeWrapper(size);
+    });
   },
   computed: {
-    getStyle () {
+    getStyle() {
       if (this.$store.state.generalSettings) {
-        let theme = this.$store.state.generalSettings.design_theme
+        let theme = this.$store.state.generalSettings.design_theme;
         if (theme === 'basic') {
           return {
-            'background-color': this.getColorInString(this.$store.state.generalSettings.background_color),
-            'color':            this.getColorInString(this.$store.state.generalSettings.text_color)
-          }
+            'background-color': this.getColorInString(
+              this.$store.state.generalSettings.background_color),
+            'color': this.getColorInString(
+              this.$store.state.generalSettings.text_color),
+          };
         } else if (theme === 'image') {
           return {
-            'background-image': 'url(' + this.getImageStaticFilePath(this.$store.state.generalSettings.bg_image_home_uri) + ')',
+            'background-image': 'url(' + this.getImageStaticFilePath(
+              this.$store.state.generalSettings.bg_image_home_uri) + ')',
             'background-repeat': 'no-repeat',
             'background-size': '1920px 1080px',
-            'color':            'white'
-          }
+            'color': 'white',
+          };
         }
       }
-    }
+    },
   },
   methods: {
-    resizeWrapper (size) {
-      const el = document.getElementById('home-wrapper')
-      let zoom, translate
+    resizeWrapper(size) {
+      const el = document.getElementById('home-wrapper');
+      let zoom; let translate;
 
       if (this.$store.state.isEditing) {
         // if this is a component embedded into Edit
-        zoom = size.previewPanel.w / size.monitor.w
-        el.style.left = size.editPanel.w + 'px'
-        el.style.top = '47%'
+        zoom = size.previewPanel.w / size.monitor.w;
+        el.style.left = size.editPanel.w + 'px';
+        el.style.top = '47%';
 
-        translate = ' translateY(-50%)'
+        translate = ' translateY(-50%)';
       } else {
         // if this is a standalone component
-        zoom = size.zoom
-        translate = ''
+        zoom = size.zoom;
+        translate = '';
       }
 
-      el.style.transformOrigin = '0 0'
-      el.style.transform       = 'scale(' + zoom + ')' + translate
-    }
-  }
-}
+      el.style.transformOrigin = '0 0';
+      el.style.transform = 'scale(' + zoom + ')' + translate;
+    },
+  },
+};
 </script>
 
 

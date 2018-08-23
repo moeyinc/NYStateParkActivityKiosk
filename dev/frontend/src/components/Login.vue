@@ -19,7 +19,12 @@
           {{ errors.first('password')}}
         </div>
         <div class="button-wrapper">
-          <button type="submit" class="button-label" @click.prevent.self="login(false)">SUBMIT</button>
+          <button
+            type="submit"
+            class="button-label"
+            @click.prevent.self="login(false)">
+            SUBMIT
+          </button>
         </div>
       </form>
       <div v-show="submitErrorMessage" class="submit-error-message">
@@ -41,31 +46,33 @@
 <script>
 export default {
   name: 'login',
-  data () {
+  data() {
     return {
-      submitErrorMessage: ''
-    }
+      submitErrorMessage: '',
+    };
   },
   methods: {
-    login (moey) {
-      let password = document.getElementById('password').value
-      console.log('login', password)
+    login(moey) {
+      let password = document.getElementById('password').value;
+      console.log('login', password);
 
       this.$store.dispatch('login', {password: password, moey: moey})
       .then(() => {
-        console.log('login successful! moving to edit page...')
-        this.$router.push({path: '/edit'})
+        console.log('login successful! moving to edit page...');
+        this.$router.push({path: '/edit'});
       })
       .catch((res) => {
         if (res.error) {
-          this.submitErrorMessage = 'Server error. Please ensure your internet connection is good.' + res.error
+          this.submitErrorMessage =
+          'Server error. Please ensure your internet connection is good.' +
+          res.error;
         } else {
-          this.submitErrorMessage = 'Login failed.'
+          this.submitErrorMessage = 'Login failed.';
         }
-      })
-    }
-  }
-}
+      });
+    },
+  },
+};
 </script>
 
 <!-- =================================================

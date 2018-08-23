@@ -9,7 +9,8 @@
       album="albumCatalog">
       <div
         class="catalog-item-image image-frame"
-        :style="setBGImage(getImageStaticFilePath(catalogItem.item_image_filename))">
+        :style="setBGImage(getImageStaticFilePath(
+          catalogItem.item_image_filename))">
       </div>
     </lightbox>
     <div class="catalog-item-text">
@@ -23,19 +24,19 @@
  Vue Script
 ================================================== -->
 <script>
-import VueLightbox from 'vue-lightbox'
+import VueLightbox from 'vue-lightbox';
 
 export default {
   name: 'catalog-article-item',
   components: {
-    'lightbox': VueLightbox
+    'lightbox': VueLightbox,
   },
   props: {
     catalogItem: {
-      type: Object
-    }
-  }
-}
+      type: Object,
+    },
+  },
+};
 </script>
 
 

@@ -19,28 +19,29 @@ export default {
   name: 'media-list-item',
   props: {
     item: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
-    isSelected () {
+    isSelected() {
       if (!this.$store.state.selectedMediaItem) {
-        return false
+        return false;
       } else {
-        if (this.item.filename === this.$store.state.selectedMediaItem.filename) {
-          console.log('selected item: ', this.item)
-          return true
+        if (this.item.filename ===
+          this.$store.state.selectedMediaItem.filename) {
+          console.log('selected item: ', this.item);
+          return true;
         }
       }
-      return false
-    }
+      return false;
+    },
   },
   methods: {
-    selectItem () {
-      this.$store.commit('updateSelectedMediaItem', this.item)
-    }
-  }
-}
+    selectItem() {
+      this.$store.commit('updateSelectedMediaItem', this.item);
+    },
+  },
+};
 </script>
 
 

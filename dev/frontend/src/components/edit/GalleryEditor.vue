@@ -42,53 +42,53 @@
  Vue Script
 ================================================== -->
 <script>
-import GalleryEditorItem from './GalleryEditorItem'
-import ConfirmModal        from '@/components/ConfirmModal.vue'
+import GalleryEditorItem from './GalleryEditorItem';
+import ConfirmModal from '@/components/ConfirmModal.vue';
 
 export default {
   name: 'gallery-editor',
   components: {
     'gallery-editor-item': GalleryEditorItem,
-    'confirm-modal': ConfirmModal
+    'confirm-modal': ConfirmModal,
   },
-  data () {
+  data() {
     return {
-      showThis: false
-    }
+      showThis: false,
+    };
   },
   props: {
     content: {
-      type: Object
+      type: Object,
     },
     activity: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
-    showMore () {
-      this.showThis = !this.showThis
+    showMore() {
+      this.showThis = !this.showThis;
     },
-    addItem () {
-      let data = {}
-      data.act_id = this.activity.activity_id
-      data.tab_id = this.content.subnav_id
-      data.itm_id = this.content.items.length + 1
-      data.templateType = this.content.template_type
+    addItem() {
+      let data = {};
+      data.act_id = this.activity.activity_id;
+      data.tab_id = this.content.subnav_id;
+      data.itm_id = this.content.items.length + 1;
+      data.templateType = this.content.template_type;
 
-      this.$store.commit('addItem', data)
+      this.$store.commit('addItem', data);
     },
-    closeRemoveItemModal () {
+    closeRemoveItemModal() {
       // close the remove item modal window
-      this.$store.commit('updateModals', {key: 'removeItem', value: false})
+      this.$store.commit('updateModals', {key: 'removeItem', value: false});
     },
-    removeItem () {
-      this.$store.commit('removeItem')
+    removeItem() {
+      this.$store.commit('removeItem');
 
       // close the remove item modal window
-      this.$store.commit('updateModals', {key: 'removeItem', value: false})
-    }
-  }
-}
+      this.$store.commit('updateModals', {key: 'removeItem', value: false});
+    },
+  },
+};
 </script>
 
 
@@ -124,7 +124,7 @@ input[type=file] {
 }
 
 ::-webkit-input-placeholder {
-	color: lightgrey;
+  color: lightgrey;
 }
 
 .error-message {
@@ -168,7 +168,7 @@ input[type=file] {
 .change-order-enter-active, .change-order-leave-active {
   transition: all 1s;
 }
-.change-order-enter, .change-order-leave-to /* .list-leave-active below version 2.1.8 */ {
+.change-order-enter, .change-order-leave-to {
   opacity: 0;
   /*transform: translateY(30px);*/
 }

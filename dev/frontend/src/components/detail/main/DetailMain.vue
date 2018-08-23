@@ -6,7 +6,10 @@
     <div
       class="content-foundation"
       :style="[getBorderRadius, getFoundationHeight]">
-        <vue-scrollbar ref="Scrollbar" class="content-wrapper" :style="getWrapperHeight">
+        <vue-scrollbar
+          ref="Scrollbar"
+          class="content-wrapper"
+          :style="getWrapperHeight">
           <main role="main">
             <general-info-article
               v-if="isActiveContentTemplate('GENERAL INFO')"
@@ -31,7 +34,8 @@
     </div>
     <div
       class="topleft-edge-curve"
-      :style="{'background-color': getColorInString($store.getters.getSelectedActivity.sub_color)}">
+      :style="{'background-color': getColorInString(
+        $store.getters.getSelectedActivity.sub_color)}">
     </div>
   </div>
 </template>
@@ -41,87 +45,88 @@
  Vue Script
 ================================================== -->
 <script>
-import GeneralInfoArticle from './GeneralInfoArticle.vue'
-import LocationsArticle   from './LocationsArticle.vue'
-import CatalogArticle     from './CatalogArticle.vue'
-import GalleryArticle     from './GalleryArticle.vue'
-import VueScrollbar       from './scrollbar/vue-scrollbar.vue'
-require('@/assets/css/vue2-scrollbar.css')
+import GeneralInfoArticle from './GeneralInfoArticle.vue';
+import LocationsArticle from './LocationsArticle.vue';
+import CatalogArticle from './CatalogArticle.vue';
+import GalleryArticle from './GalleryArticle.vue';
+import VueScrollbar from './scrollbar/vue-scrollbar.vue';
+require('@/assets/css/vue2-scrollbar.css');
 
 export default {
   name: 'detail-main',
   components: {
     'general-info-article': GeneralInfoArticle,
-    'location-article'    : LocationsArticle,
-    'catalog-article'     : CatalogArticle,
-    'gallery-article'     : GalleryArticle,
-    VueScrollbar
+    'location-article': LocationsArticle,
+    'catalog-article': CatalogArticle,
+    'gallery-article': GalleryArticle,
+    VueScrollbar,
   },
-  data () {
+  data() {
     return {
-      position: {scrollTop: 0, scrollLeft: 0}
-    }
+      position: {scrollTop: 0, scrollLeft: 0},
+    };
   },
   computed: {
-    getBorderRadius () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getBorderRadius() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         if (this.$store.state.activeTabId === 1) {
           return {
-            'border-radius': '0px 20px 20px 20px'
-          }
+            'border-radius': '0px 20px 20px 20px',
+          };
         } else {
           return {
-            'border-radius': '20px 20px 20px 20px'
-          }
+            'border-radius': '20px 20px 20px 20px',
+          };
         }
       } else if (theme === 'image') {
-        return
+        return {};
       }
+      return {};
     },
-    getFoundationHeight () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getFoundationHeight() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
-          height: '752px'
-        }
+          height: '752px',
+        };
       } else if (theme === 'image') {
         return {
-          height: '822px'
-        }
+          height: '822px',
+        };
       }
     },
-    getWrapperHeight () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getWrapperHeight() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
-          height: '712px'
-        }
+          height: '712px',
+        };
       } else if (theme === 'image') {
         return {
-          height: '782px'
-        }
+          height: '782px',
+        };
       }
-    }
+    },
   },
   methods: {
-    isActiveContentTemplate (_type) {
+    isActiveContentTemplate(_type) {
       if (this.$store.getters.getActiveTabContent.template_type === _type) {
-        return true
+        return true;
       }
-      return false
+      return false;
     },
-    resetScrollbarPos () {
-      console.log('reset scrollbar position')
-      this.$refs.Scrollbar.scrollToY(0)
-      this.$refs.Scrollbar.calculateSize()
-    }
+    resetScrollbarPos() {
+      console.log('reset scrollbar position');
+      this.$refs.Scrollbar.scrollToY(0);
+      this.$refs.Scrollbar.calculateSize();
+    },
   },
-  updated () {
-    this.$refs.Scrollbar.scrollToY(0)
-    this.resetScrollbarPos()
-  }
-}
+  updated() {
+    this.$refs.Scrollbar.scrollToY(0);
+    this.resetScrollbarPos();
+  },
+};
 </script>
 
 

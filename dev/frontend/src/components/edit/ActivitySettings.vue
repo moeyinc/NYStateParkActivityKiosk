@@ -23,8 +23,11 @@
               size="25"/>
           </td>
         </tr>
-        <tr v-show="errors.has('button-label-' + activity.activity_id)" class="error-message">
-          <td></td><td>{{ errors.first('button-label-' + activity.activity_id)}}</td>
+        <tr
+          v-show="errors.has('button-label-' + activity.activity_id)"
+          class="error-message">
+          <td></td>
+          <td>{{ errors.first('button-label-' + activity.activity_id)}}</td>
         </tr>
         <tr class="activity-page-title">
           <td>
@@ -41,8 +44,11 @@
               size="25"/>
           </td>
         </tr>
-        <tr v-show="errors.has('page-title-' + activity.activity_id)" class="error-message">
-          <td></td><td>{{ errors.first('page-title-' + activity.activity_id)}}</td>
+        <tr
+          v-show="errors.has('page-title-' + activity.activity_id)"
+          class="error-message">
+          <td></td>
+          <td>{{ errors.first('page-title-' + activity.activity_id)}}</td>
         </tr>
         <tr class="activity-main-color" v-show="$store.state.moey">
           <td>
@@ -51,21 +57,38 @@
             </p>
           </td>
           <td>
-            <span class="color-rect" :style="{'background-color': getColorInString(activity.main_color)}"></span>
-            <div class="icon-wrapper" @click="showMainColorPicker" id="main-color-picker-origin">
+            <span
+              class="color-rect"
+              :style="{
+                'background-color': getColorInString(activity.main_color)}">
+              </span>
+            <div
+              class="icon-wrapper"
+              @click="showMainColorPicker"
+              id="main-color-picker-origin">
               <icon name="eyedropper"></icon>
             </div>
           </td>
         </tr>
-        <tr class="activity-sub-color" v-if="$store.state.generalSettings.design_theme==='basic'" v-show="$store.state.moey">
+        <tr
+          class="activity-sub-color"
+          v-if="$store.state.generalSettings.design_theme==='basic'"
+          v-show="$store.state.moey">
           <td>
             <p>
               Sub Color:
             </p>
           </td>
           <td>
-            <span class="color-rect" :style="{'background-color': getColorInString(activity.sub_color)}"></span>
-            <div class="icon-wrapper" @click="showSubColorPicker" id="sub-color-picker-origin">
+            <span
+              class="color-rect"
+              :style="{
+                'background-color': getColorInString(activity.sub_color)}">
+              </span>
+            <div
+              class="icon-wrapper"
+              @click="showSubColorPicker"
+              id="sub-color-picker-origin">
               <icon name="eyedropper"></icon>
             </div>
           </td>
@@ -77,7 +100,11 @@
             </p>
           </td>
           <td class="icon-uri">
-            <button type="button" @click="showMediaGalleryWindow('icon_uri')">Choose from gallery</button>
+            <button
+              type="button"
+              @click="showMediaGalleryWindow('icon_uri')">
+              Choose from gallery
+            </button>
             {{ activity.icon_uri }}
           </td>
         </tr>
@@ -86,7 +113,22 @@
     <color-picker
       :color-object="activity.main_color"
       :modal-position="getMainColorPickerPos"
-      :palette="['#B74F59', '#AB5360', '#90586E', '#6C5E80', '#40638F', '#35738C', '#2D8287', '#1E9580', '#08A775', '#74AA61', '#A2AA50', '#C7A83E', '#EEA424', '#CE7024', '#AF4324']"
+      :palette="[
+        '#B74F59',
+        '#AB5360',
+        '#90586E',
+        '#6C5E80',
+        '#40638F',
+        '#35738C',
+        '#2D8287',
+        '#1E9580',
+        '#08A775',
+        '#74AA61',
+        '#A2AA50',
+        '#C7A83E',
+        '#EEA424',
+        '#CE7024',
+        '#AF4324']"
       :theme="$store.state.generalSettings.design_theme"
       @update-color="updateMainColor"
       @close-modal="closeMainColorPicker"
@@ -95,7 +137,22 @@
     <color-picker
       :color-object="activity.sub_color"
       :modal-position="getSubColorPickerPos"
-      :palette="['#C3878C', '#BB8A90', '#AB8C99', '#968FA4', '#7E92AE', '#7B9CAD', '#79A6AA', '#76B3A6', '#70BEA0', '#A6C295', '#BFC38C', '#D4C282', '#EBC074', '#D39D6E', '#BD7E6A']"
+      :palette="[
+        '#C3878C',
+        '#BB8A90',
+        '#AB8C99',
+        '#968FA4',
+        '#7E92AE',
+        '#7B9CAD',
+        '#79A6AA',
+        '#76B3A6',
+        '#70BEA0',
+        '#A6C295',
+        '#BFC38C',
+        '#D4C282',
+        '#EBC074',
+        '#D39D6E',
+        '#BD7E6A']"
       :theme="$store.state.generalSettings.design_theme"
       @update-color="updateSubColor"
       @close-modal="closeSubColorPicker"
@@ -109,111 +166,111 @@
  Vue Script
 ================================================== -->
 <script>
-import ColorPicker from '@/components/ColorPicker.vue'
+import ColorPicker from '@/components/ColorPicker.vue';
 
 export default {
   name: 'activity-settings',
   components: {
-    'color-picker': ColorPicker
+    'color-picker': ColorPicker,
   },
-  data () {
+  data() {
     return {
       isMainColorPickerVisible: false,
-      isSubColorPickerVisible: false
-    }
+      isSubColorPickerVisible: false,
+    };
   },
   computed: {
-    activity () {
-      return this.$store.getters.getSelectedActivity
+    activity() {
+      return this.$store.getters.getSelectedActivity;
     },
     activityButtonLabel: {
-      get () {
-        return this.activity.button_label
+      get() {
+        return this.activity.button_label;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'activity',
           act_id: this.activity.activity_id,
           param: 'button_label',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
     activityPageTitle: {
-      get () {
-        return this.activity.page_title
+      get() {
+        return this.activity.page_title;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'activity',
           act_id: this.activity.activity_id,
           param: 'page_title',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
-    getMainColorPickerPos () {
-      const el = document.getElementById('main-color-picker-origin')
-      const rect = this.getBoundingClientRect(el)
+    getMainColorPickerPos() {
+      const el = document.getElementById('main-color-picker-origin');
+      const rect = this.getBoundingClientRect(el);
       // const rect = el.getBoundingClientRect()
-      return rect
+      return rect;
     },
-    getSubColorPickerPos () {
-      const el = document.getElementById('sub-color-picker-origin')
-      const rect = this.getBoundingClientRect(el)
+    getSubColorPickerPos() {
+      const el = document.getElementById('sub-color-picker-origin');
+      const rect = this.getBoundingClientRect(el);
       // const rect = el.getBoundingClientRect()
-      return rect
-    }
+      return rect;
+    },
   },
   methods: {
-    showMediaGalleryWindow (param) {
+    showMediaGalleryWindow(param) {
       let data = {
         target: 'activity',
         act_id: this.activity.activity_id,
         param: param,
-        newVal: null
-      }
+        newVal: null,
+      };
 
       // temporarily keep the data object for media gallery
-      this.$store.commit('updateTempDataForMediaGallery', data)
+      this.$store.commit('updateTempDataForMediaGallery', data);
 
       // open the media gallery window
-      this.$store.commit('updateModals', {key: 'mediaGallery', value: true})
+      this.$store.commit('updateModals', {key: 'mediaGallery', value: true});
     },
-    showMainColorPicker () {
-      this.isMainColorPickerVisible = true
+    showMainColorPicker() {
+      this.isMainColorPickerVisible = true;
     },
-    showSubColorPicker () {
-      this.isSubColorPickerVisible = true
+    showSubColorPicker() {
+      this.isSubColorPickerVisible = true;
     },
-    closeMainColorPicker () {
-      this.isMainColorPickerVisible = false
+    closeMainColorPicker() {
+      this.isMainColorPickerVisible = false;
     },
-    closeSubColorPicker () {
-      this.isSubColorPickerVisible = false
+    closeSubColorPicker() {
+      this.isSubColorPickerVisible = false;
     },
-    updateMainColor (value) {
+    updateMainColor(value) {
       let data = {
         target: 'activity',
         act_id: this.activity.activity_id,
         param: 'main_color',
-        newVal: value
-      }
-      this.$store.commit('updateActivityParam', data)
+        newVal: value,
+      };
+      this.$store.commit('updateActivityParam', data);
     },
-    updateSubColor (value) {
+    updateSubColor(value) {
       let data = {
         target: 'activity',
         act_id: this.activity.activity_id,
         param: 'sub_color',
-        newVal: value
-      }
-      this.$store.commit('updateActivityParam', data)
-    }
-  }
-}
+        newVal: value,
+      };
+      this.$store.commit('updateActivityParam', data);
+    },
+  },
+};
 </script>
 
 
@@ -260,7 +317,7 @@ input[type=file] {
 }
 
 ::-webkit-input-placeholder {
-	color: lightgrey;
+  color: lightgrey;
 }
 
 .error-message {

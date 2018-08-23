@@ -20,33 +20,33 @@
  Vue Script
 ================================================== -->
 <script>
-import Media from './Media.vue'
+import Media from './Media.vue';
 
 export default {
   name: 'media-gallery-window',
   components: {
-    'media': Media
+    'media': Media,
   },
-  mounted () {
+  mounted() {
     // resize this component
-    this.resizeWrapper(this.$store.state.size)
+    this.resizeWrapper(this.$store.state.size);
 
     // watch resizing action
-    this.$store.watch(this.$store.getters.getSize, size => {
-      console.log('resizing media gallery window wrapper')
-      this.resizeWrapper(size)
-    })
+    this.$store.watch(this.$store.getters.getSize, (size) => {
+      console.log('resizing media gallery window wrapper');
+      this.resizeWrapper(size);
+    });
   },
   methods: {
-    closeModal () {
-      this.$store.commit('updateModals', {key: 'mediaGallery', value: false})
+    closeModal() {
+      this.$store.commit('updateModals', {key: 'mediaGallery', value: false});
     },
-    resizeWrapper (size) {
-      const el = document.getElementById('media-gallery-window-container')
-      el.style.height = size.window.h * 0.8 + 'px'
-    }
-  }
-}
+    resizeWrapper(size) {
+      const el = document.getElementById('media-gallery-window-container');
+      el.style.height = size.window.h * 0.8 + 'px';
+    },
+  },
+};
 </script>
 
 

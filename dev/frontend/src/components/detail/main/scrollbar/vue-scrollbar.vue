@@ -9,12 +9,14 @@ https://www.npmjs.com/package/vue2-scrollbar
 <template>
   <div
     @click="calculateSize"
-    :class="'vue-scrollbar__wrapper' + ( this.classes ? ' ' + this.classes : '' )"
+    :class="'vue-scrollbar__wrapper' +
+      ( this.classes ? ' ' + this.classes : '' )"
     ref="scrollWrapper"
     :style="this.styles">
 
     <div
-      :class="'vue-scrollbar__area' + ( this.dragging ? ' ' : ' vue-scrollbar-transition')"
+      :class="'vue-scrollbar__area' + ( this.dragging ?
+        ' ' : ' vue-scrollbar-transition')"
       ref="scrollArea"
       @wheel="scroll"
       @touchstart="startDrag"
@@ -54,8 +56,8 @@ https://www.npmjs.com/package/vue2-scrollbar
  Vue Script
 ================================================== -->
 <script>
-import VerticalScrollbar from './vertical-scrollbar.vue'
-import HorizontalScrollbar from './horizontal-scrollbar.vue'
+import VerticalScrollbar from './vertical-scrollbar.vue';
+import HorizontalScrollbar from './horizontal-scrollbar.vue';
 
 export default {
   props: {
@@ -63,15 +65,15 @@ export default {
     styles: Object,
     speed: {
       type: Number,
-      default: 53
-    }
+      default: 53,
+    },
   },
   components: {
     VerticalScrollbar,
-    HorizontalScrollbar
+    HorizontalScrollbar,
   },
-  data () {
-    return  {
+  data() {
+    return {
       ready: false,
       top: 0,
       left: 0,
@@ -82,174 +84,176 @@ export default {
       vMovement: 0,
       hMovement: 0,
       dragging: false,
-      start: { y: 0, x: 0 }
-    }
+      start: {y: 0, x: 0},
+    };
   },
   computed: {
-    getPosition () {
-      let marginTop, marginLeft
+    getPosition() {
+      let marginTop; let marginLeft;
       if (this.scrollAreaHeight < this.scrollWrapperHeight) {
         // Seiya's fix
-        marginTop = 0
+        marginTop = 0;
       } else {
-        marginTop = this.top * -1 + 'px'
+        marginTop = this.top * -1 + 'px';
       }
-      marginLeft = this.left * -1 + 'px'
+      marginLeft = this.left * -1 + 'px';
 
       return {
         marginTop: marginTop,
-        marginLeft: marginLeft
-      }
-    }
+        marginLeft: marginLeft,
+      };
+    },
   },
   methods: {
 
-    scroll (e) {
-      e.preventDefault()
+    scroll(e) {
+      e.preventDefault();
 
       // Make sure the content height is not changed
       this.calculateSize(() => {
         // Set the wheel step
-        let num = this.speed
+        let num = this.speed;
 
         // DOM events
-        let shifted = e.shiftKey
-        let scrollY = e.deltaY > 0 ? num : -(num)
-        let scrollX = e.deltaX > 0 ? num : -(num)
+        let shifted = e.shiftKey;
+        let scrollY = e.deltaY > 0 ? num : -(num);
+        let scrollX = e.deltaX > 0 ? num : -(num);
 
         // Fix Mozilla Shifted Wheel~
-        if (shifted && e.deltaX === 0) scrollX = e.deltaY > 0 ? num : -(num)
+        if (shifted && e.deltaX === 0) scrollX = e.deltaY > 0 ? num : -(num);
 
         // Next Value
-        let nextY = this.top + scrollY
-        let nextX = this.left + scrollX
+        let nextY = this.top + scrollY;
+        let nextX = this.left + scrollX;
 
         // Is it Scrollable?
-        let canScrollY = this.scrollAreaHeight > this.scrollWrapperHeight
-        let canScrollX = this.scrollAreaWidth > this.scrollWrapperWidth
+        let canScrollY = this.scrollAreaHeight > this.scrollWrapperHeight;
+        let canScrollX = this.scrollAreaWidth > this.scrollWrapperWidth;
 
         // Vertical Scrolling
-        if (canScrollY && !shifted) this.normalizeVertical(nextY)
+        if (canScrollY && !shifted) this.normalizeVertical(nextY);
 
         // Horizontal Scrolling
-        if (shifted && canScrollX) this.normalizeHorizontal(nextX)
-      })
+        if (shifted && canScrollX) this.normalizeHorizontal(nextX);
+      });
     },
 
     // DRAG EVENT JUST FOR TOUCH DEVICE~
-    startDrag (e) {
-      e.preventDefault()
-      e.stopPropagation()
+    startDrag(e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-      e = e.changedTouches ? e.changedTouches[0] : e
+      e = e.changedTouches ? e.changedTouches[0] : e;
 
       // Make sure the content height is not changed
       this.calculateSize(() => {
         // Prepare to drag
-        this.dragging = true
-        this.start = { y: e.pageY, x: e.pageX }
-      })
+        this.dragging = true;
+        this.start = {y: e.pageY, x: e.pageX};
+      });
     },
 
-    onDrag (e) {
+    onDrag(e) {
       if (this.dragging) {
-        e.preventDefault()
-        e = e.changedTouches ? e.changedTouches[0] : e
+        e.preventDefault();
+        e = e.changedTouches ? e.changedTouches[0] : e;
 
         // Invers the Movement
-        let yMovement = this.start.y - e.clientY
-        let xMovement = this.start.x - e.clientX
+        let yMovement = this.start.y - e.clientY;
+        let xMovement = this.start.x - e.clientX;
 
         // Update the last e.client
-        this.start = { y: e.clientY, x: e.clientX }
+        this.start = {y: e.clientY, x: e.clientX};
 
         // The next Vertical Value will be
-        let nextY = this.top + yMovement
-        let nextX = this.left + xMovement
+        let nextY = this.top + yMovement;
+        let nextX = this.left + xMovement;
 
-        this.normalizeVertical(nextY)
-        this.normalizeHorizontal(nextX)
+        this.normalizeVertical(nextY);
+        this.normalizeHorizontal(nextX);
       }
     },
 
-    stopDrag (e) {
-      this.dragging = false
+    stopDrag(e) {
+      this.dragging = false;
     },
 
-    scrollToY (y) {
-      this.normalizeVertical(y)
+    scrollToY(y) {
+      this.normalizeVertical(y);
     },
 
-    scrollToX (x) {
-      this.normalizeVertical(x)
+    scrollToX(x) {
+      this.normalizeVertical(x);
     },
 
-    normalizeVertical (next) {
-      let elementSize = this.getSize()
+    normalizeVertical(next) {
+      let elementSize = this.getSize();
       // console.log('elementSize: ' + elementSize)
 
       // Vertical Scrolling
-      let lowerEnd = elementSize.scrollAreaHeight - elementSize.scrollWrapperHeight
-      // console.log('elementSize.scrollAreaHeight: ' + elementSize.scrollAreaHeight)
-      // console.log('elementSize.scrollWrapperHeight: ' + elementSize.scrollWrapperHeight)
-      // console.log('lowerEnd: ' + lowerEnd)
+      let lowerEnd =
+        elementSize.scrollAreaHeight - elementSize.scrollWrapperHeight;
 
       if (next > lowerEnd) {
         // Max Scroll Down
-        next = lowerEnd
+        next = lowerEnd;
         // console.log('lowerEnd: ' + lowerEnd)
       } else if (next < 0) {
         // Max Scroll Up
-        next = 0
+        next = 0;
         // console.log('next: ' + next)
       }
 
       // Update the Vertical Value
-      this.top = next
-      this.vMovement = next / elementSize.scrollAreaHeight * 100
+      this.top = next;
+      this.vMovement = next / elementSize.scrollAreaHeight * 100;
       // console.log('top: ' + this.top)
       // console.log('vMovement: ' + this.vMovement)
     },
 
-    normalizeHorizontal (next) {
-      let elementSize = this.getSize()
+    normalizeHorizontal(next) {
+      let elementSize = this.getSize();
 
       // Horizontal Scrolling
-      let rightEnd = elementSize.scrollAreaWidth - this.scrollWrapperWidth
+      let rightEnd = elementSize.scrollAreaWidth - this.scrollWrapperWidth;
 
       // Max Scroll Right
-      if (next > rightEnd) next = rightEnd
+      if (next > rightEnd) next = rightEnd;
 
       // Max Scroll Right
-      else if (next < 0) next = 0
+      else if (next < 0) next = 0;
 
       // Update the Horizontal Value
-      this.left = next
-      this.hMovement = next / elementSize.scrollAreaWidth * 100
+      this.left = next;
+      this.hMovement = next / elementSize.scrollAreaWidth * 100;
     },
 
-    handleChangePosition (movement, orientation) {
+    handleChangePosition(movement, orientation) {
       // Make sure the content height is not changed
       this.calculateSize(() => {
         // Convert Percentage to Pixel
-        let next = movement / 100
-        if (orientation === 'vertical') this.normalizeVertical(next * this.scrollAreaHeight)
-        if (orientation === 'horizontal') this.normalizeHorizontal(next * this.scrollAreaWidth)
-      })
+        let next = movement / 100;
+        if (orientation === 'vertical') {
+          this.normalizeVertical(next * this.scrollAreaHeight);
+        }
+        if (orientation === 'horizontal') {
+          this.normalizeHorizontal(next * this.scrollAreaWidth);
+        }
+      });
     },
 
-    handleScrollbarDragging () {
-      this.dragging = true
+    handleScrollbarDragging() {
+      this.dragging = true;
     },
 
-    handleScrollbarStopDrag () {
-      this.dragging = false
+    handleScrollbarStopDrag() {
+      this.dragging = false;
     },
 
-    getSize () {
+    getSize() {
       // The Elements
-      let $scrollArea = this.$refs.scrollArea
-      let $scrollWrapper = this.$refs.scrollWrapper
+      let $scrollArea = this.$refs.scrollArea;
+      let $scrollWrapper = this.$refs.scrollWrapper;
 
       // Get new Elements Size
       let elementSize = {
@@ -259,47 +263,47 @@ export default {
 
         // Scroll Wrapper Height and Width
         scrollWrapperHeight: $scrollWrapper.clientHeight,
-        scrollWrapperWidth: $scrollWrapper.clientWidth
-      }
-      return elementSize
+        scrollWrapperWidth: $scrollWrapper.clientWidth,
+      };
+      return elementSize;
     },
 
-    calculateSize (cb) {
-      if (typeof cb !== 'function') cb = null
+    calculateSize(cb) {
+      if (typeof cb !== 'function') cb = null;
 
-      let elementSize = this.getSize()
+      let elementSize = this.getSize();
 
       if (elementSize.scrollWrapperHeight !== this.scrollWrapperHeight ||
           elementSize.scrollWrapperWidth !== this.scrollWrapperWidth ||
           elementSize.scrollAreaHeight !== this.scrollAreaHeight ||
           elementSize.scrollAreaWidth !== this.scrollAreaWidth) {
         // Scroll Area Height and Width
-        this.scrollAreaHeight = elementSize.scrollAreaHeight
-        this.scrollAreaWidth = elementSize.scrollAreaWidth
+        this.scrollAreaHeight = elementSize.scrollAreaHeight;
+        this.scrollAreaWidth = elementSize.scrollAreaWidth;
 
         // Scroll Wrapper Height and Width
-        this.scrollWrapperHeight = elementSize.scrollWrapperHeight
-        this.scrollWrapperWidth = elementSize.scrollWrapperWidth
+        this.scrollWrapperHeight = elementSize.scrollWrapperHeight;
+        this.scrollWrapperWidth = elementSize.scrollWrapperWidth;
 
         // Make sure The wrapper is Ready, then render the scrollbar
-        this.ready = true
+        this.ready = true;
 
-        return cb ? cb() : false
-      } else return cb ? cb() : false
-    }
+        return cb ? cb() : false;
+      } else return cb ? cb() : false;
+    },
   },
 
-  mounted () {
-    this.calculateSize()
+  mounted() {
+    this.calculateSize();
 
     // Attach The Event for Responsive View~
-    window.addEventListener('resize', this.calculateSize)
+    window.addEventListener('resize', this.calculateSize);
   },
 
-  beforeDestroy () {
+  beforeDestroy() {
     // Remove Event
-    window.removeEventListener('resize', this.calculateSize)
-  }
+    window.removeEventListener('resize', this.calculateSize);
+  },
 
-}
+};
 </script>

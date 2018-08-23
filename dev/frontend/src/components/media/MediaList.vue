@@ -24,45 +24,46 @@
  Vue Script
 ================================================== -->
 <script>
-import UploadButton  from './UploadButton.vue'
-import MediaListItem from './MediaListItem.vue'
+import UploadButton from './UploadButton.vue';
+import MediaListItem from './MediaListItem.vue';
 
 export default {
   name: 'media-list',
   components: {
-    'upload-button'   : UploadButton,
-    'media-list-item' : MediaListItem
+    'upload-button': UploadButton,
+    'media-list-item': MediaListItem,
   },
   computed: {
-    getMediaItems () {
+    getMediaItems() {
       // if the media gallery is opend for SVG icon, select only .svg files
-      // else if the media gallery is opened for other images, select only non-svg files
-      let param = this.$store.state.tempDataForMediaGallery.param
-      const mediaItems = this.$store.state.mediaItems
-      let newItems = []
+      // else if the media gallery is opened for other images,
+      // select only non-svg files
+      let param = this.$store.state.tempDataForMediaGallery.param;
+      const mediaItems = this.$store.state.mediaItems;
+      let newItems = [];
       if (param === 'icon_uri') {
         for (let i = 0; i < mediaItems.length; i++) {
-          const filename = mediaItems[i].filename
-          let ext = filename.substring(filename.length - 3)
+          const filename = mediaItems[i].filename;
+          let ext = filename.substring(filename.length - 3);
           if (ext === 'svg') {
-            newItems.push(mediaItems[i])
+            newItems.push(mediaItems[i]);
           }
         }
       } else {
         for (let i = 0; i < mediaItems.length; i++) {
-          const filename = mediaItems[i].filename
-          let ext = filename.substring(filename.length - 3)
+          const filename = mediaItems[i].filename;
+          let ext = filename.substring(filename.length - 3);
           if (ext !== 'svg') {
-            newItems.push(mediaItems[i])
+            newItems.push(mediaItems[i]);
           }
         }
       }
 
-      let sortedItems = this.sortMediaItems(newItems)
-      return sortedItems
-    }
-  }
-}
+      let sortedItems = this.sortMediaItems(newItems);
+      return sortedItems;
+    },
+  },
+};
 </script>
 
 

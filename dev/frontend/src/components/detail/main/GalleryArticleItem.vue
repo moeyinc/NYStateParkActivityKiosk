@@ -19,19 +19,19 @@
  Vue Script
 ================================================== -->
 <script>
-import VueLightbox from 'vue-lightbox'
+import VueLightbox from 'vue-lightbox';
 
 export default {
   name: 'gallery-article-item',
   components: {
-    'lightbox': VueLightbox
+    'lightbox': VueLightbox,
   },
   props: {
     galleryItem: {
-      type: Object
-    }
-  }
-}
+      type: Object,
+    },
+  },
+};
 </script>
 
 

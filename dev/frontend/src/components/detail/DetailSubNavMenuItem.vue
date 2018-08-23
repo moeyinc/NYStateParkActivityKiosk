@@ -7,7 +7,10 @@
       :id="'submenu-item-' + content.subnav_id"
       class="tab-item"
       :class="{ 'active': isActiveTab }"
-      :style="isActiveTab ? {'color': getColorInString($store.state.generalSettings.text_color)} : {'background-color': getColorInString($store.getters.getSelectedActivity.sub_color)}"
+      :style="isActiveTab ?
+        {'color': getColorInString($store.state.generalSettings.text_color)} :
+        {'background-color': getColorInString(
+          $store.getters.getSelectedActivity.sub_color)}"
       @click="switchTab">
       <div class="label-wrapper">
         <span>{{ content.subnav_label }}</span>
@@ -21,8 +24,12 @@
       class="right-spacer"
       :class="{ 'edge-needed': isActiveTab || isLeftOfSelectedTab }">
       <div
-        :style="{'background-color': getColorInString($store.getters.getSelectedActivity.main_color)}"
-        :class="[{ 'right-edge': isActiveTab }, { 'left-edge': isLeftOfSelectedTab }]">
+        :style="{'background-color': getColorInString(
+          $store.getters.getSelectedActivity.main_color)}"
+        :class="[
+          { 'right-edge': isActiveTab },
+          { 'left-edge': isLeftOfSelectedTab },
+          ]">
       </div>
     </div>
   </li>
@@ -37,44 +44,55 @@ export default {
   name: 'detail-sub-nav-menu-item',
   props: {
     content: {
-      type: Object // ex) {"activity_id" : 1, "subnav_id" : 1, "subnav_label" : "GENERAL INFO", "template_type" : "top", "articles": [{"article_id": 1,"left_image_uri" : "","right_image_uri" : "","raw_html_text" : "</p>......</p>"}]}
+      type: Object,
+      // ex)
+      // {"activity_id" : 1,
+      // "subnav_id" : 1,
+      // "subnav_label" :
+      // "GENERAL INFO",
+      // "template_type" : "top",
+      // "articles": [
+      // {"article_id": 1,
+      // "left_image_uri" : "",
+      // "right_image_uri" : "",
+      // "raw_html_text" : "</p>......</p>"}]}
     },
     relativePositionToActiveTab: {
-      type: String // 'left' or 'selected' or 'right' or 'else'
-    }
+      type: String, // 'left' or 'selected' or 'right' or 'else'
+    },
   },
   computed: {
     // check if this tab is the first one at left
-    isFirstItem () {
+    isFirstItem() {
       if (this.content.subnav_id === 1) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     },
     // check if this tab is the selected tab
-    isActiveTab () {
+    isActiveTab() {
       if (this.relativePositionToActiveTab === 'selected') {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     },
     // check if this tab is at the left of the selected tab
-    isLeftOfSelectedTab () {
+    isLeftOfSelectedTab() {
       if (this.relativePositionToActiveTab === 'left') {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
+    },
   },
   methods: {
-    switchTab () {
-      this.$emit('switch-tab', this.content.subnav_id)
-    }
-  }
-}
+    switchTab() {
+      this.$emit('switch-tab', this.content.subnav_id);
+    },
+  },
+};
 </script>
 
 
@@ -83,9 +101,9 @@ export default {
 ================================================== -->
 <style scoped>
 div.tab-item, div.right-spacer {
-	float: left;
+  float: left;
   position: relative;
-	display: block;
+  display: block;
   color: white;
 }
 

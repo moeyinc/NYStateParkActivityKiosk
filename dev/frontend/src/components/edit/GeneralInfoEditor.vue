@@ -39,7 +39,11 @@
           </p>
         </td>
         <td class="choose-file">
-          <button type="button" @click="showMediaGalleryWindow('left_image_uri')">Choose from gallery</button>
+          <button
+            type="button"
+            @click="showMediaGalleryWindow('left_image_uri')">
+            Choose from gallery
+          </button>
           {{ content.left_image_uri }}
         </td>
       </tr>
@@ -50,7 +54,11 @@
           </p>
         </td>
         <td class="choose-file">
-          <button type="button" @click="showMediaGalleryWindow('right_image_uri')">Choose from gallery</button>
+          <button
+            type="button"
+            @click="showMediaGalleryWindow('right_image_uri')">
+            Choose from gallery
+          </button>
           {{ content.right_image_uri }}
         </td>
       </tr>
@@ -87,7 +95,7 @@
 
 export default {
   name: 'general-info-editor',
-  data () {
+  data() {
     return {
       showThis: false,
       editorOption: {
@@ -97,73 +105,73 @@ export default {
             ['bold', 'italic', 'underline', 'strike'],
             [{'list': 'ordered'}, {'list': 'bullet'}],
             [{'size': ['small', false, 'large', 'huge']}],
-            [{'color': []}, {'background': []}]
-          ]
-        }
-      }
-    }
+            [{'color': []}, {'background': []}],
+          ],
+        },
+      },
+    };
   },
   props: {
     content: {
-      type: Object
+      type: Object,
     },
     activity: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     contentText: {
-      get () {
-        return this.content.raw_html_text
+      get() {
+        return this.content.raw_html_text;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'content',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           param: 'raw_html_text',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
     numberOfImages: {
-      get () {
-        return this.content.number_of_images
+      get() {
+        return this.content.number_of_images;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'content',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           param: 'number_of_images',
-          newVal: parseInt(value)
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
-    }
+          newVal: parseInt(value),
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
+    },
   },
   methods: {
-    showMore () {
-      this.showThis = !this.showThis
+    showMore() {
+      this.showThis = !this.showThis;
     },
-    showMediaGalleryWindow (param) {
+    showMediaGalleryWindow(param) {
       let data = {
         target: 'content',
         act_id: this.activity.activity_id,
         tab_id: this.content.subnav_id,
         param: param,
-        newVal: null
-      }
+        newVal: null,
+      };
 
       // temporarily keep the data object for media gallery
-      this.$store.commit('updateTempDataForMediaGallery', data)
+      this.$store.commit('updateTempDataForMediaGallery', data);
 
       // open the media gallery window
-      this.$store.commit('updateModals', {key: 'mediaGallery', value: true})
-    }
-  }
-}
+      this.$store.commit('updateModals', {key: 'mediaGallery', value: true});
+    },
+  },
+};
 </script>
 
 
@@ -204,7 +212,7 @@ input[type=file] {
 }
 
 ::-webkit-input-placeholder {
-	color: lightgrey;
+  color: lightgrey;
 }
 
 .error-message {

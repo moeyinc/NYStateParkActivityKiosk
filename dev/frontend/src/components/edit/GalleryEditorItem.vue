@@ -25,7 +25,11 @@
         </p>
       </td>
       <td class="choose-file">
-        <button type="button" @click="showMediaGalleryWindow('item_image_filename')">Choose from gallery</button>
+        <button
+          type="button"
+          @click="showMediaGalleryWindow('item_image_filename')">
+            Choose from gallery
+          </button>
         {{ item.item_image_filename }}
       </td>
     </tr>
@@ -55,73 +59,73 @@ export default {
   name: 'gallery-editor-item',
   props: {
     item: {
-      type: Object
+      type: Object,
     },
     content: {
-      type: Object
+      type: Object,
     },
     activity: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     imageCaption: {
-      get () {
-        return this.item.item_caption
+      get() {
+        return this.item.item_caption;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'item',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           itm_id: this.item.item_id,
           param: 'item_caption',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
-    getTableStyle () {
+    getTableStyle() {
       if (this.item.item_id !== 1) {
         return {
           'padding-top': '20px',
           'border-top-width': '1px',
           'border-top-style': 'solid',
-          'order-top-color': 'lightgrey'
-        }
+          'order-top-color': 'lightgrey',
+        };
       }
-    }
+    },
   },
   methods: {
-    showMediaGalleryWindow (param) {
+    showMediaGalleryWindow(param) {
       let data = {
         target: 'item',
         act_id: this.activity.activity_id,
         tab_id: this.content.subnav_id,
         itm_id: this.item.item_id,
         param: param,
-        newVal: null
-      }
+        newVal: null,
+      };
 
       // temporarily keep the data object for media gallery
-      this.$store.commit('updateTempDataForMediaGallery', data)
+      this.$store.commit('updateTempDataForMediaGallery', data);
 
       // open the media gallery window
-      this.$store.commit('updateModals', {key: 'mediaGallery', value: true})
+      this.$store.commit('updateModals', {key: 'mediaGallery', value: true});
     },
-    showRemoveItemModal () {
+    showRemoveItemModal() {
       // open the remove item modal window
-      this.$store.commit('updateModals', {key: 'removeItem', value: true})
+      this.$store.commit('updateModals', {key: 'removeItem', value: true});
 
       // store temp data to remove the item
-      let tempData = {}
-      tempData.act_id = this.activity.activity_id
-      tempData.tab_id = this.content.subnav_id
-      tempData.itm_id = this.item.item_id
-      this.$store.commit('updateTempDataForRemoving', tempData)
-    }
-  }
-}
+      let tempData = {};
+      tempData.act_id = this.activity.activity_id;
+      tempData.tab_id = this.content.subnav_id;
+      tempData.itm_id = this.item.item_id;
+      this.$store.commit('updateTempDataForRemoving', tempData);
+    },
+  },
+};
 </script>
 
 
@@ -158,7 +162,7 @@ input[type=file] {
 }
 
 ::-webkit-input-placeholder {
-	color: lightgrey;
+  color: lightgrey;
 }
 
 .error-message {

@@ -13,8 +13,8 @@
 ================================================== -->
 <script>
 export default {
-  name: 'not-found'
-}
+  name: 'not-found',
+};
 </script>
 
 

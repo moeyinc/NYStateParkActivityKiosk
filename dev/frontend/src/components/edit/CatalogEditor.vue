@@ -75,7 +75,10 @@
       id="remove-item-modal"
       >
       <h3 slot="header">Removing An Item</h3>
-      <p slot="body">The item will be removed from the list with its content. To undo it, reload the page before submitting changes.</p>
+      <p slot="body">
+        The item will be removed from the list with its content.
+        To undo it, reload the page before submitting changes.
+      </p>
       <p slot="cancel-button">CANCEL</p>
       <p slot="execute-button">REMOVE</p>
     </confirm-modal>
@@ -87,16 +90,16 @@
  Vue Script
 ================================================== -->
 <script>
-import CatalogEditorItem from './CatalogEditorItem'
-import ConfirmModal        from '@/components/ConfirmModal.vue'
+import CatalogEditorItem from './CatalogEditorItem';
+import ConfirmModal from '@/components/ConfirmModal.vue';
 
 export default {
   name: 'catalog-editor',
   components: {
     'catalog-editor-item': CatalogEditorItem,
-    'confirm-modal': ConfirmModal
+    'confirm-modal': ConfirmModal,
   },
-  data () {
+  data() {
     return {
       showThis: false,
       editorOption: {
@@ -106,77 +109,77 @@ export default {
             ['bold', 'italic', 'underline', 'strike'],
             [{'list': 'ordered'}, {'list': 'bullet'}],
             [{'size': ['small', false, 'large', 'huge']}],
-            [{'color': []}, {'background': []}]
-          ]
-        }
-      }
-    }
+            [{'color': []}, {'background': []}],
+          ],
+        },
+      },
+    };
   },
   props: {
     content: {
-      type: Object
+      type: Object,
     },
     activity: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     headerTitle: {
-      get () {
-        return this.content.page_title
+      get() {
+        return this.content.page_title;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'content',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           param: 'page_title',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
     pageDescription: {
-      get () {
-        return this.content.page_description
+      get() {
+        return this.content.page_description;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'content',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           param: 'page_description',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
-    }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
+    },
   },
   methods: {
-    showMore () {
-      this.showThis = !this.showThis
+    showMore() {
+      this.showThis = !this.showThis;
     },
-    addItem () {
-      let data = {}
-      data.act_id = this.activity.activity_id
-      data.tab_id = this.content.subnav_id
-      data.itm_id = this.content.items.length + 1
-      data.templateType = this.content.template_type
+    addItem() {
+      let data = {};
+      data.act_id = this.activity.activity_id;
+      data.tab_id = this.content.subnav_id;
+      data.itm_id = this.content.items.length + 1;
+      data.templateType = this.content.template_type;
 
-      this.$store.commit('addItem', data)
+      this.$store.commit('addItem', data);
     },
-    closeRemoveItemModal () {
+    closeRemoveItemModal() {
       // close the remove item modal window
-      this.$store.commit('updateModals', {key: 'removeItem', value: false})
+      this.$store.commit('updateModals', {key: 'removeItem', value: false});
     },
-    removeItem () {
-      this.$store.commit('removeItem')
+    removeItem() {
+      this.$store.commit('removeItem');
 
       // close the remove item modal window
-      this.$store.commit('updateModals', {key: 'removeItem', value: false})
-    }
-  }
-}
+      this.$store.commit('updateModals', {key: 'removeItem', value: false});
+    },
+  },
+};
 </script>
 
 
@@ -218,7 +221,7 @@ input[type=file] {
 }
 
 ::-webkit-input-placeholder {
-	color: lightgrey;
+  color: lightgrey;
 }
 
 .error-message {
@@ -262,7 +265,7 @@ input[type=file] {
 .change-order-enter-active, .change-order-leave-active {
   transition: all 1s;
 }
-.change-order-enter, .change-order-leave-to /* .list-leave-active below version 2.1.8 */ {
+.change-order-enter, .change-order-leave-to {
   opacity: 0;
   /*transform: translateY(30px);*/
 }

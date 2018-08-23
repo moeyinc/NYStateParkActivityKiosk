@@ -21,7 +21,10 @@
               <div class="order-icon-wrapper" @click="changeOrder(1)">
                 <icon name="arrow-circle-down"></icon>
               </div>
-              <div class="icon-wrapper-right" @click="showRemoveTabModal" v-show="$store.state.moey">
+              <div
+                class="icon-wrapper-right"
+                @click="showRemoveTabModal"
+                v-show="$store.state.moey">
                 <icon name="trash"></icon>
               </div>
             </td>
@@ -41,8 +44,11 @@
                 size="15"/>
             </td>
           </tr>
-          <tr v-show="errors.has('tab-label-' + content.subnav_id)" class="error-message">
-            <td></td><td>{{ errors.first('tab-label-' + content.subnav_id)}}</td>
+          <tr
+            v-show="errors.has('tab-label-' + content.subnav_id)"
+            class="error-message">
+            <td></td>
+            <td>{{ errors.first('tab-label-' + content.subnav_id)}}</td>
           </tr>
           <tr class="tab-template-type">
             <td>
@@ -92,94 +98,99 @@
  Vue Script
 ================================================== -->
 <script>
-import GeneralInfoEditor from './GeneralInfoEditor.vue'
-import LocationsEditor   from './LocationsEditor.vue'
-import CatalogEditor     from './CatalogEditor.vue'
-import GalleryEditor     from './GalleryEditor.vue'
+import GeneralInfoEditor from './GeneralInfoEditor.vue';
+import LocationsEditor from './LocationsEditor.vue';
+import CatalogEditor from './CatalogEditor.vue';
+import GalleryEditor from './GalleryEditor.vue';
 
 export default {
   name: 'tab-contents-list-item',
   components: {
     'general-info-editor': GeneralInfoEditor,
-    'locations-editor'   : LocationsEditor,
-    'catalog-editor'     : CatalogEditor,
-    'gallery-editor'     : GalleryEditor
+    'locations-editor': LocationsEditor,
+    'catalog-editor': CatalogEditor,
+    'gallery-editor': GalleryEditor,
   },
   props: {
     content: {
-      type: Object
+      type: Object,
     },
     activity: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     tabLabel: {
-      get () {
-        return this.content.subnav_label
+      get() {
+        return this.content.subnav_label;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'content',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           param: 'subnav_label',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
     tabTemplateType: {
-      get () {
-        return this.content.template_type
+      get() {
+        return this.content.template_type;
       },
-      set (value) {
+      set(value) {
         let data = {
           target: 'content',
           act_id: this.activity.activity_id,
           tab_id: this.content.subnav_id,
           param: 'template_type',
-          newVal: value
-        }
-        this.$store.commit('updateActivityParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
     },
-    getBGColor () {
+    getBGColor() {
       return {
-        'background': this.activity.sub_color
-      }
-    }
+        'background': this.activity.sub_color,
+      };
+    },
   },
   methods: {
-    changeOrder (value) {
-      let actId = this.activity.activity_id
-      let tabId = this.content.subnav_id
+    changeOrder(value) {
+      let actId = this.activity.activity_id;
+      let tabId = this.content.subnav_id;
 
       // check the index and value
-      const minIndex = 1
-      const maxIndex = this.activity.contents.length
+      const minIndex = 1;
+      const maxIndex = this.activity.contents.length;
       if (tabId <= minIndex && value === -1) {
-        console.log('canceled decreasing order because it is at the top of the list')
-        return
+        console.log(
+          'canceled decreasing order because it is at the top of the list');
+        return;
       } else if (tabId >= maxIndex && value === 1) {
-        console.log('canceled increasing order because it is at the bottom of the list')
-        return
+        console.log(
+          'canceled increasing order because it is at the bottom of the list');
+        return;
       }
 
-      this.$store.commit('changeContentOrder', {act_id: actId, tab_id: tabId, value: value})
+      this.$store.commit('changeContentOrder', {
+        act_id: actId,
+        tab_id: tabId,
+        value: value});
     },
-    showRemoveTabModal () {
+    showRemoveTabModal() {
       // open the remove tab modal window
-      this.$store.commit('updateModals', {key: 'removeTab', value: true})
+      this.$store.commit('updateModals', {key: 'removeTab', value: true});
 
       // store temp data to remove the tab
-      let tempData = {}
-      tempData.act_id = this.activity.activity_id
-      tempData.tab_id = this.content.subnav_id
-      this.$store.commit('updateTempDataForRemoving', tempData)
-    }
-  }
-}
+      let tempData = {};
+      tempData.act_id = this.activity.activity_id;
+      tempData.tab_id = this.content.subnav_id;
+      this.$store.commit('updateTempDataForRemoving', tempData);
+    },
+  },
+};
 </script>
 
 
@@ -222,7 +233,7 @@ input[type=file] {
 }
 
 ::-webkit-input-placeholder {
-	color: lightgrey;
+  color: lightgrey;
 }
 
 .error-message {

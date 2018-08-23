@@ -33,12 +33,15 @@
               v-model="kioskTitle"
               type="text"
               name="kiosk-title"
-              v-validate="{ rules: { required: true, alpha_spaces: true, max: 40 }}"
+              v-validate="{rules: {
+                required: true, alpha_spaces: true, max: 40}}"
               size="30"
               placeholder="THINGS TO DO" />
           </td>
         </tr>
-        <tr class="page-title-2" v-if="$store.state.generalSettings.design_theme==='image'">
+        <tr
+          class="page-title-2"
+          v-if="$store.state.generalSettings.design_theme==='image'">
           <td>
             <p>
               (2nd Line)
@@ -49,7 +52,8 @@
               v-model="kioskTitle2"
               type="text"
               name="kiosk-title-2"
-              v-validate="{ rules: { required: true, alpha_spaces: true, max: 40 }}"
+              v-validate="{rules: {
+                required: true, alpha_spaces: true, max: 40}}"
               size="30"
               placeholder="THINGS TO DO" />
           </td>
@@ -57,38 +61,58 @@
         <tr v-show="errors.has('kiosk-title')" class="error-message">
           <td></td><td>{{ errors.first('kiosk-title')}}</td>
         </tr>
-        <tr class="background-color" v-if="$store.state.generalSettings.design_theme==='basic'">
+        <tr
+          class="background-color"
+          v-if="$store.state.generalSettings.design_theme==='basic'">
           <td>
             <p>
               BG Color:
             </p>
           </td>
           <td>
-            <span class="color-rect" :style="{'background-color': getColorInString(bgColor)}"></span>
-            <div class="icon-wrapper" @click="showBgColorPicker" id="background-color-picker-origin">
+            <span
+              class="color-rect"
+              :style="{'background-color': getColorInString(bgColor)}">
+            </span>
+            <div
+              class="icon-wrapper"
+              @click="showBgColorPicker"
+              id="background-color-picker-origin">
               <icon name="eyedropper"></icon>
             </div>
           </td>
         </tr>
-        <tr class="background-image-home" v-if="$store.state.generalSettings.design_theme==='image'">
+        <tr
+          class="background-image-home"
+          v-if="$store.state.generalSettings.design_theme==='image'">
           <td>
             <p>
               BG Image (Home):
             </p>
           </td>
           <td class="bg-image-uri">
-            <button type="button" @click="showMediaGalleryWindow('bg_image_home_uri')">Choose from gallery</button>
+            <button
+              type="button"
+              @click="showMediaGalleryWindow('bg_image_home_uri')">
+              Choose from gallery
+            </button>
             {{ this.$store.state.generalSettings.bg_image_home_uri }}
           </td>
         </tr>
-        <tr class="background-image-detail" v-if="$store.state.generalSettings.design_theme==='image'">
+        <tr
+          class="background-image-detail"
+          v-if="$store.state.generalSettings.design_theme==='image'">
           <td>
             <p>
               BG Image (Detail):
             </p>
           </td>
           <td class="bg-image-uri">
-            <button type="button" @click="showMediaGalleryWindow('bg_image_detail_uri')">Choose from gallery</button>
+            <button
+              type="button"
+              @click="showMediaGalleryWindow('bg_image_detail_uri')">
+              Choose from gallery
+            </button>
             {{ this.$store.state.generalSettings.bg_image_detail_uri }}
           </td>
         </tr>
@@ -99,8 +123,14 @@
             </p>
           </td>
           <td>
-            <span class="color-rect" :style="{'background-color': getColorInString(textColor)}"></span>
-            <div class="icon-wrapper" @click="showTextColorPicker" id="text-color-picker-origin">
+            <span
+              class="color-rect"
+              :style="{'background-color': getColorInString(textColor)}">
+            </span>
+            <div
+              class="icon-wrapper"
+              @click="showTextColorPicker"
+              id="text-color-picker-origin">
               <icon name="eyedropper"></icon>
             </div>
           </td>
@@ -117,7 +147,11 @@
               <option value="on">On</option>
               <option value="off">Off</option>
             </select>
-            <button type="button" @click="showMediaGalleryWindow('park_logo_uri')">Choose from gallery</button>
+            <button
+              type="button"
+              @click="showMediaGalleryWindow('park_logo_uri')">
+              Choose from gallery
+            </button>
             {{ this.$store.state.generalSettings.park_logo_uri }}
           </td>
         </tr>
@@ -164,141 +198,141 @@
  Vue Script
 ================================================== -->
 <script>
-import ColorPicker from '@/components/ColorPicker.vue'
+import ColorPicker from '@/components/ColorPicker.vue';
 
 export default {
   name: 'general-settings',
   components: {
-    'color-picker': ColorPicker
+    'color-picker': ColorPicker,
   },
-  data () {
+  data() {
     return {
       isBgColorPickerVisible: false,
-      isTextColorPickerVisible: false
-    }
+      isTextColorPickerVisible: false,
+    };
   },
   computed: {
     designTheme: {
-      get () {
-        return this.$store.state.generalSettings.design_theme
+      get() {
+        return this.$store.state.generalSettings.design_theme;
       },
-      set (value) {
+      set(value) {
         let data = {
           param: 'design_theme',
-          newVal: value
-        }
-        this.$store.commit('updateGeneralSettingsParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateGeneralSettingsParam', data);
+      },
     },
     kioskTitle: {
-      get () {
-        return this.$store.state.generalSettings.kiosk_title
+      get() {
+        return this.$store.state.generalSettings.kiosk_title;
       },
-      set (value) {
+      set(value) {
         let data = {
           param: 'kiosk_title',
-          newVal: value
-        }
-        this.$store.commit('updateGeneralSettingsParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateGeneralSettingsParam', data);
+      },
     },
     kioskTitle2: {
-      get () {
-        return this.$store.state.generalSettings.kiosk_title_2
+      get() {
+        return this.$store.state.generalSettings.kiosk_title_2;
       },
-      set (value) {
+      set(value) {
         let data = {
           param: 'kiosk_title_2',
-          newVal: value
-        }
-        this.$store.commit('updateGeneralSettingsParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateGeneralSettingsParam', data);
+      },
     },
     showParkLogo: {
-      get () {
-        return this.$store.state.generalSettings.show_logo
+      get() {
+        return this.$store.state.generalSettings.show_logo;
       },
-      set (value) {
+      set(value) {
         let data = {
           param: 'show_logo',
-          newVal: value
-        }
-        this.$store.commit('updateGeneralSettingsParam', data)
-      }
+          newVal: value,
+        };
+        this.$store.commit('updateGeneralSettingsParam', data);
+      },
     },
     screenTimeout: {
-      get () {
-        return this.$store.state.generalSettings.timeout_in_second
+      get() {
+        return this.$store.state.generalSettings.timeout_in_second;
       },
-      set (value) {
+      set(value) {
         let data = {
           param: 'timeout_in_second',
-          newVal: parseInt(value)
-        }
-        this.$store.commit('updateGeneralSettingsParam', data)
-      }
+          newVal: parseInt(value),
+        };
+        this.$store.commit('updateGeneralSettingsParam', data);
+      },
     },
-    bgColor () {
-      return this.$store.state.generalSettings.background_color
+    bgColor() {
+      return this.$store.state.generalSettings.background_color;
     },
-    textColor () {
-      return this.$store.state.generalSettings.text_color
+    textColor() {
+      return this.$store.state.generalSettings.text_color;
     },
-    getBgColorPickerPos () {
-      const el = document.getElementById('background-color-picker-origin')
-      const rect = this.getBoundingClientRect(el)
+    getBgColorPickerPos() {
+      const el = document.getElementById('background-color-picker-origin');
+      const rect = this.getBoundingClientRect(el);
       // const rect = el.getBoundingClientRect()
-      return rect
+      return rect;
     },
-    getTextColorPickerPos () {
-      const el = document.getElementById('text-color-picker-origin')
-      const rect = this.getBoundingClientRect(el)
+    getTextColorPickerPos() {
+      const el = document.getElementById('text-color-picker-origin');
+      const rect = this.getBoundingClientRect(el);
       // const rect = el.getBoundingClientRect()
-      return rect
-    }
+      return rect;
+    },
   },
   methods: {
-    showBgColorPicker () {
-      this.isBgColorPickerVisible = true
+    showBgColorPicker() {
+      this.isBgColorPickerVisible = true;
     },
-    showTextColorPicker () {
-      this.isTextColorPickerVisible = true
+    showTextColorPicker() {
+      this.isTextColorPickerVisible = true;
     },
-    closeBgColorPicker () {
-      this.isBgColorPickerVisible = false
+    closeBgColorPicker() {
+      this.isBgColorPickerVisible = false;
     },
-    closeTextColorPicker () {
-      this.isTextColorPickerVisible = false
+    closeTextColorPicker() {
+      this.isTextColorPickerVisible = false;
     },
-    updateBgColor (value) {
+    updateBgColor(value) {
       let data = {
         param: 'background_color',
-        newVal: value
-      }
-      this.$store.commit('updateGeneralSettingsParam', data)
+        newVal: value,
+      };
+      this.$store.commit('updateGeneralSettingsParam', data);
     },
-    updateTextColor (value) {
+    updateTextColor(value) {
       let data = {
         param: 'text_color',
-        newVal: value
-      }
-      this.$store.commit('updateGeneralSettingsParam', data)
+        newVal: value,
+      };
+      this.$store.commit('updateGeneralSettingsParam', data);
     },
-    showMediaGalleryWindow (param) {
+    showMediaGalleryWindow(param) {
       let data = {
         target: 'general_settings',
         param: param,
-        newVal: null
-      }
+        newVal: null,
+      };
 
       // temporarily keep the data object for media gallery
-      this.$store.commit('updateTempDataForMediaGallery', data)
+      this.$store.commit('updateTempDataForMediaGallery', data);
 
       // open the media gallery window
-      this.$store.commit('updateModals', {key: 'mediaGallery', value: true})
-    }
-  }
-}
+      this.$store.commit('updateModals', {key: 'mediaGallery', value: true});
+    },
+  },
+};
 </script>
 
 
@@ -358,7 +392,7 @@ select.show-logo {
 }
 
 ::-webkit-input-placeholder {
-	color: lightgrey;
+  color: lightgrey;
 }
 
 .error-message {

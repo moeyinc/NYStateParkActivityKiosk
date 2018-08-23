@@ -20,11 +20,13 @@
             </div>
           </div>
           <div class="modal-footer">
-            <div class="modal-cancel-button" @click="$emit('close-modal', purpose)">
+            <div class="modal-cancel-button"
+              @click="$emit('close-modal', purpose)">
               <slot name="cancel-button">
               </slot>
             </div>
-            <div class="modal-execute-button" @click="$emit('execute-command', purpose)">
+            <div class="modal-execute-button"
+              @click="$emit('execute-command', purpose)">
               <slot name="execute-button">
               </slot>
             </div>
@@ -44,10 +46,10 @@ export default {
   name: 'confirm-modal',
   props: {
     purpose: {
-      type: String
-    }
-  }
-}
+      type: String,
+    },
+  },
+};
 </script>
 
 

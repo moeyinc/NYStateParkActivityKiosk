@@ -9,7 +9,8 @@
     </div>
     <div
       class="right-property-area">
-      <image-property v-if="$store.state.selectedMediaItem===null ? false : true"></image-property>
+      <image-property
+        v-if="$store.state.selectedMediaItem===null ? false : true"/>
     </div>
     <confirm-modal
       v-if="$store.state.modals.deleteMediaItem"
@@ -21,7 +22,6 @@
       <p slot="cancel-button">CANCEL</p>
       <p slot="execute-button">DELETE</p>
     </confirm-modal>
-    <!-- <delete-media-item-modal v-if="$store.state.modals.deleteMediaItem"></delete-media-item-modal> -->
   </div>
 </template>
 
@@ -30,10 +30,10 @@
  Vue Script
 ================================================== -->
 <script>
-import MediaList     from './MediaList.vue'
-import ImageProperty from './ImageProperty.vue'
+import MediaList from './MediaList.vue';
+import ImageProperty from './ImageProperty.vue';
 // import DeleteMediaItemModal from './DeleteMediaItemModal.vue'
-import ConfirmModal  from '@/components/ConfirmModal.vue'
+import ConfirmModal from '@/components/ConfirmModal.vue';
 
 export default {
   name: 'media',
@@ -41,34 +41,36 @@ export default {
     'media-list': MediaList,
     'image-property': ImageProperty,
     // 'delete-media-item-modal': DeleteMediaItemModal
-    'confirm-modal': ConfirmModal
+    'confirm-modal': ConfirmModal,
   },
-  data () {
+  data() {
     return {
-      isReady: false
-    }
+      isReady: false,
+    };
   },
-  created () {
+  created() {
     // reset
-    this.isReady = false
+    this.isReady = false;
 
     this.$store.dispatch('updateMediaItems')
     .then(() => {
-      this.isReady = true
-    })
+      this.isReady = true;
+    });
   },
   methods: {
-    closeDeleteMediaItemModal () {
-      this.$store.commit('updateModals', {key: 'deleteMediaItem', value: false})
+    closeDeleteMediaItemModal() {
+      this.$store.commit('updateModals', {
+        key: 'deleteMediaItem', value: false});
     },
-    deleteMediaItem () {
-      this.$store.commit('updateModals', {key: 'deleteMediaItem', value: false})
-      let itemToDelete = this.$store.state.selectedMediaItem
+    deleteMediaItem() {
+      this.$store.commit('updateModals', {
+        key: 'deleteMediaItem', value: false});
+      let itemToDelete = this.$store.state.selectedMediaItem;
       // delete the item
-      this.$store.dispatch('deleteImage', itemToDelete)
-    }
-  }
-}
+      this.$store.dispatch('deleteImage', itemToDelete);
+    },
+  },
+};
 </script>
 
 

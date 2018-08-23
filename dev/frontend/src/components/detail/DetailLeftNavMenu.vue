@@ -8,7 +8,8 @@
         v-for="activity in sortActivities($store.state.activities)"
         :activity="activity"
         :key="activity.activity_id"
-        :relative-position-to-active-tab="getRelativePositionToActiveTab(activity.activity_id)">
+        :relative-position-to-active-tab="getRelativePositionToActiveTab(
+          activity.activity_id)">
       </detail-left-nav-menu-item>
     </ul>
     <div
@@ -26,97 +27,100 @@
  Vue Script
 ================================================== -->
 <script>
-import DetailLeftNavMenuItem from './DetailLeftNavMenuItem.vue'
-require('@/assets/css/triangle-left.css')
+import DetailLeftNavMenuItem from './DetailLeftNavMenuItem.vue';
+require('@/assets/css/triangle-left.css');
 
 export default {
   name: 'detail-left-nav-menu',
   components: {
-    'detail-left-nav-menu-item': DetailLeftNavMenuItem
+    'detail-left-nav-menu-item': DetailLeftNavMenuItem,
   },
   computed: {
-    getNavStyle () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getNavStyle() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
-          width: '250px',
-          height: '1040px',
-          left: '20px',
-          top: '20px',
-          'font-family': 'Avenir-Heavy'
-        }
+          'width': '250px',
+          'height': '1040px',
+          'left': '20px',
+          'top': '20px',
+          'font-family': 'Avenir-Heavy',
+        };
       } else if (theme === 'image') {
         return {
-          width: '270px',
-          height: '838px',
-          left: '0px',
-          top: '218px',
-          'font-family': 'Avenir-Medium'
-        }
+          'width': '270px',
+          'height': '838px',
+          'left': '0px',
+          'top': '218px',
+          'font-family': 'Avenir-Medium',
+        };
       }
     },
-    getTriangleBGColor () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getTriangleBGColor() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
-          'background-color': this.getColorInString(this.$store.state.generalSettings.text_color, false)
-        }
+          'background-color': this.getColorInString(
+            this.$store.state.generalSettings.text_color, false),
+        };
       } else if (theme === 'image') {
         return {
-          'background-color': 'white'
-        }
+          'background-color': 'white',
+        };
       }
     },
-    getMainMenuColor () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getMainMenuColor() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
-          'color': this.getColorInString(this.$store.state.generalSettings.text_color)
-        }
+          'color': this.getColorInString(
+            this.$store.state.generalSettings.text_color),
+        };
       } else if (theme === 'image') {
         return {
-          'color': 'white'
-        }
+          'color': 'white',
+        };
       }
     },
-    getMainMenuPos () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getMainMenuPos() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
-          'margin-left': '22px'
-        }
+          'margin-left': '22px',
+        };
       } else if (theme === 'image') {
         return {
-          'margin-left': '62px'
-        }
+          'margin-left': '62px',
+        };
       }
-    }
+    },
   },
   methods: {
-    // check the relative position of a tab to the selected tab to set a rounded corner
-    getRelativePositionToActiveTab (tabId) {
-      let diff = parseInt(this.$route.params.id) - tabId
+    // check the relative position of a tab to the selected tab
+    // to set a rounded corner
+    getRelativePositionToActiveTab(tabId) {
+      let diff = parseInt(this.$route.params.id) - tabId;
       if (diff === 0) {
-        return 'selected'
+        return 'selected';
       } else if (diff === 1) {
-        return 'top'
+        return 'top';
       } else if (diff === -1) {
-        return 'bottom'
+        return 'bottom';
       } else {
-        return 'else'
+        return 'else';
       }
     },
-    transitPage () {
+    transitPage() {
       // change the path based on whether you are editing
       if (this.$store.state.isEditing) {
         // if you are editing, disable the link
         // this.$router.push({ name: 'edit-home' })
       } else {
-        this.$router.push({ name: 'home' })
+        this.$router.push({name: 'home'});
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 

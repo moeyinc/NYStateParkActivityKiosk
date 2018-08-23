@@ -7,11 +7,14 @@
     <div
       class="titlebar">
       <div class="titlebar-text">
-        <h1 :style="getH1Style">{{ $store.getters.getSelectedActivity.page_title }}</h1>
+        <h1 :style="getH1Style">
+          {{ $store.getters.getSelectedActivity.page_title }}
+        </h1>
       </div>
       <div class="icon-wrapper">
         <simple-svg
-          :filepath="getImageStaticFilePath($store.getters.getSelectedActivity.icon_uri)"
+          :filepath="getImageStaticFilePath(
+            $store.getters.getSelectedActivity.icon_uri)"
           :color="'white'"
           :width="'auto'"
           :height="'100%'"
@@ -29,15 +32,15 @@
 export default {
   name: 'detail-header',
   computed: {
-    getH1Style () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getH1Style() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
           'font-family': 'Avenir-Heavy',
           'margin': '38px 0 58px 0',
           'line-height': '80px',
-          'font-size': '120px'
-        }
+          'font-size': '120px',
+        };
       } else if (theme === 'image') {
         return {
           'font-family': 'Agenda-Bold',
@@ -45,30 +48,30 @@ export default {
           'padding-left': '10px',
           'line-height': '160px',
           'font-size': '180px',
-          'letter-spacing': '0px'
-        }
+          'letter-spacing': '0px',
+        };
       }
     },
-    isFirstItemSelected () {
+    isFirstItemSelected() {
       if (this.$store.getters.getSelectedActivity.activity_id === 1) {
-        return true
+        return true;
       } else {
-        false
+        false;
       }
     },
-    setTopLeftCurve () {
+    setTopLeftCurve() {
       if (this.isFirstItemSelected) {
         return {
-          'border-radius': '0 0 0 0'
-        }
+          'border-radius': '0 0 0 0',
+        };
       } else {
         return {
-          'border-radius': '20px 0 0 0'
-        }
+          'border-radius': '20px 0 0 0',
+        };
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 

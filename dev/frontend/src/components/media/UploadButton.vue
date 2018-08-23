@@ -7,7 +7,7 @@
       v-if="$store.state.tempDataForMediaGallery.param==='icon_uri'"
       class="upload-button"
       type="file"
-      accept=".svg" 
+      accept=".svg"
       name="image"
       id="image-upload-button"
       @change="uploadImage($event)"
@@ -36,15 +36,15 @@
 export default {
   name: 'upload-button',
   methods: {
-    uploadImage (e) {
-      let fileToUpload = e.target.files[0]
+    uploadImage(e) {
+      let fileToUpload = e.target.files[0];
       if (fileToUpload) {
-        console.log('uploading an image: ', fileToUpload)
-        this.$store.dispatch('uploadImage', fileToUpload)
+        console.log('uploading an image: ', fileToUpload);
+        this.$store.dispatch('uploadImage', fileToUpload);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 
@@ -67,11 +67,11 @@ export default {
 
 input.upload-button {
   width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 label {

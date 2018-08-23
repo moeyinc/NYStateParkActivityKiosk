@@ -15,7 +15,8 @@
     <div
       class="statepark-logo"
       v-if="showLogo">
-      <img :src="getImageStaticFilePath($store.state.generalSettings.park_logo_uri)">
+      <img :src="getImageStaticFilePath(
+        $store.state.generalSettings.park_logo_uri)">
     </div>
   </header>
 </template>
@@ -27,44 +28,44 @@
 export default {
   name: 'home-header',
   computed: {
-    getHeaderStyle () {
+    getHeaderStyle() {
       if (this.$store.state.generalSettings.design_theme === 'basic') {
         return {
-          'height': '226px'
-        }
+          'height': '226px',
+        };
       } else if (this.$store.state.generalSettings.design_theme === 'image') {
         return {
-          'height': '400px'
-        }
+          'height': '400px',
+        };
       }
     },
-    getH1Style () {
+    getH1Style() {
       if (this.$store.state.generalSettings.design_theme === 'basic') {
         return {
           'font-family': 'Avenir-Heavy',
           'margin': '58px 0px',
           'line-height': '100px',
-          'font-size': '128px'
-        }
+          'font-size': '128px',
+        };
       } else if (this.$store.state.generalSettings.design_theme === 'image') {
         return {
           'font-family': 'Agenda-Bold',
           'margin': '29px 0px 58px 0px',
           'line-height': '160px',
           'font-size': '180px',
-          'letter-spacing': '-3px'
-        }
+          'letter-spacing': '-3px',
+        };
       }
     },
-    showLogo () {
+    showLogo() {
       if (this.$store.state.generalSettings.show_logo === 'on') {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <!-- =================================================

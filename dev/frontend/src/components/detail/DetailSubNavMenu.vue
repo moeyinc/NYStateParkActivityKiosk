@@ -2,13 +2,17 @@
  Vue Template
 ================================================== -->
 <template>
-  <nav :style="{'background-color': getColorInString($store.getters.getSelectedActivity.main_color)}">
-    <ul :style="{'background-color': getColorInString($store.getters.getSelectedActivity.main_color)}">
+  <nav :style="{'background-color': getColorInString(
+    $store.getters.getSelectedActivity.main_color)}">
+    <ul :style="{'background-color': getColorInString(
+      $store.getters.getSelectedActivity.main_color)}">
       <detail-sub-nav-menu-item
-        v-for="content in sortContents($store.getters.getSelectedActivity.contents)"
+        v-for="content in sortContents(
+          $store.getters.getSelectedActivity.contents)"
         :content="content"
         :key="content.subnav_id"
-        :relative-position-to-active-tab="getRelativePositionToActiveTab(content.subnav_id)"
+        :relative-position-to-active-tab="getRelativePositionToActiveTab(
+          content.subnav_id)"
         @switch-tab="switchTab">
       </detail-sub-nav-menu-item>
     </ul>
@@ -20,44 +24,43 @@
  Vue Script
 ================================================== -->
 <script>
-import DetailSubNavMenuItem   from './DetailSubNavMenuItem'
+import DetailSubNavMenuItem from './DetailSubNavMenuItem';
 
 export default {
   name: 'detail-sub-nav-menu',
   components: {
-    'detail-sub-nav-menu-item'  : DetailSubNavMenuItem
+    'detail-sub-nav-menu-item': DetailSubNavMenuItem,
   },
   computed: {
-    isFirstTabActive () {
+    isFirstTabActive() {
       if (this.$store.state.activeTabId === 1) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
+    },
   },
   methods: {
     // check the relative position of a tab to the selected tab
-    getRelativePositionToActiveTab (tabId) {
-      let diff = this.$store.state.activeTabId - tabId
+    getRelativePositionToActiveTab(tabId) {
+      let diff = this.$store.state.activeTabId - tabId;
       if (diff === 0) {
-        return 'selected'
+        return 'selected';
       } else if (diff === 1) {
-        return 'left'
+        return 'left';
       } else if (diff === -1) {
-        return 'right'
+        return 'right';
       } else {
-        return 'else'
+        return 'else';
       }
     },
-    switchTab (tabId) {
+    switchTab(tabId) {
       // update active tab id in the store.js
-      this.$store.commit('updateActiveTabId', tabId)
-    }
-  }
-}
+      this.$store.commit('updateActiveTabId', tabId);
+    },
+  },
+};
 </script>
-
 
 <!-- =================================================
  Vue Style
@@ -72,6 +75,6 @@ nav {
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 </style>

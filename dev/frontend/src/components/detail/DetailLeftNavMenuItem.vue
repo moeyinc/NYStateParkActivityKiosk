@@ -24,11 +24,15 @@
       <div class="label-wrapper">
         <p
           :class="{ 'two-lines': isLong }"
-          :style="(clicked && !isActiveTab) ? {'color': getColorInString(activity.main_color)} : {'color': 'white'}">
+          :style="(clicked && !isActiveTab) ?
+          {'color': getColorInString(activity.main_color)}
+          : {'color': 'white'}">
           {{ activity.button_label }}
         </p>
       </div>
-      <template v-if="isFirstItem && $store.state.generalSettings.design_theme === 'basic'">
+      <template
+        v-if="isFirstItem &&
+        $store.state.generalSettings.design_theme === 'basic'">
         <div class="first-item-shadow-box">
           <div class="inner-box"></div>
         </div>
@@ -37,7 +41,10 @@
     </div>
     <div>
       <div class="spacer" :style="getSpacerBGColor">
-        <div class="inner-spacer" :style="[setCurve, getInnerSpacerBGColor]"></div>
+        <div
+          class="inner-spacer"
+          :style="[setCurve, getInnerSpacerBGColor]">
+        </div>
       </div>
     </div>
   </li>
@@ -50,185 +57,202 @@
 <script>
 export default {
   name: 'detail-left-nav-menu-item',
-  data () {
+  data() {
     return {
-      clicked: false // whether this button is clicked
-    }
+      clicked: false, // whether this button is clicked
+    };
   },
   props: {
     activity: {
-      type: Object // ex) { "activity_id": 1,  "main_color": "#b74f59", "sub_color": "#c3878c", "button_label": "HIKING", "page_title": "HIKING", "white_icon_uri": "", "color_icon_uri": "" }
+      type: Object,
+      // ex)
+      // { "activity_id": 1,
+      // "main_color": "#b74f59",
+      // "sub_color": "#c3878c",
+      // "button_label": "HIKING",
+      // "page_title": "HIKING",
+      // "white_icon_uri": "",
+      // "color_icon_uri": "" }
     },
     relativePositionToActiveTab: {
-      type: String // 'left' or 'selected' or 'right' or 'else'
-    }
+      type: String, // 'left' or 'selected' or 'right' or 'else'
+    },
   },
   computed: {
-    getButtonBGColor () {
+    getButtonBGColor() {
       if (this.clicked && !this.isActiveTab) {
         return {
-          'background-color': 'white'
-        }
+          'background-color': 'white',
+        };
       } else {
         return {
-          'background-color': this.getColorInString(this.activity.main_color)
-        }
+          'background-color': this.getColorInString(this.activity.main_color),
+        };
       }
     },
-    getButtonStyle () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getButtonStyle() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
           'border-radius': '27px 0 0 27px',
           'box-shadow': '-10px 0px 10px 0 rgba(0, 0, 0, 0.2) inset',
-          'padding': '0px 10px 0px 15px'
-        }
+          'padding': '0px 10px 0px 15px',
+        };
       } else if (theme === 'image') {
         return {
           'border-radius': '0 27px 27px 0',
           'box-shadow': 'none',
-          'padding': '0px 10px 0px 15px'
-        }
+          'padding': '0px 10px 0px 15px',
+        };
       }
     },
-    getBoxShadow () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getBoxShadow() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         if (!this.isFirstItem && !this.isActiveTab) {
           return {
-            'box-shadow': '-10px 0px 10px 0 rgba(0, 0, 0, 0.2) inset'
-          }
+            'box-shadow': '-10px 0px 10px 0 rgba(0, 0, 0, 0.2) inset',
+          };
         } else {
           return {
-            'box-shadow': 'none'
-          }
+            'box-shadow': 'none',
+          };
         }
       } else if (theme === 'image') {
         return {
-          'box-shadow': 'none'
-        }
+          'box-shadow': 'none',
+        };
       }
     },
-    getButtonSize () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getButtonSize() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
           width: '250px',
-          height: '55px'
-        }
+          height: '55px',
+        };
       } else if (theme === 'image') {
         if (this.isActiveTab) {
           return {
-            width: '290px',
-            height: '55px',
-            'padding-left': '55px'
-          }
+            'width': '290px',
+            'height': '55px',
+            'padding-left': '55px',
+          };
         } else {
           return {
-            width: '250px',
-            height: '55px',
-            'padding-left': '15px'
-          }
+            'width': '250px',
+            'height': '55px',
+            'padding-left': '15px',
+          };
         }
       }
     },
-    getSpacerBGColor () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getSpacerBGColor() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
-          'background-color': this.getColorInString(this.$store.getters.getSelectedActivity.main_color)
-        }
+          'background-color': this.getColorInString(
+            this.$store.getters.getSelectedActivity.main_color),
+        };
       } else if (theme === 'image') {
         return {
-          'background-color': ''
-        }
+          'background-color': '',
+        };
       }
     },
-    getInnerSpacerBGColor () {
-      let theme = this.$store.state.generalSettings.design_theme
+    getInnerSpacerBGColor() {
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
         return {
-          'background-color': this.getColorInString(this.$store.state.generalSettings.background_color)
-        }
+          'background-color': this.getColorInString(
+            this.$store.state.generalSettings.background_color),
+        };
       } else if (theme === 'image') {
         return {
-          'background-color': ''
-        }
+          'background-color': '',
+        };
       }
     },
-    isFirstItem: function () {
+    isFirstItem: function() {
       if (this.activity.activity_id === 1) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     },
-    isActiveTab: function () {
+    isActiveTab: function() {
       if (this.activity.activity_id === parseInt(this.$route.params.id)) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     },
     // check if this tab is at the top of the selected tab
-    isTopOfSelectedTab () {
+    isTopOfSelectedTab() {
       if (this.relativePositionToActiveTab === 'top') {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     },
-    isLong: function () {
+    isLong: function() {
       if (this.activity.button_label.length > 14) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     },
-    setCurve () {
+    setCurve() {
       if (this.isActiveTab) {
         return {
-          'border-top-right-radius': '10px'
-        }
+          'border-top-right-radius': '10px',
+        };
       } else if (this.isTopOfSelectedTab) {
         return {
-          'border-bottom-right-radius': '10px'
-        }
+          'border-bottom-right-radius': '10px',
+        };
       }
     },
-    getSVGColor () {
-      return this.clicked && !this.isActiveTab ? this.getColorInString(this.activity.main_color) : 'white'
-    }
+    getSVGColor() {
+      return this.clicked && !this.isActiveTab ?
+        this.getColorInString(this.activity.main_color) : 'white';
+    },
   },
   methods: {
-    changeColor () {
-      this.clicked = !this.clicked
+    changeColor() {
+      this.clicked = !this.clicked;
 
       // to change the color of the top left edge of detail header
       if (this.isFirstItem && !this.isActiveTab) {
         // update clicked state in the store.js
-        this.$store.commit('updateIsFirstActivityClicked', this.clicked)
+        this.$store.commit('updateIsFirstActivityClicked', this.clicked);
       }
     },
-    resetClick () {
-      this.clicked = false
+    resetClick() {
+      this.clicked = false;
 
       // to change the color of the top left edge of detail header
       if (this.isFirstItem && !this.isActiveTab) {
         // update clicked state in the store.js
-        this.$store.commit('updateIsFirstActivityClicked', false)
+        this.$store.commit('updateIsFirstActivityClicked', false);
       }
     },
-    transitPage () {
+    transitPage() {
       // change the path based on whether you are editing
       if (this.$store.state.isEditing) {
-        this.$router.push({ name: 'edit-detail', params: { id: this.activity.activity_id } })
+        this.$router.push({
+          name: 'edit-detail',
+          params: {id: this.activity.activity_id},
+        });
       } else {
-        this.$router.push({ name: 'detail', params: { id: this.activity.activity_id } })
+        this.$router.push({
+          name: 'detail',
+          params: {id: this.activity.activity_id},
+        });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 

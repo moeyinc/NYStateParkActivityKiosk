@@ -5,7 +5,10 @@
   <article class="catalog">
     <div class="clearfix catalog-description">
       <div class="clearfix catalog-title">
-        <h2 :style="{'color': getColorInString($store.getters.getSelectedActivity.main_color)}">{{ content.page_title }}</h2>
+        <h2 :style="{'color': getColorInString(
+          $store.getters.getSelectedActivity.main_color)}">
+          {{ content.page_title }}
+        </h2>
       </div>
       <div class="clearfix catalog-text" v-html="content.page_description">
       </div>
@@ -27,19 +30,29 @@
  Vue Script
 ================================================== -->
 <script>
-import CatalogArticleItem from './CatalogArticleItem'
+import CatalogArticleItem from './CatalogArticleItem';
 
 export default {
   name: 'catalog-article',
   components: {
-    'catalog-article-item': CatalogArticleItem
+    'catalog-article-item': CatalogArticleItem,
   },
   props: {
     content: {
-      type: Object // ex) {"activity_id" : 1, "subnav_id" : 1, "subnav_label" : "GENERAL INFO", "template_type" : "GENERAL INFO", "articles": [{"article_id": 1,"left_image_uri" : "","right_image_uri" : "","raw_html_text" : "</p>......</p>"}]}
-    }
-  }
-}
+      type: Object,
+      // ex)
+      // {"activity_id" : 1,
+      // "subnav_id" : 1,
+      // "subnav_label" : "GENERAL INFO",
+      // "template_type" : "GENERAL INFO",
+      // "articles": [
+      // {"article_id": 1,
+      // "left_image_uri" : "",
+      // "right_image_uri" : "",
+      // "raw_html_text" : "</p>......</p>"}]}
+    },
+  },
+};
 </script>
 
 
@@ -52,7 +65,8 @@ article.catalog {
   line-height: 40px;
 }
 
-article.catalog .catalog-description ol, article.catalog .catalog-description ul {
+article.catalog .catalog-description ol,
+article.catalog .catalog-description ul {
   -webkit-margin-start: 2em;
 }
 

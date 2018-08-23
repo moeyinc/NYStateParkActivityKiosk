@@ -15,7 +15,11 @@
           @change-order="changeOrder">
         </activity-list-item>
       </transition-group>
-      <div class="add-activity" @click="addActivity" v-if="withinLimitNum" v-show="$store.state.moey">
+      <div
+        class="add-activity"
+        @click="addActivity"
+        v-if="withinLimitNum"
+        v-show="$store.state.moey">
         <p>
           ADD A NEW ACTIVITY
         </p>
@@ -27,7 +31,10 @@
       @execute-command="removeActivity"
       >
       <h3 slot="header">Removing An Activity</h3>
-      <p slot="body">The activity will be removed from the list with its content. To undo it, reload the page before submitting changes.</p>
+      <p slot="body">
+        The activity will be removed from the list with its content.
+        To undo it, reload the page before submitting changes.
+      </p>
       <p slot="cancel-button">CANCEL</p>
       <p slot="execute-button">REMOVE</p>
     </confirm-modal>
@@ -39,58 +46,68 @@
  Vue Script
 ================================================== -->
 <script>
-import ActivityListItem from './ActivityListItem.vue'
-import ConfirmModal from '@/components/ConfirmModal.vue'
+import ActivityListItem from './ActivityListItem.vue';
+import ConfirmModal from '@/components/ConfirmModal.vue';
 
 export default {
   name: 'activity-list',
   components: {
     'activity-list-item': ActivityListItem,
-    'confirm-modal': ConfirmModal
+    'confirm-modal': ConfirmModal,
   },
-  created () {
+  created() {
   },
   computed: {
-    withinLimitNum () {
-      let total = this.$store.state.activities.length
-      let theme = this.$store.state.generalSettings.design_theme
+    withinLimitNum() {
+      let total = this.$store.state.activities.length;
+      let theme = this.$store.state.generalSettings.design_theme;
       if (theme === 'basic') {
-        if (total < 15) { return true } else { return false }
+        if (total < 15) {
+ return true;
+} else {
+ return false;
+}
       } else if (theme === 'image') {
-        if (total < 8) { return true } else { return false }
+        if (total < 8) {
+ return true;
+} else {
+ return false;
+}
       }
-    }
+    },
   },
   methods: {
-    changeOrder (id, value) {
+    changeOrder(id, value) {
       // check the index and value
-      const minIndex = 1
-      const maxIndex = this.$store.state.activities.length
+      const minIndex = 1;
+      const maxIndex = this.$store.state.activities.length;
       if (id <= minIndex && value === -1) {
-        console.log('canceled decreasing order because it is at the top of the list')
-        return
+        console.log(
+          'canceled decreasing order because it is at the top of the list');
+        return;
       } else if (id >= maxIndex && value === 1) {
-        console.log('canceled increasing order because it is at the bottom of the list')
-        return
+        console.log(
+          'canceled increasing order because it is at the bottom of the list');
+        return;
       }
 
-      this.$store.commit('changeActivityOrder', {act_id: id, value: value})
+      this.$store.commit('changeActivityOrder', {act_id: id, value: value});
     },
-    addActivity () {
-      this.$store.commit('addActivity')
+    addActivity() {
+      this.$store.commit('addActivity');
     },
-    closeRemoveActivityModal () {
+    closeRemoveActivityModal() {
       // close the remove activity modal window
-      this.$store.commit('updateModals', {key: 'removeActivity', value: false})
+      this.$store.commit('updateModals', {key: 'removeActivity', value: false});
     },
-    removeActivity () {
-      this.$store.commit('removeActivity')
+    removeActivity() {
+      this.$store.commit('removeActivity');
 
       // close the remove activity modal window
-      this.$store.commit('updateModals', {key: 'removeActivity', value: false})
-    }
-  }
-}
+      this.$store.commit('updateModals', {key: 'removeActivity', value: false});
+    },
+  },
+};
 </script>
 
 
@@ -127,7 +144,7 @@ section.activity-list-wrapper {
 .change-order-enter-active, .change-order-leave-active {
   transition: all 1s;
 }
-.change-order-enter, .change-order-leave-to /* .list-leave-active below version 2.1.8 */ {
+.change-order-enter, .change-order-leave-to {
   opacity: 0;
   /*transform: translateY(30px);*/
 }

@@ -5,8 +5,12 @@
   <div id="edit-panel-wrapper">
     <form autocomplete="off">
       <div id="edit-panel-input-area">
-        <router-view name="section-top" v-if="$store.state.generalSettings && $store.state.activities"></router-view>
-        <router-view name="section-bottom" v-if="$store.state.generalSettings && $store.state.activities"></router-view>
+        <router-view
+          name="section-top"
+          v-if="$store.state.generalSettings && $store.state.activities"/>
+        <router-view
+          name="section-bottom"
+          v-if="$store.state.generalSettings && $store.state.activities"/>
       </div>
       <footer
         id="edit-panel-submit-bar"
@@ -24,7 +28,7 @@
       <p slot="cancel-button">CANCEL</p>
       <p slot="execute-button">SUBMIT</p>
     </confirm-modal>
-    <media-gallery-window v-if="$store.state.modals.mediaGallery"></media-gallery-window>
+    <media-gallery-window v-if="$store.state.modals.mediaGallery"/>
   </div>
 </template>
 
@@ -33,58 +37,58 @@
  Vue Script
 ================================================== -->
 <script>
-import ConfirmModal       from '@/components/ConfirmModal.vue'
-import MediaGalleryWindow from '@/components/media/MediaGalleryWindow.vue'
+import ConfirmModal from '@/components/ConfirmModal.vue';
+import MediaGalleryWindow from '@/components/media/MediaGalleryWindow.vue';
 
 export default {
   name: 'editor-panel',
   components: {
     'confirm-modal': ConfirmModal,
-    'media-gallery-window': MediaGalleryWindow
+    'media-gallery-window': MediaGalleryWindow,
   },
-  created () {
+  created() {
   },
-  mounted () {
+  mounted() {
     // resize this component
-    this.resizeWrapper(this.$store.state.size)
+    this.resizeWrapper(this.$store.state.size);
 
     // watch resizing action
-    this.$store.watch(this.$store.getters.getSize, size => {
-      console.log('resizing edit panel wrapper')
-      this.resizeWrapper(size)
-    })
+    this.$store.watch(this.$store.getters.getSize, (size) => {
+      console.log('resizing edit panel wrapper');
+      this.resizeWrapper(size);
+    });
   },
   methods: {
-    resizeWrapper (size) {
-      const panelWrapper = document.getElementById('edit-panel-wrapper')
-      panelWrapper.style.width  = size.editPanel.w + 'px'
-      panelWrapper.style.height = size.editPanel.h + 'px'
+    resizeWrapper(size) {
+      const panelWrapper = document.getElementById('edit-panel-wrapper');
+      panelWrapper.style.width = size.editPanel.w + 'px';
+      panelWrapper.style.height = size.editPanel.h + 'px';
 
-      const submitBarHeight = 60
-      const inputArea = document.getElementById('edit-panel-input-area')
-      inputArea.style.height = size.editPanel.h - submitBarHeight + 'px'
+      const submitBarHeight = 60;
+      const inputArea = document.getElementById('edit-panel-input-area');
+      inputArea.style.height = size.editPanel.h - submitBarHeight + 'px';
 
-      const submitBar = document.getElementById('edit-panel-submit-bar')
-      submitBar.style.width = size.editPanel.w + 'px'
-      submitBar.style.height = submitBarHeight + 'px'
+      const submitBar = document.getElementById('edit-panel-submit-bar');
+      submitBar.style.width = size.editPanel.w + 'px';
+      submitBar.style.height = submitBarHeight + 'px';
     },
-    showSubmitChangesModal () {
-      this.$store.commit('updateModals', {key: 'submitChanges', value: true})
+    showSubmitChangesModal() {
+      this.$store.commit('updateModals', {key: 'submitChanges', value: true});
     },
-    closeSubmitChangesModal () {
-      this.$store.commit('updateModals', {key: 'submitChanges', value: false})
+    closeSubmitChangesModal() {
+      this.$store.commit('updateModals', {key: 'submitChanges', value: false});
     },
-    submitChanges () {
-      this.$store.commit('updateModals', {key: 'submitChanges', value: false})
+    submitChanges() {
+      this.$store.commit('updateModals', {key: 'submitChanges', value: false});
       this.$store.dispatch('submitGeneralSettings').then(() => {
-        console.log('general settings submitted')
-      })
+        console.log('general settings submitted');
+      });
       this.$store.dispatch('submitActivities').then(() => {
-        console.log('activities submitted')
-      })
-    }
-  }
-}
+        console.log('activities submitted');
+      });
+    },
+  },
+};
 </script>
 
 

@@ -25,82 +25,82 @@
 ================================================== -->
 <script>
 // import { Sketch, Compact } from 'vue-color'
-import { Sketch, Compact } from '@/../node_modules/vue-color/dist/vue-color.js'
-import tinycolor from 'tinycolor2'
+import {Sketch, Compact} from '@/../node_modules/vue-color/dist/vue-color.js';
+import tinycolor from 'tinycolor2';
 
 export default {
   name: 'color-picker',
   components: {
     'sketch-picker': Sketch,
-    'compact-picker': Compact
+    'compact-picker': Compact,
   },
   props: {
     colorObject: Object,
     modalPosition: Object,
     palette: Array,
-    theme: String
+    theme: String,
   },
-  mounted () {
-    this.setPos()
+  mounted() {
+    this.setPos();
   },
   computed: {
     color: {
-      get () {
-        let colorObject = this._colorChange(this.colorObject)
-        console.log(colorObject)
-        return colorObject
+      get() {
+        let colorObject = this._colorChange(this.colorObject);
+        console.log(colorObject);
+        return colorObject;
         // return this.colorObject
       },
-      set (value) {
-        this.$emit('update-color', value)
-      }
-    }
+      set(value) {
+        this.$emit('update-color', value);
+      },
+    },
   },
   methods: {
-    setPos () {
-      console.log(this.modalPosition)
-      const el = document.getElementById('color-picker')
-      el.style.top = this.modalPosition.top + 'px'
-      el.style.left = this.modalPosition.right + 20 + 'px'
+    setPos() {
+      console.log(this.modalPosition);
+      const el = document.getElementById('color-picker');
+      el.style.top = this.modalPosition.top + 'px';
+      el.style.left = this.modalPosition.right + 20 + 'px';
     },
-    closeModal () {
-      this.$emit('close-modal')
+    closeModal() {
+      this.$emit('close-modal');
     },
-    _colorChange (data, oldHue) {
-      var alpha = data && data.a
-      var color
+    _colorChange(data, oldHue) {
+      let alpha = data && data.a;
+      let color;
 
       // hsl is better than hex between conversions
       if (data && data.hsl) {
-        color = tinycolor(data.hsl)
+        color = tinycolor(data.hsl);
       } else if (data && data.hex && data.hex.length > 0) {
-        color = tinycolor(data.hex)
+        color = tinycolor(data.hex);
       } else {
-        color = tinycolor(data)
+        color = tinycolor(data);
       }
 
       if (color && (color._a === undefined || color._a === null)) {
-        color.setAlpha(alpha || 1)
+        color.setAlpha(alpha || 1);
       }
 
-      var hsl = color.toHsl()
-      var hsv = color.toHsv()
+      let hsl = color.toHsl();
+      let hsv = color.toHsv();
 
       if (hsl.s === 0) {
-        hsv.h = hsl.h = data.h || (data.hsl && data.hsl.h) || oldHue || 0
+        hsv.h = hsl.h = data.h || (data.hsl && data.hsl.h) || oldHue || 0;
       }
 
       // when the hsv.v is less than 0.0164 (base on test)
       // because of possible loss of precision
       // the result of hue and saturation would be miscalculated
       if (hsv.v < 0.0164) {
-        hsv.h = data.h || (data.hsv && data.hsv.h) || 0
-        hsv.s = data.s || (data.hsv && data.hsv.s) || 0
+        hsv.h = data.h || (data.hsv && data.hsv.h) || 0;
+        hsv.s = data.s || (data.hsv && data.hsv.s) || 0;
       }
 
       if (hsl.l < 0.01) {
-        hsl.h = data.h || (data.hsl && data.hsl.h) || 0
-        hsl.s = data.s || (data.hsl && data.hsl.s) || 0
+        hsl.h = data.h || (data.hsl && data.hsl.h) || 0;
+        hsl.s = data.s || (data.hsl && data.hsl.s) || 0;
       }
 
       return {
@@ -110,11 +110,11 @@ export default {
         hsv: hsv,
         oldHue: data.h || oldHue || hsl.h,
         source: data.source,
-        a: data.a || color.getAlpha()
-      }
-    }
-  }
-}
+        a: data.a || color.getAlpha(),
+      };
+    },
+  },
+};
 </script>
 
 

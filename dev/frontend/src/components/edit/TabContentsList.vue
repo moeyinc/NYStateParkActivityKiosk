@@ -8,7 +8,8 @@
     </h2>
     <transition-group name="change-order" tag="ul" class="tab-list">
       <tab-contents-list-item
-        v-for="content in sortContents($store.getters.getSelectedActivity.contents)"
+        v-for="content in sortContents(
+          $store.getters.getSelectedActivity.contents)"
         :content="content"
         :activity="$store.getters.getSelectedActivity"
         :key="content._id">
@@ -32,7 +33,8 @@
       @execute-command="removeTab"
       >
       <h3 slot="header">Removing A Tab</h3>
-      <p slot="body">The tab will be removed from the list with its content. To undo it, reload the page before submitting changes.</p>
+      <p slot="body">The tab will be removed from the list with its content.
+        To undo it, reload the page before submitting changes.</p>
       <p slot="cancel-button">CANCEL</p>
       <p slot="execute-button">REMOVE</p>
     </confirm-modal>
@@ -44,62 +46,62 @@
  Vue Script
 ================================================== -->
 <script>
-import TabContentsListItem from './TabContentsListItem.vue'
-import ConfirmModal        from '@/components/ConfirmModal.vue'
+import TabContentsListItem from './TabContentsListItem.vue';
+import ConfirmModal from '@/components/ConfirmModal.vue';
 
 export default {
   name: 'tab-contents-list',
   components: {
     'tab-contents-list-item': TabContentsListItem,
-    'confirm-modal': ConfirmModal
+    'confirm-modal': ConfirmModal,
   },
-  created () {
+  created() {
   },
   computed: {
-    checkTabNum () {
-      let activity = this.$store.getters.getSelectedActivity
+    checkTabNum() {
+      let activity = this.$store.getters.getSelectedActivity;
       if (activity.contents.length < 4) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
+    },
   },
   methods: {
-    addContent (e) {
-      console.log(e.target.value)
+    addContent(e) {
+      console.log(e.target.value);
       if (e.target.value === '') {
-        return
+        return;
       }
 
-      let data = {}
-      let activity = this.$store.getters.getSelectedActivity
-      data.act_id = activity.activity_id
-      data.tab_id = activity.contents.length + 1
+      let data = {};
+      let activity = this.$store.getters.getSelectedActivity;
+      data.act_id = activity.activity_id;
+      data.tab_id = activity.contents.length + 1;
 
-      data.templateType = e.target.value
-      this.$store.commit('addContent', data)
+      data.templateType = e.target.value;
+      this.$store.commit('addContent', data);
 
       // reset the select tag's value to default
-      this.resetOptionValue()
+      this.resetOptionValue();
     },
-    resetOptionValue () {
-      const el = document.getElementById('add-content-selector')
-      console.dir(el)
-      el.value = ''
+    resetOptionValue() {
+      const el = document.getElementById('add-content-selector');
+      console.dir(el);
+      el.value = '';
     },
-    closeRemoveTabModal () {
+    closeRemoveTabModal() {
       // close the remove activity modal window
-      this.$store.commit('updateModals', {key: 'removeTab', value: false})
+      this.$store.commit('updateModals', {key: 'removeTab', value: false});
     },
-    removeTab () {
-      this.$store.commit('removeContent')
+    removeTab() {
+      this.$store.commit('removeContent');
 
       // close the remove activity modal window
-      this.$store.commit('updateModals', {key: 'removeTab', value: false})
-    }
-  }
-}
+      this.$store.commit('updateModals', {key: 'removeTab', value: false});
+    },
+  },
+};
 </script>
 
 

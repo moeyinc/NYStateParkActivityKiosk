@@ -8,12 +8,16 @@
       </p>
       <div class="edit-header-link-wrapper">
         <router-link to="/edit">
-          <p class="edit-header-link home" :class="selectedIfThisPageIsEditHome">
+          <p
+            class="edit-header-link home"
+            :class="selectedIfThisPageIsEditHome">
             EDIT HOME
           </p>
         </router-link>
         <router-link to="/edit/detail/1">
-          <p class="edit-header-link detail" :class="selectedIfThisPageIsEditDetail">
+          <p
+            class="edit-header-link detail"
+            :class="selectedIfThisPageIsEditDetail">
             EDIT DETAIL
           </p>
         </router-link>
@@ -38,35 +42,35 @@
 export default {
   name: 'edit-header',
   computed: {
-    selectedIfThisPageIsEditHome () {
+    selectedIfThisPageIsEditHome() {
       if (this.$route.name === 'edit-home') {
-        return 'selected'
+        return 'selected';
       }
     },
-    selectedIfThisPageIsEditDetail () {
+    selectedIfThisPageIsEditDetail() {
       if (this.$route.name === 'edit-detail') {
-        return 'selected'
+        return 'selected';
       }
-    }
+    },
   },
   methods: {
-    refreshPage () {
-      window.location.reload(true)
+    refreshPage() {
+      window.location.reload(true);
     },
-    resetState () {
-      console.log('re-download data from db')
-      this.$store.dispatch('updateGeneralSettings')
-      this.$store.dispatch('updateActivities')
-      this.$store.commit('resetState')
+    resetState() {
+      console.log('re-download data from db');
+      this.$store.dispatch('updateGeneralSettings');
+      this.$store.dispatch('updateActivities');
+      this.$store.commit('resetState');
     },
-    logout () {
+    logout() {
       // force logout
-      this.$store.commit('updateAuthentication', false)
-      this.$store.commit('updateIsEditing', false)
-      this.$router.push({ name: 'login' })
-    }
-  }
-}
+      this.$store.commit('updateAuthentication', false);
+      this.$store.commit('updateIsEditing', false);
+      this.$router.push({name: 'login'});
+    },
+  },
+};
 </script>
 
 <!-- =================================================

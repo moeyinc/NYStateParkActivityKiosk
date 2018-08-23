@@ -8,11 +8,17 @@
       :key="section.section_id"
       class="clearfix">
         <div class="clearfix course-title">
-          <h2 :style="{'color': getColorInString($store.getters.getSelectedActivity.main_color)}">{{section.section_title}}</h2>
+          <h2
+            :style="{'color': getColorInString(
+              $store.getters.getSelectedActivity.main_color)}">
+              {{section.section_title}}
+            </h2>
         </div>
         <div class="clearfix course-content">
           <div
-            :class="{'left-text': section.number_of_images >= 1, 'only-text': section.number_of_images === 0}"
+            :class="{
+              'left-text': section.number_of_images >= 1,
+              'only-text': section.number_of_images === 0}"
             v-html="section.raw_html_text">
           </div>
           <div class="right-image" v-if="section.number_of_images >= 1">
@@ -22,16 +28,25 @@
               :album="section.section_title">
               <div
                 class="clearfix course-map-image image-frame"
-                :style="setBGImage(getImageStaticFilePath(section.map_image_filename))">
+                :style="setBGImage(getImageStaticFilePath(
+                  section.map_image_filename))">
               </div>
             </lightbox>
-            <div class="clearfix course-photo" v-if="section.number_of_images >= 2">
-              <div :class="{'center': section.number_of_images === 2, 'left': section.number_of_images === 3}">
+            <div
+              class="clearfix course-photo"
+              v-if="section.number_of_images >= 2">
+              <div
+                :class="{
+                  'center': section.number_of_images === 2,
+                  'left': section.number_of_images === 3}">
                 <lightbox
                   :src="getImageStaticFilePath(section.ref_1_image_filename)"
                   :caption="section.section_title"
                   :album="section.section_title">
-                  <div class="image-frame course-photo-item" :style="setBGImage(getImageStaticFilePath(section.ref_1_image_filename))">
+                  <div
+                    class="image-frame course-photo-item"
+                    :style="setBGImage(getImageStaticFilePath(
+                      section.ref_1_image_filename))">
                   </div>
                 </lightbox>
               </div>
@@ -40,7 +55,10 @@
                   :src="getImageStaticFilePath(section.ref_2_image_filename)"
                   :caption="section.section_title"
                   :album="section.section_title">
-                  <div class="image-frame course-photo-item" :style="setBGImage(getImageStaticFilePath(section.ref_2_image_filename))">
+                  <div
+                    class="image-frame course-photo-item"
+                    :style="setBGImage(getImageStaticFilePath(
+                      section.ref_2_image_filename))">
                   </div>
                 </lightbox>
               </div>
@@ -56,19 +74,19 @@
  Vue Script
 ================================================== -->
 <script>
-import VueLightbox from 'vue-lightbox'
+import VueLightbox from 'vue-lightbox';
 
 export default {
   name: 'location-article',
   components: {
-    'lightbox': VueLightbox
+    'lightbox': VueLightbox,
   },
   props: {
     content: {
-      type: Object
-    }
-  }
-}
+      type: Object,
+    },
+  },
+};
 </script>
 
 

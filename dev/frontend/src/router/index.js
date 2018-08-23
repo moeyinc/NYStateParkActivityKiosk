@@ -1,35 +1,35 @@
-import Vue    from 'vue'
-import Router from 'vue-router'
-import Home   from '@/components/home/Home.vue'
-import Detail from '@/components/detail/Detail.vue'
-import GeneralSettings from '@/components/edit/GeneralSettings.vue'
-import ActivityList    from '@/components/edit/ActivityList.vue'
-import ActivitySettings from '@/components/edit/ActivitySettings.vue'
-import TabContentsList from '@/components/edit/TabContentsList.vue'
-import Media    from '@/components/media/Media.vue'
-import Login  from '@/components/Login.vue'
-import NotFound from '@/components/NotFound.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '@/components/home/Home.vue';
+import Detail from '@/components/detail/Detail.vue';
+import GeneralSettings from '@/components/edit/GeneralSettings.vue';
+import ActivityList from '@/components/edit/ActivityList.vue';
+import ActivitySettings from '@/components/edit/ActivitySettings.vue';
+import TabContentsList from '@/components/edit/TabContentsList.vue';
+import Media from '@/components/media/Media.vue';
+import Login from '@/components/Login.vue';
+import NotFound from '@/components/NotFound.vue';
 
-import store from '../store.js'
+import store from '../store.js';
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   mode: 'history',
   routes: [
     {
       path: '/',
-      redirect: {name: 'home'}
+      redirect: {name: 'home'},
     },
     {
       path: '/home',
       name: 'home',
-      components: {'page': Home}
+      components: {'page': Home},
     },
     {
       path: '/detail/:id',
       name: 'detail',
-      components: {'page': Detail}
+      components: {'page': Detail},
     },
     {
       path: '/edit',
@@ -37,9 +37,9 @@ const router = new Router({
       components: {
         'page': Home,
         'section-top': GeneralSettings,
-        'section-bottom': ActivityList
+        'section-bottom': ActivityList,
       },
-      meta: {requiresAuth: true}
+      meta: {requiresAuth: true},
     },
     {
       path: '/edit/detail/:id',
@@ -47,14 +47,14 @@ const router = new Router({
       components: {
         'page': Detail,
         'section-top': ActivitySettings,
-        'section-bottom': TabContentsList
+        'section-bottom': TabContentsList,
       },
-      meta: {requiresAuth: true}
+      meta: {requiresAuth: true},
     },
     {
       path: '/media',
       name: 'media',
-      components: {'page': Media}
+      components: {'page': Media},
     },
     {
       path: '/login',
@@ -62,36 +62,37 @@ const router = new Router({
       components: {
         'page': Login,
         'section-top': GeneralSettings,
-        'section-bottom': ActivityList
-      }
+        'section-bottom': ActivityList,
+      },
     },
     {
       path: '/404',
       name: 'not-found',
-      component: NotFound
+      component: NotFound,
     },
     {
       path: '*',
-      redirect: {name: 'not-found'}
-    }
-  ]
-})
+      redirect: {name: 'not-found'},
+    },
+  ],
+});
 
 router.beforeEach((to, from, next) => {
-  console.log('isAuthenticated:', store.state.isAuthenticated)
-  if (to.matched.some(record => record.meta.requiresAuth) && !store.state.isAuthenticated) {
-    console.log('router guard blocked. to: ', to)
-    next({path: '/login'}) // , query: {redirect: to.fullPath}
+  console.log('isAuthenticated:', store.state.isAuthenticated);
+  if (to.matched.some((record) => record.meta.requiresAuth) &&
+    !store.state.isAuthenticated) {
+    console.log('router guard blocked. to: ', to);
+    next({path: '/login'}); // , query: {redirect: to.fullPath}
   } else {
-    console.log('router guard PASSED. to: ', to)
-    const rootPath = to.path.substring(1, 5)
+    console.log('router guard PASSED. to: ', to);
+    const rootPath = to.path.substring(1, 5);
     if (rootPath === 'edit') {
       // turn edit mode on to display edit panel
       // store.commit('updateIsEditing', true)
-      store.mutations.updateIsEditing(store.state, true)
+      store.mutations.updateIsEditing(store.state, true);
     }
-    next()
+    next();
   }
-})
+});
 
-export default router
+export default router;

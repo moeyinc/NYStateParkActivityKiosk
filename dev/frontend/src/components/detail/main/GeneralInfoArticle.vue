@@ -4,13 +4,19 @@
 <template>
   <article class="general-info">
     <div class="general-top-images" v-if="content.number_of_images === 2">
-      <div class="left-image image-frame" :style="setBGImage(getImageStaticFilePath(content.left_image_uri))">
+      <div
+        class="left-image image-frame"
+        :style="setBGImage(getImageStaticFilePath(content.left_image_uri))">
       </div>
-      <div class="right-image image-frame" :style="setBGImage(getImageStaticFilePath(content.right_image_uri))">
+      <div
+        class="right-image image-frame"
+        :style="setBGImage(getImageStaticFilePath(content.right_image_uri))">
       </div>
     </div>
     <div class="general-top-images" v-if="content.number_of_images === 1">
-      <div class="one-image image-frame" :style="setBGImage(getImageStaticFilePath(content.left_image_uri))">
+      <div
+        class="one-image image-frame"
+        :style="setBGImage(getImageStaticFilePath(content.left_image_uri))">
       </div>
     </div>
     <div class="general-text">
@@ -31,10 +37,10 @@ export default {
   name: 'general-info-article',
   props: {
     content: {
-      type: Object
-    }
-  }
-}
+      type: Object,
+    },
+  },
+};
 </script>
 
 
