@@ -15,7 +15,7 @@
         <simple-svg
           :filepath="getImageStaticFilePath(
             $store.getters.getSelectedActivity.icon_uri)"
-          :color="'white'"
+          :fill="'white'"
           :width="'auto'"
           :height="'100%'"
         />

@@ -16,7 +16,7 @@
       <div class="icon-wrapper">
         <simple-svg
           :filepath="getImageStaticFilePath(activity.icon_uri)"
-          :color="getSVGColor"
+          :fill="getSVGColor"
           :width="'auto'"
           :height="'100%'"
         />
