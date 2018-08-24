@@ -106,6 +106,7 @@ export default {
   },
   computed: {
     getStyle() {
+      if (!this.$store.state.generalSettings) return;
       return {
         'background-color': this.getColorInString(
           this.$store.state.generalSettings.background_color),

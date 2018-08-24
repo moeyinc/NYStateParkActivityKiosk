@@ -6,8 +6,8 @@
     <div class="title">
       <h1 :style="getH1Style">
         {{ $store.state.generalSettings.kiosk_title }}
-        <br v-if="$store.state.generalSettings.design_theme==='image'" />
-        <span v-if="$store.state.generalSettings.design_theme==='image'">
+        <br />
+        <span>
           {{ $store.state.generalSettings.kiosk_title_2 }}
         </span>
       </h1>
@@ -29,35 +29,21 @@ export default {
   name: 'home-header',
   computed: {
     getHeaderStyle() {
-      if (this.$store.state.generalSettings.design_theme === 'basic') {
-        return {
-          'height': '226px',
-        };
-      } else if (this.$store.state.generalSettings.design_theme === 'image') {
-        return {
-          'height': '400px',
-        };
-      }
+      return {
+        'height': '400px',
+      };
     },
     getH1Style() {
-      if (this.$store.state.generalSettings.design_theme === 'basic') {
-        return {
-          'font-family': 'Avenir-Heavy',
-          'margin': '58px 0px',
-          'line-height': '100px',
-          'font-size': '128px',
-        };
-      } else if (this.$store.state.generalSettings.design_theme === 'image') {
-        return {
-          'font-family': 'Agenda-Bold',
-          'margin': '29px 0px 58px 0px',
-          'line-height': '160px',
-          'font-size': '180px',
-          'letter-spacing': '-3px',
-        };
-      }
+      return {
+        'font-family': 'Agenda-Bold',
+        'margin': '29px 0px 58px 0px',
+        'line-height': '160px',
+        'font-size': '180px',
+        'letter-spacing': '-3px',
+      };
     },
     showLogo() {
+      if (!this.$store.state.generalSettings) return;
       if (this.$store.state.generalSettings.show_logo === 'on') {
         return true;
       } else {

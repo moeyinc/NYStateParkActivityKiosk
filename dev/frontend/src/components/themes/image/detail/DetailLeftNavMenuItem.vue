@@ -30,13 +30,6 @@
           {{ activity.button_label }}
         </p>
       </div>
-      <template
-        v-if="isFirstItem &&
-        $store.state.generalSettings.design_theme === 'basic'">
-        <div class="first-item-shadow-box">
-          <div class="inner-box"></div>
-        </div>
-      </template>
 
     </div>
     <div>
@@ -91,87 +84,41 @@ export default {
       }
     },
     getButtonStyle() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          'border-radius': '27px 0 0 27px',
-          'box-shadow': '-10px 0px 10px 0 rgba(0, 0, 0, 0.2) inset',
-          'padding': '0px 10px 0px 15px',
-        };
-      } else if (theme === 'image') {
-        return {
-          'border-radius': '0 27px 27px 0',
-          'box-shadow': 'none',
-          'padding': '0px 10px 0px 15px',
-        };
-      }
+      return {
+        'border-radius': '0 27px 27px 0',
+        'box-shadow': 'none',
+        'padding': '0px 10px 0px 15px',
+      };
     },
     getBoxShadow() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        if (!this.isFirstItem && !this.isActiveTab) {
-          return {
-            'box-shadow': '-10px 0px 10px 0 rgba(0, 0, 0, 0.2) inset',
-          };
-        } else {
-          return {
-            'box-shadow': 'none',
-          };
-        }
-      } else if (theme === 'image') {
-        return {
-          'box-shadow': 'none',
-        };
-      }
+      return {
+        'box-shadow': 'none',
+      };
     },
     getButtonSize() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
+      if (this.isActiveTab) {
         return {
-          width: '250px',
-          height: '55px',
+          'width': '290px',
+          'height': '55px',
+          'padding-left': '55px',
         };
-      } else if (theme === 'image') {
-        if (this.isActiveTab) {
-          return {
-            'width': '290px',
-            'height': '55px',
-            'padding-left': '55px',
-          };
-        } else {
-          return {
-            'width': '250px',
-            'height': '55px',
-            'padding-left': '15px',
-          };
-        }
+      } else {
+        return {
+          'width': '250px',
+          'height': '55px',
+          'padding-left': '15px',
+        };
       }
     },
     getSpacerBGColor() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          'background-color': this.getColorInString(
-            this.$store.getters.getSelectedActivity.main_color),
-        };
-      } else if (theme === 'image') {
-        return {
-          'background-color': '',
-        };
-      }
+      return {
+        'background-color': '',
+      };
     },
     getInnerSpacerBGColor() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          'background-color': this.getColorInString(
-            this.$store.state.generalSettings.background_color),
-        };
-      } else if (theme === 'image') {
-        return {
-          'background-color': '',
-        };
-      }
+      return {
+        'background-color': '',
+      };
     },
     isFirstItem: function() {
       if (this.activity.activity_id === 1) {

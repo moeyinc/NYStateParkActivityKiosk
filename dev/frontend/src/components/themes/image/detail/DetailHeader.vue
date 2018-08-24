@@ -33,24 +33,14 @@ export default {
   name: 'detail-header',
   computed: {
     getH1Style() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          'font-family': 'Avenir-Heavy',
-          'margin': '38px 0 58px 0',
-          'line-height': '80px',
-          'font-size': '120px',
-        };
-      } else if (theme === 'image') {
-        return {
-          'font-family': 'Agenda-Bold',
-          'margin': '0',
-          'padding-left': '10px',
-          'line-height': '160px',
-          'font-size': '180px',
-          'letter-spacing': '0px',
-        };
-      }
+      return {
+        'font-family': 'Agenda-Bold',
+        'margin': '0',
+        'padding-left': '10px',
+        'line-height': '160px',
+        'font-size': '180px',
+        'letter-spacing': '0px',
+      };
     },
     isFirstItemSelected() {
       if (this.$store.getters.getSelectedActivity.activity_id === 1) {

@@ -46,12 +46,14 @@ export default {
       };
     },
     getTriangleBGColor() {
+      if (!this.$store.state.generalSettings) return;
       return {
         'background-color': this.getColorInString(
           this.$store.state.generalSettings.text_color, false),
       };
     },
     getMainMenuColor() {
+      if (!this.$store.state.generalSettings) return;
       return {
         'color': this.getColorInString(
           this.$store.state.generalSettings.text_color),

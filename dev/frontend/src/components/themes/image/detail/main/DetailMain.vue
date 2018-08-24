@@ -5,7 +5,7 @@
   <div>
     <div
       class="content-foundation"
-      :style="[getBorderRadius, getFoundationHeight]">
+      :style="getFoundationHeight">
         <vue-scrollbar
           ref="Scrollbar"
           class="content-wrapper"
@@ -67,46 +67,15 @@ export default {
     };
   },
   computed: {
-    getBorderRadius() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        if (this.$store.state.activeTabId === 1) {
-          return {
-            'border-radius': '0px 20px 20px 20px',
-          };
-        } else {
-          return {
-            'border-radius': '20px 20px 20px 20px',
-          };
-        }
-      } else if (theme === 'image') {
-        return {};
-      }
-      return {};
-    },
     getFoundationHeight() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          height: '752px',
-        };
-      } else if (theme === 'image') {
         return {
           height: '822px',
         };
-      }
     },
     getWrapperHeight() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          height: '712px',
-        };
-      } else if (theme === 'image') {
-        return {
-          height: '782px',
-        };
-      }
+      return {
+        height: '782px',
+      };
     },
   },
   methods: {

@@ -38,6 +38,7 @@ export default {
       };
     },
     showLogo() {
+      if (!this.$store.state.generalSettings) return;
       if (this.$store.state.generalSettings.show_logo === 'on') {
         return true;
       } else {
