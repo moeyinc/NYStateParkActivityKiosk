@@ -66,43 +66,30 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-header {
-  position: relative;
-  z-index: 200;
-}
+<style scoped lang='stylus'>
+header
+  position: relative
+  z-index: 200
 
-div.titlebar {
-  height: 176px;
-  /*width: 1590px;*/
-  width: 100%;
-  color: white;
-  z-index: 400;
-}
+div.titlebar
+  height: 176px
+  width: 100%
+  color: white
+  z-index: 400
 
-div.titlebar-text {
-  height: 100%;
-  width: 85%;
-  float: left;
-}
+div.titlebar-text
+  height: 100%
+  width: 85%
+  float: left
 
-/*div.titlebar-text h1 {
-  margin: 38px 0 58px 0;
-  padding-left: 40px;
-  line-height: 80px;
-  font-size: 120px;
-}*/
+div.titlebar .icon-wrapper
+  float: right
+  width: 15%
+  height: 100%
+  padding: 10px 30px 30px 30px
+  text-align: center
 
-div.titlebar .icon-wrapper {
-  float: right;
-  width: 15%;
-  height: 100%;
-  padding: 10px 30px 30px 30px;
-  text-align: center;
-}
-
-div.titlebar .icon-wrapper svg {
-  height: 100%;
-  max-width: 200px;
-}
+div.titlebar .icon-wrapper svg
+  height: 100%
+  max-width: 200px
 </style>

@@ -250,17 +250,10 @@ export default {
       this.clicked = false;
     },
     transitPage() {
-      // change the path based on whether you are editing
-      if (this.$store.state.isEditing) {
-        // if you are editing, disable the link
-        // this.$router.push({ name: 'edit-detail',
-        // params: { id: this.activity.activity_id } })
-      } else {
-        this.$router.push({
-          name: 'detail',
-          params: {id: this.activity.activity_id},
-        });
-      }
+      this.$router.push({
+        name: 'detail',
+        params: {id: this.activity.activity_id},
+      });
     },
   },
 };
@@ -269,31 +262,22 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-li {
-  display: inline;
-}
+<style scoped lang='stylus'>
+li
+  display: inline
 
-div.activity-button {
-  float: left;
-  /*width: 405px;
-  height: 234px;
-  margin: 15px 20px 15px 20px;
-  padding: 20px 10px 20px 20px;*/
-  border-radius: 50px;
-  /*box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);*/
-  text-align: center;
-  position: relative;
-}
+div.activity-button
+  float: left
+  border-radius: 50px
+  text-align: center
+  position: relative
 
-div.label {
-  display: table;
-  text-align: center;
-  width: 100%;
-}
+div.label
+  display: table
+  text-align: center
+  width: 100%
 
-div.label p {
-  display: table-cell;
-  vertical-align: middle;
-}
+div.label p
+  display: table-cell
+  vertical-align: middle
 </style>

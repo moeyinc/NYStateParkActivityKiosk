@@ -43,41 +43,35 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-li {
-  display: inline;
-}
+<style scoped lang="stylus">
+li
+  display: inline
 
-li.catalog-item {
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 33.33333%;
-  float: left;
-  margin-bottom: 20px;
-}
+li.catalog-item
+  padding-left: 20px
+  padding-right: 20px
+  width: 33.33333%
+  float: left
+  margin-bottom: 20px
 
-li.catalog-item .catalog-item-image {
-  overflow: hidden;
-  position: relative;
-  height: 300px;
-}
+li.catalog-item .catalog-item-image
+  overflow: hidden
+  position: relative
+  height: 300px
 
-li.catalog-item .catalog-item-text {
-  text-align: center;
-  text-align: left;
-  margin-top: 10px;
-  padding: 0 10px;
-}
+li.catalog-item .catalog-item-text
+  text-align: center
+  text-align: left
+  margin-top: 10px
+  padding: 0 10px
 
-li.catalog-item .catalog-item-text p.item-title {
-  margin-bottom: 5px;
-}
+li.catalog-item .catalog-item-text p.item-title
+  margin-bottom: 5px
 
-li.catalog-item .catalog-item-text p.item-detail {
-  height: 94px;
-  overflow: hidden;
-  font-size: 18px;
-  line-height: 30px;
-  letter-spacing: 1.5px;
-}
+li.catalog-item .catalog-item-text p.item-detail
+  height: 94px
+  overflow: hidden
+  font-size: 18px
+  line-height: 30px
+  letter-spacing: 1.5px
 </style>

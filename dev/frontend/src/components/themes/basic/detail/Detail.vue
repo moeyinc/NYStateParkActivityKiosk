@@ -120,19 +120,9 @@ export default {
       const el = document.getElementById('detail-wrapper');
       let zoom; let translate;
 
-      if (this.$store.state.isEditing) {
-        // if this is a component embedded into Edit
-        zoom = size.previewPanel.w / size.monitor.w;
-        el.style.left = size.editPanel.w + 'px';
-        el.style.top = '47%';
-
-        translate = ' translateY(-50%)';
-        console.log(translate);
-      } else {
-        // if this is a standalone component
-        zoom = size.zoom;
-        translate = '';
-      }
+      // if this is a standalone component
+      zoom = size.zoom;
+      translate = '';
 
       el.style.transformOrigin = '0 0';
       el.style.transform = 'scale(' + zoom + ')' + translate;
@@ -144,12 +134,7 @@ export default {
         this.$store.state.generalSettings.timeout_in_second * 1000);
     },
     goHomeScreen() {
-      // change the path based on whether you are editing
-      if (this.$store.state.isEditing) {
-        // if you are editing, disable the link
-      } else {
-        this.$router.push({name: 'home'});
-      }
+      this.$router.push({name: 'home'});
     },
   },
 };
@@ -159,12 +144,11 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-#detail-wrapper {
-  position: relative;
-  height: 100%;
-  padding: 20px;
-  width: 1920px;
-  height: 1080px;
-}
+<style scoped lang='stylus'>
+#detail-wrapper
+  position: relative
+  height: 100%
+  padding: 20px
+  width: 1920px
+  height: 1080px
 </style>

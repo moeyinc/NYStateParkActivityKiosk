@@ -93,103 +93,83 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style>
-article.locations {
-  font-size: 24px;
-  line-height: 40px;
-}
+<style lang="stylus">
+article.locations
+  font-size: 24px
+  line-height: 40px
 
-article.locations .course-content ol, article.locations .course-content ul {
-  -webkit-margin-start: 2em;
-}
+article.locations .course-content ol, article.locations .course-content ul
+  -webkit-margin-start: 2em
 
-article.locations .ql-size-small {
-  font-size: 18px;
-  line-height: 32px;
-}
+article.locations .ql-size-small
+  font-size: 18px
+  line-height: 32px
 
-article.locations .ql-size-large {
-  font-size: 32px;
-  line-height: 54px;
-}
+article.locations .ql-size-large
+  font-size: 32px
+  line-height: 54px
 
-article.locations .ql-size-huge {
-  font-size: 48px;
-  line-height: 72px;
-}
+article.locations .ql-size-huge
+  font-size: 48px
+  line-height: 72px
 </style>
-<style scoped>
-article {
-  height: auto;
-  background-color: white;
-}
+<style scoped lang="stylus">
+article
+  height: auto
+  background-color: white
 
-h2 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
+h2
+  margin-top: 20px
+  margin-bottom: 10px
 
-figcaption {
-  text-align: center;
-  font-size: 20px;
-}
+figcaption
+  text-align: center
+  font-size: 20px
 
-section {
-  padding: 0 20px 20px 20px;
-}
+section
+  padding: 0 20px 20px 20px
 
-div.course-title {
-  padding-left: 20px;
-}
+div.course-title
+  padding-left: 20px
 
-div.course-title h2 {
-  font-size: 36px;
-  font-family: "Avenir-Heavy";
-}
+div.course-title h2
+  font-size: 36px
+  font-family: "Avenir-Heavy"
 
-div.course-content .left-text {
-  padding: 20px;
-  width: 60%;
-  float: left;
-}
+div.course-content .left-text
+  padding: 20px
+  width: 60%
+  float: left
 
-div.course-content .only-text {
-  padding: 20px;
-  width: 100%;
-}
+div.course-content .only-text
+  padding: 20px
+  width: 100%
 
-div.course-content .right-image {
-  padding: 20px 0 20px 20px;
-  width: 40%;
-  float: left;
-}
+div.course-content .right-image
+  padding: 20px 0 20px 20px
+  width: 40%
+  float: left
 
-div.course-content .right-image .course-map-image {
-  margin-bottom: 20px;
-  height: 360px;
-}
+div.course-content .right-image .course-map-image
+  margin-bottom: 20px
+  height: 360px
 
-div.course-content .right-image .course-photo div.center {
-  width: 100%;
-  height: 360px;
-}
+div.course-content .right-image .course-photo div.center
+  width: 100%
+  height: 360px
 
-div.course-content .right-image .course-photo div.left {
-  padding-right: 10px;
-  width: 50%;
-  float: left;
-  height: 180px;
-}
+div.course-content .right-image .course-photo div.left
+  padding-right: 10px
+  width: 50%
+  float: left
+  height: 180px
 
-div.course-content .right-image .course-photo div.right {
-  padding-left: 10px;
-  width: 50%;
-  float: right;
-  height: 180px;
-}
+div.course-content .right-image .course-photo div.right
+  padding-left: 10px
+  width: 50%
+  float: right
+  height: 180px
 
-div.course-content .right-image .course-photo .course-photo-item {
-  height: 100%;
-}
-
+div.course-content .right-image .course-photo .course-photo-item
+  height: 100%
 </style>

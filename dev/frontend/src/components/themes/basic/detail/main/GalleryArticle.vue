@@ -50,15 +50,13 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-article {
-  height: auto;
-  background-color: white;
-  padding: 20px;
-}
+<style scoped lang="stylus">
+article
+  height: auto
+  background-color: white
+  padding: 20px
 
-figcaption {
-  text-align: center;
-  font-size: 20px;
-}
+figcaption
+  text-align: center
+  font-size: 20px
 </style>

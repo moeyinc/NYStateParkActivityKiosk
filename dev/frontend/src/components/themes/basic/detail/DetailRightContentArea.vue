@@ -57,23 +57,19 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-div.right-wrapper {
-  position: fixed;
-  top: 20px;
-  /*left: 270px;
-  width: 1630px;*/
-  height: 1040px;
-  padding: 20px;
-  border-radius: 20px 20px 20px 20px;
-  z-index: 200;
-}
+<style scoped lang='stylus'>
+div.right-wrapper
+  position: fixed
+  top: 20px
+  height: 1040px
+  padding: 20px
+  border-radius: 20px 20px 20px 20px
+  z-index: 200
 
-div.topleft-edge-curve {
-  position: absolute;
-  left: 270px;
-  width: 20px;
-  height: 20px;
-  z-index: 100;
-}
+div.topleft-edge-curve
+  position: absolute
+  left: 270px
+  width: 20px
+  height: 20px
+  z-index: 100
 </style>

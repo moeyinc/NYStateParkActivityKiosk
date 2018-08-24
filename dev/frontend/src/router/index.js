@@ -5,15 +5,7 @@ import APP_CONFIG from '../app-config';
 const dt = APP_CONFIG.DESIGN_THEME;
 const Home = require(`@/components/themes/${dt}/home/Home`);
 const Detail = require(`@/components/themes/${dt}/detail/Detail`);
-const GeneralSettings = require(`@/components/common/edit/GeneralSettings`);
-const ActivityList = require(`@/components/common/edit/ActivityList`);
-const ActivitySettings = require(`@/components/common/edit/ActivitySettings`);
-const TabContentsList = require(`@/components/common/edit/TabContentsList`);
-const Media = require(`@/components/common/media/Media`);
-const Login = require(`@/components/common/Login`);
 const NotFound = require(`@/components/common/NotFound`);
-
-import store from '../store/store.js';
 
 Vue.use(Router);
 
@@ -35,40 +27,6 @@ const router = new Router({
       components: {'page': Detail},
     },
     {
-      path: '/edit',
-      name: 'edit-home',
-      components: {
-        'page': Home,
-        'section-top': GeneralSettings,
-        'section-bottom': ActivityList,
-      },
-      meta: {requiresAuth: true},
-    },
-    {
-      path: '/edit/detail/:id',
-      name: 'edit-detail',
-      components: {
-        'page': Detail,
-        'section-top': ActivitySettings,
-        'section-bottom': TabContentsList,
-      },
-      meta: {requiresAuth: true},
-    },
-    {
-      path: '/media',
-      name: 'media',
-      components: {'page': Media},
-    },
-    {
-      path: '/login',
-      name: 'login',
-      components: {
-        'page': Login,
-        'section-top': GeneralSettings,
-        'section-bottom': ActivityList,
-      },
-    },
-    {
       path: '/404',
       name: 'not-found',
       component: NotFound,
@@ -78,24 +36,6 @@ const router = new Router({
       redirect: {name: 'not-found'},
     },
   ],
-});
-
-router.beforeEach((to, from, next) => {
-  console.log('isAuthenticated:', store.state.isAuthenticated);
-  if (to.matched.some((record) => record.meta.requiresAuth) &&
-    !store.state.isAuthenticated) {
-    console.log('router guard blocked. to: ', to);
-    next({path: '/login'}); // , query: {redirect: to.fullPath}
-  } else {
-    console.log('router guard PASSED. to: ', to);
-    const rootPath = to.path.substring(1, 5);
-    if (rootPath === 'edit') {
-      // turn edit mode on to display edit panel
-      // store.commit('updateIsEditing', true)
-      store.mutations.updateIsEditing(store.state, true);
-    }
-    next();
-  }
 });
 
 export default router;

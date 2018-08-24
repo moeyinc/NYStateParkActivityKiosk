@@ -191,18 +191,10 @@ export default {
       }
     },
     transitPage() {
-      // change the path based on whether you are editing
-      if (this.$store.state.isEditing) {
-        this.$router.push({
-          name: 'edit-detail',
-          params: {id: this.activity.activity_id},
-        });
-      } else {
-        this.$router.push({
-          name: 'detail',
-          params: {id: this.activity.activity_id},
-        });
-      }
+      this.$router.push({
+        name: 'detail',
+        params: {id: this.activity.activity_id},
+      });
     },
   },
 };
@@ -212,84 +204,63 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-li {
-  display: inline;
-}
+<style scoped lang='stylus'>
+li
+  display: inline
 
-div.activity-button {
-  /*width: 250px;
-  height: 55px;
-  border-radius: 27px 0 0 27px;
-  box-shadow: -10px 0px 10px 0 rgba(0, 0, 0, 0.2) inset;
-  padding: 0px 10px 0px 15px;*/
-}
+div.activity-button.selected
+  box-shadow: none
 
-div.activity-button.selected {
-  box-shadow: none;
-}
+div.activity-button.first-item
+  box-shadow: none
+  padding-right: 0px
 
-div.activity-button.first-item {
-  box-shadow: none;
-  padding-right: 0px;
-}
+div.spacer
+  width: 250px
+  height: 10px
 
-div.spacer {
-  width: 250px;
-  height: 10px;
-}
+div.spacer .inner-spacer
+  height: 100%
+  width: 100%
 
-div.spacer .inner-spacer {
-  height: 100%;
-  width: 100%;
-}
+div.icon-wrapper
+  float: left
+  width: 40px
+  height: 100%
+  margin-right: 5px
+  padding: 10px 0 10px 0
 
-div.icon-wrapper {
-  float: left;
-  width: 40px;
-  height: 100%;
-  margin-right: 5px;
-  padding: 10px 0 10px 0;
-}
+div.icon-wrapper svg
+  height: 100%
+  max-width: 36px
 
-div.icon-wrapper svg {
-  height: 100%;
-  max-width: 36px;
-}
+div.label-wrapper
+  float: left
+  height: 100%
+  width: 180px
 
-div.label-wrapper {
-  float: left;
-  height: 100%;
-  width: 180px;
-}
+div.label-wrapper p
+  color: white
+  font-size: 20px
+  padding-top: 19px
+  line-height: 20px
 
-div.label-wrapper p {
-  color: white;
-  font-size: 20px;
-  padding-top: 19px;
-  line-height: 20px;
-}
+div.label-wrapper p.two-lines
+  font-size: 20px
+  padding-top: 9px
 
-div.label-wrapper p.two-lines {
-  font-size: 20px;
-  padding-top: 9px;
-}
+div.first-item-shadow-box
+  position: absolute
+  left: 20px
+  height: 55px
+  width: 250px
 
-div.first-item-shadow-box {
-  position: absolute;
-  left: 20px;
-  height: 55px;
-  width: 250px;
-}
+div.first-item.selected .first-item-shadow-box
+  display: none
 
-div.first-item.selected .first-item-shadow-box {
-  display: none;
-}
-
-div.first-item-shadow-box .inner-box {
-  height: 35px;
-  width: 230px;
-  margin-top: 20px;
-  box-shadow: -10px 0 10px -6px rgba(0, 0, 0, 0.2) inset;
-}
+div.first-item-shadow-box .inner-box
+  height: 35px
+  width: 230px
+  margin-top: 20px
+  box-shadow: -10px 0 10px -6px rgba(0, 0, 0, 0.2) inset
 </style>

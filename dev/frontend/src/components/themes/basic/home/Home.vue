@@ -72,18 +72,9 @@ export default {
       const el = document.getElementById('home-wrapper');
       let zoom; let translate;
 
-      if (this.$store.state.isEditing) {
-        // if this is a component embedded into Edit
-        zoom = size.previewPanel.w / size.monitor.w;
-        el.style.left = size.editPanel.w + 'px';
-        el.style.top = '47%';
-
-        translate = ' translateY(-50%)';
-      } else {
-        // if this is a standalone component
-        zoom = size.zoom;
-        translate = '';
-      }
+      // if this is a standalone component
+      zoom = size.zoom;
+      translate = '';
 
       el.style.transformOrigin = '0 0';
       el.style.transform = 'scale(' + zoom + ')' + translate;
@@ -96,12 +87,11 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-#home-wrapper {
-  position: relative;
-  height: 100%;
-  letter-spacing: 1px;
-  width: 1920px;
-  height: 1080px;
-}
+<style scoped lang='stylus'>
+#home-wrapper
+  position: relative
+  height: 100%
+  letter-spacing: 1px
+  width: 1920px
+  height: 1080px
 </style>

@@ -38,25 +38,22 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-li.gallery-item {
-  height: 440px;
-  text-align: center;
-  margin-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 33.33333%;
-  float: left;
-  list-style: none;
-}
+<style scoped lang="stylus">
+li.gallery-item
+  height: 440px
+  text-align: center
+  margin-bottom: 20px
+  padding-left: 20px
+  padding-right: 20px
+  width: 33.33333%
+  float: left
+  list-style: none
 
-.gallery-item .image-wrapper {
-  height: 100%;
-}
+.gallery-item .image-wrapper
+  height: 100%
 
-.gallery-item .image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.gallery-item .image-wrapper img
+  width: 100%
+  height: 100%
+  object-fit: cover
 </style>

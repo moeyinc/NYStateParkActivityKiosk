@@ -113,28 +113,24 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-.content-foundation {
-  padding: 20px;
-  background-color: white;
-  position: relative;
-  z-index: 400;
-}
+<style scoped lang="stylus">
+.content-foundation
+  padding: 20px
+  background-color: white
+  position: relative
+  z-index: 400
 
-.content-wrapper {
-  margin-right: 20px;
-  width: 100%;
-}
+.content-wrapper
+  margin-right: 20px
+  width: 100%
 
-main {
-  padding-right: 30px;
-}
+main
+  padding-right: 30px
 
-div.topleft-edge-curve {
-  position: absolute;
-  top: 268px;
-  width: 20px;
-  height: 20px;
-  z-index: 300;
-}
+div.topleft-edge-curve
+  position: absolute
+  top: 268px
+  width: 20px
+  height: 20px
+  z-index: 300
 </style>

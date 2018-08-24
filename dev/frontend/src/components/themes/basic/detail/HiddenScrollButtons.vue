@@ -22,10 +22,9 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-span.hidden-scroll-button {
-  position: absolute;
-  opacity: 1;
-  z-index: 3000;
-}
+<style scoped lang='stylus'>
+span.hidden-scroll-button
+  position: absolute
+  opacity: 1
+  z-index: 3000
 </style>
