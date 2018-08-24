@@ -7,12 +7,10 @@
       class="right-wrapper"
       :style="[getBGColor, getSize]">
       <detail-header></detail-header>
-      <detail-sub-nav-menu
-        v-if="$store.state.generalSettings.design_theme === 'basic'" />
+      <detail-sub-nav-menu/>
       <detail-main />
     </div>
     <div
-      v-if="$store.state.generalSettings.design_theme === 'basic'"
       class="topleft-edge-curve"
       :style="$store.state.isFirstActivityClicked ?
         {'background-color': 'white'} :
@@ -40,31 +38,16 @@ export default {
   },
   computed: {
     getSize() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          left: '270px',
-          width: '1630px',
-        };
-      } else if (theme === 'image') {
-        return {
-          left: '290px',
-          width: '1610px',
-        };
-      }
+      return {
+        left: '270px',
+        width: '1630px',
+      };
     },
     getBGColor() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          'background-color': this.getColorInString(
-            this.$store.getters.getSelectedActivity.main_color),
-        };
-      } else if (theme === 'image') {
-        return {
-          'background-color': '',
-        };
-      }
+      return {
+        'background-color': this.getColorInString(
+          this.$store.getters.getSelectedActivity.main_color),
+      };
     },
   },
 };

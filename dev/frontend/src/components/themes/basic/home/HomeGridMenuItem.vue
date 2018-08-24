@@ -73,105 +73,71 @@ export default {
         'white';
     },
     getShadow() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        if (this.clicked) {
-          return {
-            'top': '5px',
-            'left': '5px',
-            'box-shadow': '0px 0px 5px 0px rgba(0, 0, 0, 0.2)',
-          };
-        } else {
-          return {
-            'box-shadow': '5px 5px 5px 0px rgba(0, 0, 0, 0.2)',
-          };
-        }
-      } else if (theme === 'image') {
+      if (this.clicked) {
         return {
-          'box-shadow': 'none',
+          'top': '5px',
+          'left': '5px',
+          'box-shadow': '0px 0px 5px 0px rgba(0, 0, 0, 0.2)',
+        };
+      } else {
+        return {
+          'box-shadow': '5px 5px 5px 0px rgba(0, 0, 0, 0.2)',
         };
       }
     },
     getSize() {
       let total = this.$store.state.activities.length;
-      let theme = this.$store.state.generalSettings.design_theme;
       let width; let height; let margin; let padding;
 
-      if (theme === 'basic') {
-        switch (total) {
-          case 3:
-            width = '460px';
-            height = '460px';
-            margin = '15px 20px';
-            padding = '80px 10px 20px 10px';
-            break;
-          case 4:
-            width = '560px';
-            height = '330px';
-            margin = '15px 20px';
-            padding = '40px 10px';
-            break;
-          case 5:
-          case 6:
-            width = '460px';
-            height = '330px';
-            margin = '15px 20px';
-            padding = '40px 10px';
-            break;
-          case 7:
-          case 8:
-            width = '405px';
-            height = '330px';
-            margin = '15px 20px';
-            padding = '40px 10px';
-            break;
-          case 9:
-            width = '460px';
-            height = '234px';
-            margin = '15px 20px';
-            padding = '20px 10px';
-            break;
-          case 10:
-          case 11:
-          case 12:
-            width = '405px';
-            height = '234px';
-            margin = '15px 20px';
-            padding = '20px 10px';
-            break;
-          case 13:
-          case 14:
-          case 15:
-            width = '342px';
-            height = '234px';
-            margin = '15px 14px';
-            padding = '20px 10px';
-            break;
-        }
-      } else if (theme === 'image') {
-        switch (total) {
-          case 3:
-          case 4: //
-            width = '405px';
-            height = '330px';
-            margin = '15px 20px';
-            padding = '50px 20px 30px 20px';
-            break;
-          case 5:
-          case 6: //
-            width = '405px';
-            height = '260px';
-            margin = '15px 20px';
-            padding = '30px 20px';
-            break;
-          case 7:
-          case 8: //
-            width = '405px';
-            height = '260px';
-            margin = '15px 20px';
-            padding = '30px 20px';
-            break;
-        }
+      switch (total) {
+        case 3:
+          width = '460px';
+          height = '460px';
+          margin = '15px 20px';
+          padding = '80px 10px 20px 10px';
+          break;
+        case 4:
+          width = '560px';
+          height = '330px';
+          margin = '15px 20px';
+          padding = '40px 10px';
+          break;
+        case 5:
+        case 6:
+          width = '460px';
+          height = '330px';
+          margin = '15px 20px';
+          padding = '40px 10px';
+          break;
+        case 7:
+        case 8:
+          width = '405px';
+          height = '330px';
+          margin = '15px 20px';
+          padding = '40px 10px';
+          break;
+        case 9:
+          width = '460px';
+          height = '234px';
+          margin = '15px 20px';
+          padding = '20px 10px';
+          break;
+        case 10:
+        case 11:
+        case 12:
+          width = '405px';
+          height = '234px';
+          margin = '15px 20px';
+          padding = '20px 10px';
+          break;
+        case 13:
+        case 14:
+        case 15:
+          width = '342px';
+          height = '234px';
+          margin = '15px 14px';
+          padding = '20px 10px';
+          break;
       }
 
       return {
@@ -183,43 +149,28 @@ export default {
     },
     getTextSize() {
       let total = this.$store.state.activities.length;
-      let theme = this.$store.state.generalSettings.design_theme;
       let fontSize; let lineHeight;
 
-      if (theme === 'basic') {
-        switch (total) {
-          case 3:
-            fontSize = '48px';
-            break;
-          case 4:
-          case 5:
-          case 6:
-          case 7:
-          case 8:
-          case 9:
-            fontSize = '32px';
-            break;
-          case 10:
-          case 11:
-          case 12:
-          case 13:
-          case 14:
-          case 15:
-            fontSize = '28px';
-            break;
-        }
-      } else if (theme === 'image') {
-        switch (total) {
-          case 3:
-          case 4:
-          case 5:
-          case 6:
-          case 7:
-          case 8: //
-            fontSize = '30px';
-            lineHeight = '33px';
-            break;
-        }
+      switch (total) {
+        case 3:
+          fontSize = '48px';
+          break;
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+          fontSize = '32px';
+          break;
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+          fontSize = '28px';
+          break;
       }
 
       return {
@@ -228,100 +179,62 @@ export default {
       };
     },
     getFont() {
-      if (this.$store.state.generalSettings.design_theme === 'basic') {
-        return {
-          'font-family': 'Avenir-Medium',
-        };
-      } else if (this.$store.state.generalSettings.design_theme === 'image') {
-        return {
-          'font-family': 'Futura-Bold',
-        };
-      }
+      return {
+        'font-family': 'Avenir-Medium',
+      };
     },
     getSVGImgSize() {
       let total = this.$store.state.activities.length;
-      let theme = this.$store.state.generalSettings.design_theme;
       let height;
 
-      if (theme === 'basic') {
-        switch (total) {
-          case 3:
-            height = '240px';
-            break;
-          case 4:
-          case 5:
-          case 6:
-          case 7:
-          case 8:
-            height = '200px';
-            break;
-          case 9:
-          case 10:
-          case 11:
-          case 12:
-          case 13:
-          case 14:
-          case 15:
-            height = '150px';
-            break;
-        }
-      } else if (theme === 'image') {
-        switch (total) {
-          case 3:
-          case 4:
-            height = '160px';
-            break;
-          case 5:
-          case 6:
-          case 7:
-          case 8:
-            height = '130px';
-            break;
-        }
+      switch (total) {
+        case 3:
+          height = '240px';
+          break;
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+          height = '200px';
+          break;
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+          height = '150px';
+          break;
       }
 
       return height;
     },
     getLabelHeight() {
       let total = this.$store.state.activities.length;
-      let theme = this.$store.state.generalSettings.design_theme;
       let height;
 
-      if (theme === 'basic') {
-        switch (total) {
-          case 3:
-            height = '136px';
-            break;
-          case 4:
-          case 5:
-          case 6:
-          case 7:
-          case 8:
-            height = '84px';
-            break;
-          case 9:
-          case 10:
-          case 11:
-          case 12:
-          case 13:
-          case 14:
-          case 15:
-            height = '60px';
-            break;
-        }
-      } else if (theme === 'image') {
-        switch (total) {
-          case 3:
-          case 4:
-            height = '110px';
-            break;
-          case 5:
-          case 6:
-          case 7:
-          case 8:
-            height = '90px';
-            break;
-        }
+      switch (total) {
+        case 3:
+          height = '136px';
+          break;
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+          height = '84px';
+          break;
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+          height = '60px';
+          break;
       }
 
       return {

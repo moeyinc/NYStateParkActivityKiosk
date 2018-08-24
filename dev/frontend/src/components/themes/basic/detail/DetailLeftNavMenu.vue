@@ -37,62 +37,30 @@ export default {
   },
   computed: {
     getNavStyle() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          'width': '250px',
-          'height': '1040px',
-          'left': '20px',
-          'top': '20px',
-          'font-family': 'Avenir-Heavy',
-        };
-      } else if (theme === 'image') {
-        return {
-          'width': '270px',
-          'height': '838px',
-          'left': '0px',
-          'top': '218px',
-          'font-family': 'Avenir-Medium',
-        };
-      }
+      return {
+        'width': '250px',
+        'height': '1040px',
+        'left': '20px',
+        'top': '20px',
+        'font-family': 'Avenir-Heavy',
+      };
     },
     getTriangleBGColor() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          'background-color': this.getColorInString(
-            this.$store.state.generalSettings.text_color, false),
-        };
-      } else if (theme === 'image') {
-        return {
-          'background-color': 'white',
-        };
-      }
+      return {
+        'background-color': this.getColorInString(
+          this.$store.state.generalSettings.text_color, false),
+      };
     },
     getMainMenuColor() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          'color': this.getColorInString(
-            this.$store.state.generalSettings.text_color),
-        };
-      } else if (theme === 'image') {
-        return {
-          'color': 'white',
-        };
-      }
+      return {
+        'color': this.getColorInString(
+          this.$store.state.generalSettings.text_color),
+      };
     },
     getMainMenuPos() {
-      let theme = this.$store.state.generalSettings.design_theme;
-      if (theme === 'basic') {
-        return {
-          'margin-left': '22px',
-        };
-      } else if (theme === 'image') {
-        return {
-          'margin-left': '62px',
-        };
-      }
+      return {
+        'margin-left': '22px',
+      };
     },
   },
   methods: {
