@@ -2,7 +2,7 @@
  Vue Template
 ================================================== -->
 <template>
-  <div class="gallery-editor-wrapper">
+  <div class="locations-editor-wrapper">
     <div class="show-icon" v-show="!showThis">
       <div class="show-icon-label">Show more</div>
       <div class="show-icon-wrapper" @click="showMore">
@@ -17,23 +17,36 @@
     </div>
     <transition name="fade">
       <div v-show="showThis">
-        <ul>
-          <gallery-editor-item
-            v-for="item in content.items"
-            :key="item.item_id"
-            :item="item"
+        <transition-group name="change-order" tag="ul">
+          <location-editor-item
+            v-for="section in sortSections(content.sections)"
+            :section="section"
             :content="content"
             :activity="activity"
-            >
-          </gallery-editor-item>
-        </ul>
-        <div class="add-item" @click="addItem">
+            :key="section.section_id">
+          </location-editor-item>
+        </transition-group>
+        <div class="add-section" @click="addSection">
           <p>
-            ADD A NEW ITEM
+            ADD A NEW SECTION
           </p>
         </div>
       </div>
     </transition>
+    <confirm-modal
+      v-if="$store.state.modals.removeSection"
+      @close-modal="closeRemoveSectionModal"
+      @execute-command="removeSection"
+      id="remove-section-modal"
+      >
+      <h3 slot="header">Removing A Section</h3>
+      <p slot="body">
+        The section will be removed from the list with its content.
+        To undo it, reload the page before submitting changes.
+      </p>
+      <p slot="cancel-button">CANCEL</p>
+      <p slot="execute-button">REMOVE</p>
+    </confirm-modal>
   </div>
 </template>
 
@@ -42,13 +55,13 @@
  Vue Script
 ================================================== -->
 <script>
-import GalleryEditorItem from './GalleryEditorItem';
-import ConfirmModal from '@/components/ConfirmModal.vue';
+import LocationEditorItem from './LocationEditorItem.vue';
+import ConfirmModal from '../ConfirmModal.vue';
 
 export default {
-  name: 'gallery-editor',
+  name: 'locations-editor',
   components: {
-    'gallery-editor-item': GalleryEditorItem,
+    'location-editor-item': LocationEditorItem,
     'confirm-modal': ConfirmModal,
   },
   data() {
@@ -64,28 +77,45 @@ export default {
       type: Object,
     },
   },
+  computed: {
+    contentText: {
+      get() {
+        return this.content.raw_html_text;
+      },
+      set(value) {
+        let data = {
+          target: 'content',
+          act_id: this.activity.activity_id,
+          tab_id: this.content.subnav_id,
+          param: 'raw_html_text',
+          newVal: value,
+        };
+        this.$store.commit('updateActivityParam', data);
+      },
+    },
+  },
   methods: {
     showMore() {
       this.showThis = !this.showThis;
     },
-    addItem() {
+    addSection() {
       let data = {};
       data.act_id = this.activity.activity_id;
       data.tab_id = this.content.subnav_id;
-      data.itm_id = this.content.items.length + 1;
+      data.sec_id = this.content.sections.length + 1;
       data.templateType = this.content.template_type;
 
-      this.$store.commit('addItem', data);
+      this.$store.commit('addSection', data);
     },
-    closeRemoveItemModal() {
-      // close the remove item modal window
-      this.$store.commit('updateModals', {key: 'removeItem', value: false});
+    closeRemoveSectionModal() {
+      // close the remove section modal window
+      this.$store.commit('updateModals', {key: 'removeSection', value: false});
     },
-    removeItem() {
-      this.$store.commit('removeItem');
+    removeSection() {
+      this.$store.commit('removeSection');
 
-      // close the remove item modal window
-      this.$store.commit('updateModals', {key: 'removeItem', value: false});
+      // close the remove section modal window
+      this.$store.commit('updateModals', {key: 'removeSection', value: false});
     },
   },
 };
@@ -101,7 +131,7 @@ table {
 }
 
 table td:first-child {
-  width: 30%;
+  width: 35%;
 }
 
 table td {
@@ -157,13 +187,10 @@ input[type=file] {
   opacity: 0
 }
 
-.choose-file {
-  font-size: 10px;
-}
-
-#remove-item-modal {
+#remove-section-modal {
   color: black;
 }
+
 
 .change-order-enter-active, .change-order-leave-active {
   transition: all 1s;
@@ -173,7 +200,7 @@ input[type=file] {
   /*transform: translateY(30px);*/
 }
 
-.add-item {
+.add-section {
   background-color: black;
   color: white;
   text-align: center;
@@ -184,7 +211,7 @@ input[type=file] {
   border-radius: 3px;
 }
 
-.add-item:hover {
+.add-section:hover {
   background-color: #FFD12A;
 }
 </style>

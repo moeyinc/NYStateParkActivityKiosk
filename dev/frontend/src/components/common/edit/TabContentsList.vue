@@ -47,7 +47,7 @@
 ================================================== -->
 <script>
 import TabContentsListItem from './TabContentsListItem.vue';
-import ConfirmModal from '@/components/ConfirmModal.vue';
+import ConfirmModal from '../ConfirmModal.vue';
 
 export default {
   name: 'tab-contents-list',

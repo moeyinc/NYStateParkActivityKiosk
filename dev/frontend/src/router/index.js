@@ -2,26 +2,16 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import APP_CONFIG from '../app-config';
 
-const prefix = `@/components/designThemeSpecific/${APP_CONFIG.DESIGN_THEME}`;
-const Home = require(`${prefix}/home/Home`);
-const Detail = require(`${prefix}/detail/Detail`);
-const GeneralSettings = require(`${prefix}/edit/GeneralSettings`);
-const ActivityList = require(`${prefix}/edit/ActivityList`);
-const ActivitySettings = require(`${prefix}/edit/ActivitySettings`);
-const TabContentsList = require(`${prefix}/edit/TabContentsList`);
-const Media = require(`${prefix}/media/Media`);
-const Login = require(`${prefix}/Login`);
-const NotFound = require(`${prefix}/NotFound`);
-
-// import Home from '@/components/home/Home.vue';
-// import Detail from '@/components/detail/Detail.vue';
-// import GeneralSettings from '@/components/edit/GeneralSettings.vue';
-// import ActivityList from '@/components/edit/ActivityList.vue';
-// import ActivitySettings from '@/components/edit/ActivitySettings.vue';
-// import TabContentsList from '@/components/edit/TabContentsList.vue';
-// import Media from '@/components/media/Media.vue';
-// import Login from '@/components/Login.vue';
-// import NotFound from '@/components/NotFound.vue';
+const dt = APP_CONFIG.DESIGN_THEME;
+const Home = require(`@/components/themes/${dt}/home/Home`);
+const Detail = require(`@/components/themes/${dt}/detail/Detail`);
+const GeneralSettings = require(`@/components/common/edit/GeneralSettings`);
+const ActivityList = require(`@/components/common/edit/ActivityList`);
+const ActivitySettings = require(`@/components/common/edit/ActivitySettings`);
+const TabContentsList = require(`@/components/common/edit/TabContentsList`);
+const Media = require(`@/components/common/media/Media`);
+const Login = require(`@/components/common/Login`);
+const NotFound = require(`@/components/common/NotFound`);
 
 import store from '../store/store.js';
 

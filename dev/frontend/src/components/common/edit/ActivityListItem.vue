@@ -149,7 +149,7 @@
  Vue Script
 ================================================== -->
 <script>
-import ColorPicker from '@/components/ColorPicker.vue';
+import ColorPicker from '../ColorPicker.vue';
 
 export default {
   name: 'activity-list-item',

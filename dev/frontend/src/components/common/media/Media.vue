@@ -33,7 +33,7 @@
 import MediaList from './MediaList.vue';
 import ImageProperty from './ImageProperty.vue';
 // import DeleteMediaItemModal from './DeleteMediaItemModal.vue'
-import ConfirmModal from '@/components/ConfirmModal.vue';
+import ConfirmModal from '../ConfirmModal.vue';
 
 export default {
   name: 'media',

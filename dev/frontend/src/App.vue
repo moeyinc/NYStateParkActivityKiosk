@@ -17,8 +17,8 @@
  Vue Script
 ================================================== -->
 <script>
-import EditHeader from '@/components/edit/EditHeader.vue';
-import EditPanel from '@/components/edit/EditPanel.vue';
+import EditHeader from './components/common/edit/EditHeader.vue';
+import EditPanel from './components/common/edit/EditPanel.vue';
 require('@/assets/css/ripple.css');
 const manualUrl = 'https://docs.google.com/a/moeyinc.com/document' +
   '/d/15YidcvydYmLoCWhYqRWuTWUrMpHObR6wN4tfghMu57w/edit?usp=sharing';

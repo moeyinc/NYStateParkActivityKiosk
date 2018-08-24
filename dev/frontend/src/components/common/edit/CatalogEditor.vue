@@ -91,7 +91,7 @@
 ================================================== -->
 <script>
 import CatalogEditorItem from './CatalogEditorItem';
-import ConfirmModal from '@/components/ConfirmModal.vue';
+import ConfirmModal from '../ConfirmModal.vue';
 
 export default {
   name: 'catalog-editor',

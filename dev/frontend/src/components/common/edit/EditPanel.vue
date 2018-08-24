@@ -37,8 +37,8 @@
  Vue Script
 ================================================== -->
 <script>
-import ConfirmModal from '@/components/ConfirmModal.vue';
-import MediaGalleryWindow from '@/components/media/MediaGalleryWindow.vue';
+import ConfirmModal from '../ConfirmModal.vue';
+import MediaGalleryWindow from '../media/MediaGalleryWindow.vue';
 
 export default {
   name: 'editor-panel',
