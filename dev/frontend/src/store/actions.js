@@ -1,5 +1,4 @@
 import axios from 'axios';
-import FormData from 'form-data';
 import APP_CONFIG from '../app-config';
 
 const actions = {
@@ -15,27 +14,6 @@ const actions = {
         context.commit('updateGeneralSettings', res.data);
 
         resolve(); // resolve a promise
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    });
-  },
-  // ===============================================
-  submitGeneralSettings(context) {
-    return new Promise((resolve, reject) => {
-      // ajax request using axios
-      axios.post(APP_CONFIG.API_SERVER_URL + 'general-settings', {
-        generalSettings: context.state.generalSettings,
-      })
-      .then((res) => {
-        console.log('new general settings fetched: ', res.data);
-
-        // commit the new values to state
-        context.commit('updateGeneralSettings', res.data);
-
-        // resolve a promise
-        resolve();
       })
       .catch((error) => {
         console.log(error);
@@ -60,127 +38,6 @@ const actions = {
       });
     });
   },
-  // ===============================================
-  submitActivities(context) {
-    return new Promise((resolve, reject) => {
-      console.log('submitting activities', context.state.activities);
-      console.log('and removing activities', context.state.activitiesToRemove);
-      // ajax request using axios
-      axios.post(APP_CONFIG.API_SERVER_URL + 'activities', {
-        activities: context.state.activities,
-        activitiesToRemove: context.state.activitiesToRemove,
-      })
-      .then((res) => {
-        console.log('new activities fetched: ', res.data);
-
-        context.commit('resetState'); // reset activities to remove
-
-        // commit the new values to state
-        // context.commit('updateActivities', res.data)
-
-        // resolve a promise
-        resolve();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    });
-  },
-  // ===============================================
-  uploadImage(context, data) {
-    let formdata = new FormData();
-    formdata.append('image', data);
-
-    console.log('sending: ', formdata.get('image'));
-
-    return new Promise((resolve, reject) => {
-      // ajax request using axios
-      axios.post(APP_CONFIG.API_SERVER_URL + 'images', formdata)
-      .then((res) => {
-        console.log('new images fetched: ', res.data);
-
-        // commit the new values to state
-        context.commit('updateMediaItems', res.data);
-
-        resolve(); // resolve a promise
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    });
-  },
-  // ===============================================
-  deleteImage(context, data) {
-    console.log('deleting: ', data);
-
-    return new Promise((resolve, reject) => {
-      // ajax request using axios
-      axios.post(APP_CONFIG.API_SERVER_URL + 'images/delete', data)
-      .then((res) => {
-        console.log('new images fetched: ', res.data);
-
-        // commit the new values to state
-        context.commit('updateMediaItems', res.data);
-
-        resolve(); // resolve a promise
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    });
-  },
-  // ===============================================
-  updateMediaItems(context) {
-    return new Promise((resolve, reject) => {
-      // ajax request using axios
-      axios.get(APP_CONFIG.API_SERVER_URL + 'images')
-      .then((res) => {
-        console.log('new images fetched: ', res.data);
-
-        // commit the new values to state
-        context.commit('updateMediaItems', res.data);
-
-        resolve(); // resolve a promise
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    });
-  },
-  // ===============================================
-  login(context, {password, moey}) {
-    console.log('logging in...', password);
-    if (moey) {
-      context.commit('moey');
-    }
-
-    return new Promise((resolve, reject) => {
-      axios.post(APP_CONFIG.API_SERVER_URL + 'login', {password: password})
-      .then((res) => {
-        console.log('login result:', res.data.auth);
-        if (res.data.auth) {
-          context.commit('updateAuthentication', true);
-          resolve(); // resolve a promise
-        } else {
-          reject({error: null});
-        }
-      })
-      .catch((error) => {
-        console.log('login failed:', error);
-        reject({error: error});
-      });
-    });
-  },
-  // generateSessionid(context) {
-  //   console.log('generating session id...');
-  //
-  //   axios.post(APP_CONFIG.API_SERVER_URL + '/login/generate-sessionid')
-  //   .then((res) => {
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-  // },
 };
 
 export default actions;

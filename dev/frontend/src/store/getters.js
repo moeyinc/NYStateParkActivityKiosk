@@ -1,6 +1,5 @@
 const getters = {
   getSize: (state) => () => state.size,
-  getIsEditing: (state) => () => state.isEditing,
   getActivities: (state) => () => state.activities,
   getSelectedActivityId: (state) => () => state.selectedActivityId,
   getActiveTabId: (state) => () => state.activeTabId,

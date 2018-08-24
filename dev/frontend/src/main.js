@@ -5,21 +5,15 @@ import App from './App';
 import router from './router';
 import Vuex from 'vuex';
 import _store from './store/store';
-import VeeValidate from 'vee-validate';
 import Icon from 'vue-awesome/components/Icon';
 import 'vue-awesome/icons';
-import VueQuillEditor from 'vue-quill-editor';
 import mixin from '@/mixin';
-import VueSession from 'vue-session';
 import VueSimpleSVG from 'vue-simple-svg';
 
 Vue.config.productionTip = false;
 Vue.use(Vuex);
-Vue.use(VeeValidate);
 Vue.component('icon', Icon);
-Vue.use(VueQuillEditor);
 Vue.mixin(mixin);
-Vue.use(VueSession);
 Vue.use(VueSimpleSVG);
 
 const store = new Vuex.Store(_store);
