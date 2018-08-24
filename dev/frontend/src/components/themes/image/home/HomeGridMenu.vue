@@ -75,11 +75,7 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-main {
-  position: absolute;
-  /*top: 226px;*/
-  /*padding: 25px 70px 37px 70px;*/
-  /*height: 854px;*/
-}
+<style scoped lang='stylus'>
+main
+  position: absolute
 </style>

@@ -57,35 +57,26 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-header {
-  border: 0;
-  /*height: 226px;*/
-  width: 1920px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px 20px 0 55px;
-}
+<style scoped lang='stylus'>
+header
+  border: 0
+  width: 1920px
+  position: absolute
+  top: 0
+  left: 0
+  padding: 20px 20px 0 55px
 
-div.title {
-  height: 100%;
-  /*width: 1345px;*/
-  width: 1800px;
-  float: left;
-}
+div.title
+  height: 100%
+  width: 1800px
+  float: left
 
-div.title h1 {
-}
+div.statepark-logo
+  height: 100%
+  margin: 0px
+  position: absolute
+  right: 20px
 
-div.statepark-logo {
-  height: 100%;
-  margin: 0px;
-  position: absolute;
-  right: 20px;
-}
-
-div.statepark-logo img {
-  width: 500px;
-}
+div.statepark-logo img
+  width: 500px
 </style>

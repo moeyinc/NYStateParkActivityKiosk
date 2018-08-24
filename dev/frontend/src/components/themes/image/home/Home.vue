@@ -98,12 +98,11 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-#home-wrapper {
-  position: relative;
-  height: 100%;
-  letter-spacing: 1px;
-  width: 1920px;
-  height: 1080px;
-}
+<style scoped lang='stylus'>
+#home-wrapper
+  position: relative
+  height: 100%
+  letter-spacing: 1px
+  width: 1920px
+  height: 1080px
 </style>

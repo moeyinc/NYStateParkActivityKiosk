@@ -161,12 +161,11 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-#detail-wrapper {
-  position: relative;
-  height: 100%;
-  padding: 20px;
-  width: 1920px;
-  height: 1080px;
-}
+<style scoped lang='stylus'>
+#detail-wrapper
+  position: relative
+  height: 100%
+  padding: 20px
+  width: 1920px
+  height: 1080px
 </style>

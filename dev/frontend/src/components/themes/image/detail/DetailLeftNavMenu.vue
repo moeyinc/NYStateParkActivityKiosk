@@ -93,26 +93,22 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-nav {
-  position: fixed;
-  z-index: 100;
-}
+<style scoped lang='stylus'>
+nav
+  position: fixed
+  z-index: 100
 
-div.back-to-home-wrapper {
-  width: 100%;
-  position: absolute;
-  bottom: 20px;
-}
+div.back-to-home-wrapper
+  width: 100%
+  position: absolute
+  bottom: 20px
 
-div.back-to-home-wrapper p {
-  font-size: 20px;
-  line-height: 24px;
-  margin-left: 30px;
-}
+div.back-to-home-wrapper p
+  font-size: 20px
+  line-height: 24px
+  margin-left: 30px
 
-.triangle-left {
-  float: left;
-  margin-top: 5px;
-}
+.triangle-left
+  float: left
+  margin-top: 5px
 </style>

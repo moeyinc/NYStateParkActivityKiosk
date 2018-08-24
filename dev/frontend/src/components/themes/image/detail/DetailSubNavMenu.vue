@@ -65,16 +65,14 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-nav {
-  position: relative;
-  height: 72px;
-  width: 1590px;
-  z-index: 300;
-  font-family: "Avenir-Heavy";
-}
+<style scoped lang='stylus'>
+nav
+  position: relative
+  height: 72px
+  width: 1590px
+  z-index: 300
+  font-family: "Avenir-Heavy"
 
-ul {
-  list-style: none;
-}
+ul
+  list-style: none
 </style>

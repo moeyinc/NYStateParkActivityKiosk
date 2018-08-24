@@ -99,69 +99,58 @@ export default {
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style scoped>
-div.tab-item, div.right-spacer {
-  float: left;
-  position: relative;
-  display: block;
-  color: white;
-}
+<style scoped lang='stylus'>
+div.tab-item, div.right-spacer
+  float: left
+  position: relative
+  display: block
+  color: white
 
-div.tab-item {
-  height: 72px;
-  width: 370px;
-  text-align: center;
-  padding-top: 18px;
-  line-height: 40px;
-  font-size: 40px;
-  margin-bottom: -1px;
-  border-radius: 20px 20px 0 0;
-  box-shadow: 0 -5px 5px -2px rgba(0, 0, 0, 0.2) inset;
-}
+div.tab-item
+  height: 72px
+  width: 370px
+  text-align: center
+  padding-top: 18px
+  line-height: 40px
+  font-size: 40px
+  margin-bottom: -1px
+  border-radius: 20px 20px 0 0
+  box-shadow: 0 -5px 5px -2px rgba(0, 0, 0, 0.2) inset
 
-div.tab-item#submenu-item-1 {
-  box-shadow: none;
-}
+div.tab-item#submenu-item-1
+  box-shadow: none
 
-div.tab-item#submenu-item-1 .label-wrapper {
-  height: 54px;
-}
+div.tab-item#submenu-item-1 .label-wrapper
+  height: 54px
 
-div.tab-item#submenu-item-1 .first-tab-shadow-box {
-  display: block;
-  height: 20px;
-  width: 370px;
-  margin-left: 20px;
-  box-shadow: 0 -5px 5px -2px rgba(0, 0, 0, 0.2);
-}
+div.tab-item#submenu-item-1 .first-tab-shadow-box
+  display: block
+  height: 20px
+  width: 370px
+  margin-left: 20px
+  box-shadow: 0 -5px 5px -2px rgba(0, 0, 0, 0.2)
 
-div.right-spacer {
-  height: 72px;
-  width: 20px;
-  margin-bottom: 0px;
-}
+div.right-spacer
+  height: 72px
+  width: 20px
+  margin-bottom: 0px
 
-div.right-spacer>div {
-  height: 100%;
-  width: 100%;
-}
+div.right-spacer>div
+  height: 100%
+  width: 100%
 
-div.active {
-  background-color: white;
-  opacity: 1.0;
-  box-shadow: none;
-}
+div.active
+  background-color: white
+  opacity: 1.0
+  box-shadow: none
 
-div.right-spacer.edge-needed {
-  background-color: white;
-  opacity: 1.0;
-}
+div.right-spacer.edge-needed
+  background-color: white
+  opacity: 1.0
 
-div.right-spacer.edge-needed div.right-edge {
-  border-radius: 0 0 0 20px;
-}
+div.right-spacer.edge-needed div.right-edge
+  border-radius: 0 0 0 20px
 
-div.right-spacer.edge-needed div.left-edge {
-  border-radius: 0 0 20px 0;
-}
+div.right-spacer.edge-needed div.left-edge
+  border-radius: 0 0 20px 0
 </style>
